@@ -11,6 +11,7 @@ import p2 from "@/assets/p2.jpg";
 import p3 from "@/assets/p3.jpg";
 import p4 from "@/assets/p4.jpg";
 import p5 from "@/assets/p5.jpg";
+import p4m from "@/assets/p4-mobile.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -126,7 +127,7 @@ function Hero() {
         <div className="relative mx-auto aspect-[7/5] w-full max-w-[560px]">
           <Laptop src={p1} className="float absolute left-0 top-[8%] w-[78%] [--rot:-3deg]" />
           <Laptop src={p2} className="float float-delay absolute right-[2%] bottom-[2%] w-[58%] [--rot:2deg] opacity-95" />
-          <PhoneMock src={p4} className="float absolute right-[6%] top-0 w-[20%] [--rot:5deg]" />
+          <PhoneMock src={p4m} className="float absolute right-[6%] top-0 w-[20%] [--rot:5deg]" />
         </div>
       </div>
     </section>
@@ -147,7 +148,7 @@ function Laptop({ src, className }: { src: string; className?: string }) {
 function PhoneMock({ src, className }: { src: string; className?: string }) {
   return (
     <div className={cn("rounded-[1.4rem] border border-ink-border bg-ink-deep p-1.5 shadow-2xl", className)}>
-      <img src={src} alt="Web vista en móvil" className="aspect-[9/19] w-full rounded-[1.1rem] object-cover object-[10%_0]" />
+      <img src={src} alt="Web vista en móvil" className="aspect-[9/19] w-full rounded-[1.1rem] object-cover object-top" />
     </div>
   );
 }
