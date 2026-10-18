@@ -126,7 +126,7 @@ function Hero() {
         <div className="relative mx-auto h-[320px] w-full max-w-[560px] sm:h-[400px]">
           <Laptop src={p1} className="float absolute left-0 top-4 w-[82%] [--rot:-3deg]" />
           <Laptop src={p2} className="float float-delay absolute right-0 bottom-0 w-[62%] [--rot:2deg] opacity-95" />
-          <Phone src={p4} className="float absolute right-[8%] top-0 w-[22%] [--rot:5deg]" />
+          <PhoneMock src={p4} className="float absolute right-[8%] top-0 w-[22%] [--rot:5deg]" />
         </div>
       </div>
     </section>
@@ -144,7 +144,7 @@ function Laptop({ src, className }: { src: string; className?: string }) {
   );
 }
 
-function Phone({ src, className }: { src: string; className?: string }) {
+function PhoneMock({ src, className }: { src: string; className?: string }) {
   return (
     <div className={cn("rounded-[1.4rem] border border-ink-border bg-ink-deep p-1.5 shadow-2xl", className)}>
       <img src={src} alt="Web vista en móvil" className="aspect-[9/19] w-full rounded-[1.1rem] object-cover object-left-top" />
