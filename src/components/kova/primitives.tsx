@@ -1,14 +1,12 @@
 import { useEffect, useRef, type ReactNode, type ElementType } from "react";
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import logoMark from "@/assets/kova-logo.png";
 
 export function Logo({ className }: { className?: string }) {
   return (
     <a href="#inicio" className={cn("inline-flex items-center gap-2 font-extrabold text-xl tracking-tight", className)} aria-label="Kova, inicio">
-      <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden className="text-primary">
-        <rect width="28" height="28" rx="7" fill="currentColor" />
-        <path d="M9 7v14M9 15l8-8M12 12l6 9" stroke="var(--primary-foreground)" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-      </svg>
+      <img src={logoMark} alt="" width={305} height={385} className="h-8 w-auto" />
       kova
     </a>
   );
