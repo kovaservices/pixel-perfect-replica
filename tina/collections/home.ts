@@ -47,8 +47,9 @@ export const HomeCollection: Collection = {
 			name: 'hero',
 			label: '1 · Portada',
 			fields: [
-				text('titleStart', 'Titular (parte normal)'),
+				text('titleStart', 'Titular (principio)'),
 				text('titleHighlight', 'Titular (parte destacada en color)'),
+				text('titleEnd', 'Titular (final)', 'Opcional: lo que va después de la parte destacada.'),
 				longText('subtitle', 'Subtítulo'),
 				text('priceLabel', 'Texto antes del precio', 'Por ejemplo: «desde».'),
 				text('price', 'Precio', 'Solo el número, sin el símbolo €.'),
@@ -69,8 +70,47 @@ export const HomeCollection: Collection = {
 		},
 		{
 			type: 'object',
+			name: 'services',
+			label: '2 · Servicios',
+			fields: [
+				text('eyebrow', 'Etiqueta pequeña'),
+				text('title', 'Título'),
+				longText('text', 'Texto'),
+				{
+					type: 'object',
+					name: 'items',
+					label: 'Servicios',
+					list: true,
+					ui: { itemProps: (item: { title?: string }) => ({ label: item?.title }) },
+					fields: [
+						{
+							type: 'string',
+							name: 'icon',
+							label: 'Icono',
+							options: [
+								{ value: 'layout-template', label: 'Página web' },
+								{ value: 'shopping-bag', label: 'Bolsa de la compra' },
+								{ value: 'store', label: 'Tienda' },
+								{ value: 'app-window', label: 'Aplicación' },
+								{ value: 'code-xml', label: 'Código' },
+								{ value: 'layout-dashboard', label: 'Panel de gestión' },
+								{ value: 'workflow', label: 'Automatización' },
+								{ value: 'monitor-smartphone', label: 'Ordenador y móvil' },
+								{ value: 'life-buoy', label: 'Soporte' },
+							],
+						},
+						text('title', 'Nombre del servicio', 'También aparece en el desplegable del formulario de contacto.'),
+						longText('text', 'Descripción'),
+						{ type: 'string', name: 'features', label: 'Puntos destacados', list: true },
+						text('buttonLabel', 'Texto del botón'),
+					],
+				},
+			],
+		},
+		{
+			type: 'object',
 			name: 'includes',
-			label: '2 · Qué incluye',
+			label: '3 · Qué incluye cada web',
 			fields: [
 				text('eyebrow', 'Etiqueta pequeña'),
 				text('title', 'Título'),
@@ -81,7 +121,7 @@ export const HomeCollection: Collection = {
 		{
 			type: 'object',
 			name: 'priceBand',
-			label: '3 · Banda de precio',
+			label: '4 · Banda de precio',
 			fields: [
 				text('label', 'Texto antes del precio'),
 				text('price', 'Precio', 'Solo el número, sin el símbolo €.'),
@@ -92,7 +132,7 @@ export const HomeCollection: Collection = {
 		{
 			type: 'object',
 			name: 'plans',
-			label: '4 · Modalidades',
+			label: '5 · Modalidades',
 			fields: [
 				text('eyebrow', 'Etiqueta pequeña'),
 				text('title', 'Título'),
@@ -117,7 +157,7 @@ export const HomeCollection: Collection = {
 		{
 			type: 'object',
 			name: 'projects',
-			label: '5 · Proyectos',
+			label: '6 · Proyectos',
 			fields: [
 				text('eyebrow', 'Etiqueta pequeña'),
 				text('title', 'Título'),
@@ -145,7 +185,7 @@ export const HomeCollection: Collection = {
 		{
 			type: 'object',
 			name: 'why',
-			label: '6 · Por qué Kova',
+			label: '7 · Por qué Kova',
 			fields: [
 				text('eyebrow', 'Etiqueta pequeña'),
 				text('title', 'Título'),
@@ -180,7 +220,7 @@ export const HomeCollection: Collection = {
 		{
 			type: 'object',
 			name: 'process',
-			label: '7 · Cómo trabajamos',
+			label: '8 · Cómo trabajamos',
 			fields: [
 				text('eyebrow', 'Etiqueta pequeña'),
 				text('title', 'Título'),
@@ -198,7 +238,7 @@ export const HomeCollection: Collection = {
 		{
 			type: 'object',
 			name: 'faq',
-			label: '8 · Preguntas frecuentes',
+			label: '9 · Preguntas frecuentes',
 			fields: [
 				text('eyebrow', 'Etiqueta pequeña'),
 				text('title', 'Título'),
@@ -216,11 +256,12 @@ export const HomeCollection: Collection = {
 		{
 			type: 'object',
 			name: 'contact',
-			label: '9 · Contacto',
+			label: '10 · Contacto',
 			fields: [
 				text('eyebrow', 'Etiqueta pequeña'),
 				text('title', 'Título'),
 				longText('text', 'Texto'),
+				text('servicePlaceholder', 'Texto del desplegable de servicios', 'Las opciones son los servicios de la sección «Servicios», más «Otra cosa».'),
 				text('messagePlaceholder', 'Texto dentro del campo de mensaje'),
 				text('buttonLabel', 'Texto del botón'),
 			],

@@ -138,6 +138,14 @@ const schema = {
 					return;
 				}
 
+				// Botón de un servicio: deja ese servicio elegido en el formulario de contacto
+				const serviceLink = target.closest('[data-service]') as HTMLElement | null;
+				if (serviceLink) {
+					const select = document.querySelector<HTMLSelectElement>('#contacto select[name="servicio"]');
+					const value = serviceLink.dataset.service ?? '';
+					if (select && [...select.options].some((o) => o.value === value)) select.value = value;
+				}
+
 				const card = target.closest('[data-project]') as HTMLElement | null;
 				const dialog = document.getElementById('project-dialog') as HTMLDialogElement | null;
 				if (card && dialog) {

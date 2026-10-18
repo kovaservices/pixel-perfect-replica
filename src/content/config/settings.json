@@ -11,11 +11,11 @@
   },
   "nav": [
     {
-      "label": "Webs",
-      "link": "/#incluye"
+      "label": "Servicios",
+      "link": "/#servicios"
     },
     {
-      "label": "Tiendas online",
+      "label": "Proyectos",
       "link": "/#proyectos"
     },
     {
@@ -29,8 +29,9 @@
   ],
   "headerButton": "Pide presupuesto",
   "services": [
-    "Diseño web",
+    "Páginas web",
     "Tiendas online",
+    "Aplicaciones y software a medida",
     "Mantenimiento"
   ],
   "copyright": "© 2026 Kova"

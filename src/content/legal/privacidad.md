@@ -14,7 +14,7 @@ En esta página te explicamos qué datos personales recogemos a través de esta 
 
 ## Qué datos recogemos
 
-Solo los que nos facilitas en los formularios de la web: nombre, email, teléfono y la descripción de tu negocio o de la web que necesitas. No hace falta que nos des todos; con un email o un teléfono es suficiente para responderte.
+Solo los que nos facilitas en los formularios de la web: nombre, email, teléfono, el servicio que te interesa y la descripción de tu negocio o de lo que necesitas. No hace falta que nos des todos; con un email o un teléfono es suficiente para responderte.
 
 ## Para qué los usamos
 

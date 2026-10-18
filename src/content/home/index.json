@@ -1,14 +1,15 @@
 {
   "seo": {
-    "title": "Kova — Webs para tu negocio que puedes editar tú mismo",
-    "description": "Agencia de diseño web en Ciudad Real. Diseñamos tu web, la ponemos a tu nombre y te enseñamos a cambiarla.",
+    "title": "Kova — Soluciones digitales a medida en Ciudad Real",
+    "description": "Webs, tiendas online, aplicaciones y software a medida para negocios de Ciudad Real. Hablamos claro, trabajamos contigo y lo que hacemos es tuyo.",
     "image": "/og-kova.png"
   },
   "hero": {
-    "titleStart": "Webs para tu negocio que puedes",
-    "titleHighlight": "editar tú mismo",
-    "subtitle": "Diseñamos tu web, la ponemos a tu nombre y te enseñamos a cambiarla. Sin complicaciones.",
-    "priceLabel": "desde",
+    "titleStart": "Soluciones digitales",
+    "titleHighlight": "a medida",
+    "titleEnd": "para tu negocio",
+    "subtitle": "Webs, tiendas online, aplicaciones y software hechos para cómo trabaja tu negocio. Hablamos claro, trabajamos contigo y todo lo que hacemos es tuyo desde el primer día.",
+    "priceLabel": "Webs desde",
     "price": "[PRECIO]",
     "emailPlaceholder": "Tu email",
     "buttonLabel": "Quiero mi presupuesto",
@@ -19,8 +20,48 @@
       "phone": "/uploads/p4-mobile.jpg"
     }
   },
+  "services": {
+    "eyebrow": "Servicios",
+    "title": "Lo que podemos hacer por tu negocio",
+    "text": "Desde tu primera web hasta la herramienta que te ahorra horas cada semana. Te escuchamos, te proponemos la mejor solución y te damos un precio cerrado antes de empezar.",
+    "items": [
+      {
+        "icon": "layout-template",
+        "title": "Páginas web",
+        "text": "Webs rápidas, bonitas y pensadas para que te encuentren en Google y te llamen.",
+        "features": [
+          "Diseño a medida",
+          "Adaptada a móvil",
+          "Editable por ti"
+        ],
+        "buttonLabel": "Pedir presupuesto"
+      },
+      {
+        "icon": "shopping-bag",
+        "title": "Tiendas online",
+        "text": "Vende tus productos por internet con una tienda fácil de gestionar, con pagos, envíos y todo lo legal en orden.",
+        "features": [
+          "Pagos con tarjeta y Bizum",
+          "Gestión de pedidos y stock",
+          "Textos legales de venta"
+        ],
+        "buttonLabel": "Pedir presupuesto"
+      },
+      {
+        "icon": "app-window",
+        "title": "Aplicaciones y software a medida",
+        "text": "Herramientas hechas para tu forma de trabajar: reservas, paneles de gestión, automatizaciones o tu propio software como servicio.",
+        "features": [
+          "Análisis de tu caso",
+          "Web, móvil o escritorio",
+          "Mantenimiento incluido si lo necesitas"
+        ],
+        "buttonLabel": "Pedir presupuesto"
+      }
+    ]
+  },
   "includes": {
-    "eyebrow": "Qué incluye",
+    "eyebrow": "Qué incluye cada web",
     "title": "Una web que es tuya de verdad",
     "text": "Sin letra pequeña. Tu web, tu dominio y las llaves para cambiarla cuando quieras. Te lo dejamos todo listo para que solo te ocupes de tu negocio.",
     "items": [
@@ -134,21 +175,49 @@
     "eyebrow": "Por qué Kova",
     "title": "Fácil, cerca y sin sorpresas",
     "items": [
-      { "icon": "map-pin", "title": "Somos de aquí", "text": "Trabajamos con negocios de Ciudad Real, en persona." },
-      { "icon": "key-round", "title": "La web es tuya", "text": "Dominio y web a tu nombre. Desde el primer día." },
-      { "icon": "pencil-line", "title": "La editas tú", "text": "Cambia textos y fotos sin tener que llamarnos." },
-      { "icon": "badge-euro", "title": "Precio cerrado", "text": "Sabes lo que pagas desde el principio." }
+      {
+        "icon": "map-pin",
+        "title": "Somos de aquí",
+        "text": "Trabajamos con negocios de Ciudad Real, en persona."
+      },
+      {
+        "icon": "key-round",
+        "title": "La web es tuya",
+        "text": "Dominio y web a tu nombre. Desde el primer día."
+      },
+      {
+        "icon": "pencil-line",
+        "title": "La editas tú",
+        "text": "Cambia textos y fotos sin tener que llamarnos."
+      },
+      {
+        "icon": "badge-euro",
+        "title": "Precio cerrado",
+        "text": "Sabes lo que pagas desde el principio."
+      }
     ]
   },
   "process": {
     "eyebrow": "Cómo trabajamos",
-    "title": "Cuatro pasos y tu web está lista",
+    "title": "Así trabajamos en cada proyecto",
     "text": "Te acompañamos de principio a fin. Sin jerga, sin esperas eternas. Siempre sabes en qué punto estamos.",
     "steps": [
-      { "title": "Reunión", "text": "Nos cuentas tu negocio y qué necesitas. En persona o por teléfono." },
-      { "title": "Diseño", "text": "Ves el diseño antes de que lo programemos. Lo ajustamos contigo." },
-      { "title": "Desarrollo", "text": "Montamos la web, la adaptamos a móvil y la dejamos lista." },
-      { "title": "Entrega y formación", "text": "La publicamos a tu nombre y te enseñamos a editarla." }
+      {
+        "title": "Reunión",
+        "text": "Nos cuentas tu negocio y qué necesitas. En persona o por teléfono."
+      },
+      {
+        "title": "Diseño",
+        "text": "Ves el diseño antes de que lo programemos y lo ajustamos contigo."
+      },
+      {
+        "title": "Desarrollo",
+        "text": "Lo desarrollamos, lo probamos a fondo y lo dejamos listo para usar."
+      },
+      {
+        "title": "Entrega y formación",
+        "text": "Lo ponemos en marcha a tu nombre y te enseñamos a sacarle partido."
+      }
     ]
   },
   "faq": {
@@ -156,19 +225,42 @@
     "title": "Quizá te preguntes esto",
     "buttonLabel": "Contacto",
     "items": [
-      { "question": "¿La web será mía?", "answer": "Sí. El dominio y la web van a tu nombre desde el primer día. Es tuya, no nuestra." },
-      { "question": "¿Hay cuotas mensuales?", "answer": "Solo si eliges la modalidad con mantenimiento. Si no, pagas una vez y listo (más el dominio y el alojamiento, que te explicamos claro)." },
-      { "question": "¿Puedo cambiar los textos yo?", "answer": "Claro. Te dejamos un editor sencillo y te enseñamos a usarlo. Textos y fotos, cuando quieras." },
-      { "question": "¿Cuánto tardáis?", "answer": "Depende de la web, pero te damos una fecha cerrada antes de empezar." },
-      { "question": "¿Qué pasa si quiero irme?", "answer": "Te vas con tu web y tu dominio. Sin permanencias ni ataduras." },
-      { "question": "¿Hacéis tiendas online?", "answer": "Sí. Hacemos tiendas sencillas de gestionar para que vendas tus productos por internet." }
+      {
+        "question": "¿Lo que hacéis será mío?",
+        "answer": "Sí. La web, el dominio y el software que desarrollamos para ti van a tu nombre desde el primer día. Es tuyo, no nuestro."
+      },
+      {
+        "question": "¿Hay cuotas mensuales?",
+        "answer": "Solo si eliges la modalidad con mantenimiento. Si no, pagas una vez y listo (más el dominio y el alojamiento, que te explicamos claro)."
+      },
+      {
+        "question": "¿Puedo cambiar los textos yo?",
+        "answer": "Claro. Te dejamos un editor sencillo y te enseñamos a usarlo. Textos y fotos, cuando quieras."
+      },
+      {
+        "question": "¿Cuánto tardáis?",
+        "answer": "Depende del proyecto, pero siempre te damos una fecha cerrada antes de empezar."
+      },
+      {
+        "question": "¿Qué pasa si quiero irme?",
+        "answer": "Te vas con tu web, tu dominio y tu código. Sin permanencias ni ataduras."
+      },
+      {
+        "question": "¿Hacéis tiendas online?",
+        "answer": "Sí. Hacemos tiendas sencillas de gestionar para que vendas tus productos por internet."
+      },
+      {
+        "question": "¿Desarrolláis aplicaciones o software a medida?",
+        "answer": "Sí. Analizamos cómo trabaja tu negocio y desarrollamos la herramienta que necesitas: aplicaciones web o móviles, paneles de gestión, automatizaciones o tu propio software como servicio. Te damos un presupuesto cerrado antes de empezar."
+      }
     ]
   },
   "contact": {
     "eyebrow": "Contacto",
     "title": "¿Hablamos?",
     "text": "Cuéntanos qué necesitas y te preparamos un presupuesto sin compromiso.",
-    "messagePlaceholder": "¿A qué se dedica tu negocio y qué web necesitas?",
+    "servicePlaceholder": "¿Qué necesitas?",
+    "messagePlaceholder": "Cuéntanos un poco sobre tu negocio y lo que necesitas",
     "buttonLabel": "Quiero mi presupuesto"
   }
 }

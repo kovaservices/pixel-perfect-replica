@@ -16,7 +16,7 @@ En cumplimiento del artículo 10 de la Ley 34/2002, de 11 de julio, de Servicios
 
 ## Objeto
 
-Este sitio web, accesible en kovaservice.es, informa sobre los servicios de diseño y desarrollo web que ofrece Kova y permite a las personas interesadas solicitar información o un presupuesto.
+Este sitio web, accesible en kovaservice.es, informa sobre las soluciones digitales que ofrece Kova (diseño de páginas web, tiendas online y desarrollo de aplicaciones y software a medida) y permite a las personas interesadas solicitar información o un presupuesto.
 
 ## Condiciones de uso
 

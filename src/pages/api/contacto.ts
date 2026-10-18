@@ -15,7 +15,7 @@ import { getSecret } from 'astro:env/server';
 
 export const prerender = false;
 
-const MAX = { name: 120, email: 160, phone: 40, message: 4000, source: 40 };
+const MAX = { name: 120, email: 160, phone: 40, message: 4000, source: 40, service: 80 };
 
 const clean = (v: unknown, max: number) =>
 	(typeof v === 'string' ? v : '').replace(/\s+/g, ' ').trim().slice(0, max);
@@ -43,6 +43,7 @@ export const POST: APIRoute = async ({ request }) => {
 		phone: clean(input.telefono, MAX.phone),
 		message: (typeof input.mensaje === 'string' ? input.mensaje : '').trim().slice(0, MAX.message),
 		source: clean(input.origen, MAX.source) || 'web',
+		service: clean(input.servicio, MAX.service),
 	};
 
 	const emailOk = !data.email || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email);
@@ -68,6 +69,7 @@ export const POST: APIRoute = async ({ request }) => {
 	if (data.email) sender.email = data.email;
 	const blocks: unknown[] = [];
 	if (Object.keys(sender).length) blocks.push({ type: 'sender', properties: sender });
+	if (data.service) blocks.push({ type: 'text', name: 'servicio', value: data.service });
 	if (data.phone) blocks.push({ type: 'text', name: 'telefono', value: data.phone });
 	if (data.message) blocks.push({ type: 'text', name: 'mensaje', value: data.message });
 	blocks.push({ type: 'text', name: 'origen', value: data.source });
