@@ -106,7 +106,7 @@ function Header() {
 
 function Hero() {
   return (
-    <section id="inicio" className="section-ink grid-texture relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28">
+    <section id="inicio" className="section-ink grid-texture relative overflow-hidden pt-28 pb-16 md:pt-40 md:pb-28">
       <div className="container-k grid items-center gap-14 lg:grid-cols-[1.05fr_1fr]">
         <Reveal>
           <h1 className="text-[2.6rem] font-extrabold leading-[1.05] md:text-6xl">
@@ -123,10 +123,10 @@ function Hero() {
           </form>
           <a href="#contacto" className="mt-4 inline-block text-sm font-medium text-ink-muted underline-offset-4 hover:text-primary hover:underline">Prefiero que me llaméis</a>
         </Reveal>
-        <div className="relative mx-auto h-[320px] w-full max-w-[560px] sm:h-[400px]">
-          <Laptop src={p1} className="float absolute left-0 top-4 w-[82%] [--rot:-3deg]" />
-          <Laptop src={p2} className="float float-delay absolute right-0 bottom-0 w-[62%] [--rot:2deg] opacity-95" />
-          <PhoneMock src={p4} className="float absolute right-[8%] top-0 w-[22%] [--rot:5deg]" />
+        <div className="relative mx-auto aspect-[7/5] w-full max-w-[560px]">
+          <Laptop src={p1} className="float absolute left-0 top-[8%] w-[78%] [--rot:-3deg]" />
+          <Laptop src={p2} className="float float-delay absolute right-[2%] bottom-[2%] w-[58%] [--rot:2deg] opacity-95" />
+          <PhoneMock src={p4} className="float absolute right-[6%] top-0 w-[20%] [--rot:5deg]" />
         </div>
       </div>
     </section>
@@ -147,7 +147,7 @@ function Laptop({ src, className }: { src: string; className?: string }) {
 function PhoneMock({ src, className }: { src: string; className?: string }) {
   return (
     <div className={cn("rounded-[1.4rem] border border-ink-border bg-ink-deep p-1.5 shadow-2xl", className)}>
-      <img src={src} alt="Web vista en móvil" className="aspect-[9/19] w-full rounded-[1.1rem] object-cover object-left-top" />
+      <img src={src} alt="Web vista en móvil" className="aspect-[9/19] w-full rounded-[1.1rem] object-cover object-[10%_0]" />
     </div>
   );
 }
