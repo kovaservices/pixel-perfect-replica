@@ -14,10 +14,10 @@ if %errorlevel% equ 0 (
     exit /b 0
 )
 
-if not exist node_modules (
-    echo Instalando dependencias por primera vez. Puede tardar unos minutos...
-    call npm install --no-audit --no-fund || (echo [ERROR] No se han podido instalar las dependencias. & pause & exit /b 1)
-)
+rem --- Instala lo que falte. Si ya está todo, solo tarda unos segundos ---
+if not exist node_modules echo Instalando dependencias por primera vez. Puede tardar unos minutos...
+if exist node_modules echo Comprobando dependencias...
+call npm install --prefer-offline --no-audit --no-fund --loglevel=error || (echo [ERROR] No se han podido instalar las dependencias. & pause & exit /b 1)
 
 echo.
 echo  ===============================================
