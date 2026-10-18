@@ -4,6 +4,11 @@
   "phone": "[TELÉFONO]",
   "whatsapp": "[WHATSAPP]",
   "email": "[EMAIL]",
+  "social": {
+    "instagram": "[INSTAGRAM]",
+    "linkedin": "[LINKEDIN]",
+    "tiktok": "[TIKTOK]"
+  },
   "nav": [
     {
       "label": "Webs",

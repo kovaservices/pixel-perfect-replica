@@ -7,9 +7,26 @@ import Footer from '../components/Footer.astro';
 import { islands } from '../lib/islands';
 import type { Settings } from '../lib/data';
 
-interface Props { title: string; description: string; settings?: Settings | null }
-const { title, description, settings } = Astro.props;
+interface Props { title: string; description: string; settings?: Settings | null; image?: string | null }
+const { title, description, settings, image } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogImage = new URL(image || '/og-kova.png', Astro.site);
+const sameAs = Object.values(settings?.social ?? {}).filter((v): v is string => typeof v === 'string' && /^https?:\/\//.test(v));
+// Datos estructurados: ayudan a Google a entender que Kova es un negocio local.
+const schema = {
+	'@context': 'https://schema.org',
+	'@type': 'ProfessionalService',
+	name: 'Kova',
+	description,
+	url: new URL('/', Astro.site).href,
+	logo: new URL('/kova-logo.svg', Astro.site).href,
+	image: ogImage.href,
+	areaServed: settings?.location ?? 'Ciudad Real',
+	address: { '@type': 'PostalAddress', addressLocality: settings?.location ?? 'Ciudad Real', addressCountry: 'ES' },
+	...(settings?.email?.includes('@') ? { email: settings.email } : {}),
+	...(/\d{6,}/.test((settings?.phone ?? '').replace(/\s/g, '')) ? { telephone: settings?.phone } : {}),
+	...(sameAs.length ? { sameAs } : {}),
+};
 ---
 <!doctype html>
 <html lang="es">
@@ -25,7 +42,14 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:url" content={canonical} />
+		<meta property="og:site_name" content="Kova" />
+		<meta property="og:locale" content="es_ES" />
+		<meta property="og:image" content={ogImage} />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
 		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:image" content={ogImage} />
+		<script type="application/ld+json" set:html={JSON.stringify(schema)} />
 		<script is:inline>
 			// Dentro del editor de Tina la web se muestra en un iframe.
 			if (window.self !== window.top) document.documentElement.classList.add('tina-edit');

@@ -48,9 +48,15 @@ Después de editar, guarda los cambios en GitHub con `git add`, `git commit` y `
 Está marcado entre corchetes para rellenarlo desde el editor:
 
 - `[PRECIO]` en la portada, la banda de precio y las tres modalidades.
-- `[TELÉFONO]`, `[WHATSAPP]` y `[EMAIL]` en «Datos de la empresa».
+- `[TELÉFONO]`, `[WHATSAPP]`, `[EMAIL]`, `[INSTAGRAM]`, `[LINKEDIN]` y `[TIKTOK]` en «Datos de la empresa».
 - Los cinco proyectos son ejemplos del prototipo (`[EJEMPLO]`): hay que sustituirlos por proyectos reales.
 - En «Textos legales»: `[NOMBRE Y APELLIDOS O RAZÓN SOCIAL]`, `[NIF]`, `[DIRECCIÓN COMPLETA]`, `[EMAIL]`, `[TELÉFONO]` y `[FECHA]`. Son plantillas: conviene que las revise un profesional antes de publicar.
+
+## Redes sociales e imagen para compartir
+
+En «Datos de la empresa → Redes sociales» se ponen los enlaces de Instagram, LinkedIn y TikTok. Los iconos salen en el contacto y en el pie; si un campo se deja vacío, esa red no aparece. Son enlaces normales: no cargan nada de las redes ni instalan cookies.
+
+La imagen que aparece al compartir la web (WhatsApp, LinkedIn…) está en `public/og-kova.png` y se cambia en «Página de inicio → Google y redes sociales». La web también incluye datos estructurados para que Google la reconozca como negocio local.
 
 ## Páginas legales
 

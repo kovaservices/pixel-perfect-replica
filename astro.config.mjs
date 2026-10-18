@@ -36,6 +36,8 @@ export default defineConfig({
 					'arrow-right', 'menu', 'x', 'check', 'external-link', 'plus', 'phone', 'mail', 'message-circle',
 					'map-pin', 'key-round', 'pencil-line', 'badge-euro', 'clock', 'shield-check', 'smartphone', 'heart-handshake',
 				],
+				// Iconos de redes sociales (Remix Icon)
+				ri: ['instagram-line', 'linkedin-box-line', 'tiktok-line'],
 			},
 		}),
 		tina(),

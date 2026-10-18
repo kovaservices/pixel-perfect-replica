@@ -34,6 +34,12 @@ export const HomeCollection: Collection = {
 			fields: [
 				text('title', 'Título en Google', 'Unos 60 caracteres como máximo.'),
 				longText('description', 'Descripción en Google', 'Unos 155 caracteres como máximo.'),
+				{
+					type: 'image',
+					name: 'image',
+					label: 'Imagen al compartir',
+					description: 'La que aparece al enviar el enlace por WhatsApp, Instagram o LinkedIn. Tamaño: 1200 × 630 px.',
+				},
 			],
 		},
 		{

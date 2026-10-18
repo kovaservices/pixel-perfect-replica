@@ -3,6 +3,7 @@ import { Icon } from 'astro-icon/components';
 import { tinaField } from '@tinacms/astro/tina-field';
 import Btn from '../ui/Btn.astro';
 import FormExtras from '../ui/FormExtras.astro';
+import SocialLinks from '../SocialLinks.astro';
 import { contactLinks, type Home, type Settings } from '../../lib/data';
 
 interface Props { data: NonNullable<Home['contact']>; settings?: Settings | null }
@@ -30,6 +31,7 @@ const items = [
 					</li>
 				))}
 			</ul>
+			<SocialLinks settings={settings} class="mt-8" />
 		</div>
 		<form data-contact-form action="/api/contacto" method="post" class="reveal relative grid gap-4 rounded-xl bg-card p-6 text-foreground sm:grid-cols-2 md:p-8" style="transition-delay:100ms">
 			<input name="nombre" aria-label="Nombre" placeholder="Nombre" autocomplete="name" class="field" />

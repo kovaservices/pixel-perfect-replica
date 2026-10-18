@@ -1,7 +1,8 @@
 {
   "seo": {
     "title": "Kova — Webs para tu negocio que puedes editar tú mismo",
-    "description": "Agencia de diseño web en Ciudad Real. Diseñamos tu web, la ponemos a tu nombre y te enseñamos a cambiarla."
+    "description": "Agencia de diseño web en Ciudad Real. Diseñamos tu web, la ponemos a tu nombre y te enseñamos a cambiarla.",
+    "image": "/og-kova.png"
   },
   "hero": {
     "titleStart": "Webs para tu negocio que puedes",

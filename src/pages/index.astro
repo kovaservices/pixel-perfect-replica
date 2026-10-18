@@ -9,7 +9,7 @@ const home = (await getHome()).data?.home;
 if (!home) return new Response('Not Found', { status: 404 });
 const settings = (await getSettings()).data?.settings ?? null;
 ---
-<Base title={home.seo?.title ?? 'Kova'} description={home.seo?.description ?? ''} settings={settings}>
+<Base title={home.seo?.title ?? 'Kova'} description={home.seo?.description ?? ''} image={home.seo?.image} settings={settings}>
 	<TinaIsland name="home" wrapper={islands.home.wrapper} primary>
 		<HomeBody data={home} settings={settings} />
 	</TinaIsland>

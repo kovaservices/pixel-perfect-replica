@@ -29,6 +29,17 @@ export const SettingsCollection: Collection = {
 		{ type: 'string', name: 'email', label: 'Email de contacto' },
 		{
 			type: 'object',
+			name: 'social',
+			label: 'Redes sociales',
+			description: 'Pega la dirección completa del perfil (empieza por https://). Deja el campo vacío para ocultar esa red.',
+			fields: [
+				{ type: 'string', name: 'instagram', label: 'Instagram' },
+				{ type: 'string', name: 'linkedin', label: 'LinkedIn' },
+				{ type: 'string', name: 'tiktok', label: 'TikTok' },
+			],
+		},
+		{
+			type: 'object',
 			name: 'nav',
 			label: 'Menú de la cabecera',
 			list: true,

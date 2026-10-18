@@ -1,0 +1,38 @@
+---
+import { Icon } from 'astro-icon/components';
+import { tinaField } from '@tinacms/astro/tina-field';
+import type { Settings } from '../lib/data';
+
+// Iconos de las redes sociales de la empresa. Solo se muestran las redes
+// que tengan algo escrito en «Datos de la empresa → Redes sociales».
+interface Props { settings?: Settings | null; class?: string; size?: 'sm' | 'md' }
+const { settings, class: className = '', size = 'md' } = Astro.props;
+const social = settings?.social;
+
+const networks = [
+	{ key: 'instagram', label: 'Instagram', icon: 'ri:instagram-line' },
+	{ key: 'linkedin', label: 'LinkedIn', icon: 'ri:linkedin-box-line' },
+	{ key: 'tiktok', label: 'TikTok', icon: 'ri:tiktok-line' },
+] as const;
+
+const items = networks
+	.map((n) => ({ ...n, value: (social?.[n.key] ?? '').trim() }))
+	.filter((n) => n.value);
+
+// Mientras el dato sea un marcador como [INSTAGRAM], el icono no lleva a ningún sitio.
+const href = (v: string) => (/^https?:\/\//.test(v) ? v : '#');
+const box = size === 'sm' ? 'size-9' : 'size-11';
+---
+{items.length > 0 && (
+	<ul class={`flex items-center gap-2.5 ${className}`} aria-label="Redes sociales">
+		{items.map((n) => (
+			<li>
+				<a href={href(n.value)} target="_blank" rel="noreferrer noopener" aria-label={`Kova en ${n.label}`}
+					class={`grid ${box} place-items-center rounded-lg border border-ink-border text-ink-muted transition-colors hover:border-primary hover:text-primary`}
+					data-tina-field={social ? tinaField(social, n.key) : undefined}>
+					<Icon name={n.icon} class="size-5" />
+				</a>
+			</li>
+		))}
+	</ul>
+)}
