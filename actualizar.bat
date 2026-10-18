@@ -35,7 +35,7 @@ if not defined LOCALES (
 )
 
 rem Si los archivos ya son iguales que en GitHub (por ejemplo, copiados a mano), solo se alinea Git.
-git diff --quiet origin/%RAMA% --
+git diff --quiet --ignore-cr-at-eol origin/%RAMA% --
 if !errorlevel! equ 0 (
     echo Tus archivos ya coinciden con GitHub. Poniendo Git al día...
     git reset --hard origin/%RAMA% >nul || goto :fallo
@@ -57,6 +57,17 @@ if errorlevel 2 (
 set "MENSAJE="
 set /p "MENSAJE=Describe brevemente los cambios (o pulsa Enter): "
 if not defined MENSAJE set "MENSAJE=Cambios desde el ordenador"
+rem --- Git necesita un nombre y un email para guardar cambios (se pregunta una sola vez) ---
+set "GITEMAIL="
+for /f "delims=" %%e in ('git config user.email 2^>nul') do set "GITEMAIL=%%e"
+if not defined GITEMAIL (
+    echo.
+    echo Git necesita saber quién hace los cambios. Solo se pregunta esta vez.
+    set /p "GITNOMBRE=Tu nombre: "
+    set /p "GITEMAIL=Tu email, el de la cuenta de GitHub: "
+    git config user.name "!GITNOMBRE!"
+    git config user.email "!GITEMAIL!"
+)
 git add -A || goto :fallo
 git commit -m "!MENSAJE!" || goto :fallo
 git pull --rebase origin %RAMA% || goto :conflicto

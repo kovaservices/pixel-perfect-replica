@@ -1,0 +1,6 @@
+# Saltos de línea: LF en el repositorio, CRLF solo en los scripts de Windows.
+* text=auto eol=lf
+*.bat text eol=crlf
+*.png binary
+*.jpg binary
+*.webp binary
