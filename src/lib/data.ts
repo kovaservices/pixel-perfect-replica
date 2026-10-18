@@ -12,6 +12,10 @@ export const getHome = () =>
 export const getSettings = () =>
 	requestWithMetadata(client.queries.settings({ relativePath: 'settings.json' }));
 
+// Los datos de la empresa como contenido principal de la página (la 404).
+export const getSettingsPrimary = () =>
+	requestWithMetadata(client.queries.settings({ relativePath: 'settings.json' }), { priority: 'primary' });
+
 export const getLegal = (slug: string) =>
 	requestWithMetadata(client.queries.legal({ relativePath: `${slug}.md` }), { priority: 'primary' });
 

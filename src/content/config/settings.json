@@ -34,5 +34,11 @@
     "Aplicaciones y software a medida",
     "Mantenimiento"
   ],
-  "copyright": "© 2026 Kova"
+  "copyright": "© 2026 Kova",
+  "notFound": {
+    "title": "Esta página no existe",
+    "text": "Puede que el enlace esté mal escrito o que la página se haya movido. Desde la portada encontrarás todo lo que hacemos.",
+    "button": "Volver al inicio",
+    "contactLink": "Cuéntanos qué buscabas"
+  }
 }

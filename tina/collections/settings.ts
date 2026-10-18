@@ -52,5 +52,17 @@ export const SettingsCollection: Collection = {
 		{ type: 'string', name: 'headerButton', label: 'Botón principal de la cabecera' },
 		{ type: 'string', name: 'services', label: 'Servicios (pie de página)', list: true },
 		{ type: 'string', name: 'copyright', label: 'Texto de copyright' },
+		{
+			type: 'object',
+			name: 'notFound',
+			label: 'Página no encontrada (404)',
+			description: 'Lo que se ve cuando alguien entra en una dirección que no existe.',
+			fields: [
+				{ type: 'string', name: 'title', label: 'Título' },
+				{ type: 'string', name: 'text', label: 'Texto', ui: { component: 'textarea' } },
+				{ type: 'string', name: 'button', label: 'Botón para volver al inicio' },
+				{ type: 'string', name: 'contactLink', label: 'Enlace a contacto' },
+			],
+		},
 	],
 };
