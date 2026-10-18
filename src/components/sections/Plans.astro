@@ -8,6 +8,8 @@ import { list, type Home } from '../../lib/data';
 interface Props { data: NonNullable<Home['plans']> }
 const { data } = Astro.props;
 const plans = list(data.items);
+const custom = data.custom;
+const tags = list(custom?.tags);
 ---
 <section class="bg-sand py-20 md:py-28">
 	<div class="container-k">
@@ -36,5 +38,29 @@ const plans = list(data.items);
 				</div>
 			))}
 		</div>
+
+		{custom && (custom.title || custom.text) && (
+			<div class="reveal mt-14">
+				<div class="section-ink grid-texture grid items-center gap-8 overflow-hidden rounded-xl p-8 md:p-10 lg:grid-cols-[1fr_auto] lg:gap-14" data-tina-field={tinaField(custom)}>
+					<div class="flex gap-5">
+						<span class="hidden size-12 shrink-0 place-items-center rounded-lg bg-primary text-primary-foreground sm:grid">
+							<Icon name="lucide:code-xml" class="size-6" />
+						</span>
+						<div>
+							<h3 class="text-2xl font-extrabold md:text-3xl" data-tina-field={tinaField(custom, 'title')}>{custom.title}</h3>
+							<p class="mt-3 max-w-2xl text-ink-muted" data-tina-field={tinaField(custom, 'text')}>{custom.text}</p>
+							{tags.length > 0 && (
+								<ul class="mt-5 flex flex-wrap gap-2">
+									{tags.map((t, i) => (
+										<li class="rounded-full border border-ink-border px-3 py-1 text-xs font-medium text-ink-foreground/90" data-tina-field={tinaField(custom, 'tags', i)}>{t}</li>
+									))}
+								</ul>
+							)}
+						</div>
+					</div>
+					<Btn href="/#contacto" arrow class="justify-self-start py-3.5 lg:justify-self-end" data-tina-field={tinaField(custom, 'buttonLabel')}>{custom.buttonLabel}</Btn>
+				</div>
+			</div>
+		)}
 	</div>
 </section>

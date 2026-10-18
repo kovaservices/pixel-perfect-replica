@@ -82,7 +82,7 @@
     "buttonLabel": "Pedir presupuesto"
   },
   "plans": {
-    "eyebrow": "Modalidades",
+    "eyebrow": "Precios de páginas web",
     "title": "Elige cómo quieres tu web",
     "items": [
       {
@@ -128,7 +128,18 @@
         ],
         "buttonLabel": "Lo quiero"
       }
-    ]
+    ],
+    "custom": {
+      "title": "¿Necesitas algo más que una web?",
+      "text": "Tiendas online, aplicaciones, paneles de gestión o software a medida. Cuéntanos tu caso y te preparamos un presupuesto cerrado en 24-48 horas, sin compromiso.",
+      "tags": [
+        "Tiendas online",
+        "Aplicaciones web y móviles",
+        "Software a medida",
+        "Automatizaciones"
+      ],
+      "buttonLabel": "Pedir presupuesto a medida"
+    }
   },
   "projects": {
     "eyebrow": "Proyectos",

@@ -152,6 +152,18 @@ export const HomeCollection: Collection = {
 						text('buttonLabel', 'Texto del botón'),
 					],
 				},
+				{
+					type: 'object',
+					name: 'custom',
+					label: 'Banda «Presupuesto a medida»',
+					description: 'Aparece debajo de las modalidades, para servicios sin precio fijo (tiendas, aplicaciones, software).',
+					fields: [
+						text('title', 'Título'),
+						longText('text', 'Texto'),
+						{ type: 'string', name: 'tags', label: 'Etiquetas', description: 'Servicios que se muestran como pequeñas etiquetas.', list: true },
+						text('buttonLabel', 'Texto del botón'),
+					],
+				},
 			],
 		},
 		{
