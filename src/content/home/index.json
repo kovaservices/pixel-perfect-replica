@@ -149,36 +149,31 @@
         "name": "Horno Santa María",
         "description": "[EJEMPLO] Panadería artesana con pedidos por teléfono.",
         "tag": "Diseño web",
-        "image": "/uploads/p1.jpg",
-        "url": "https://example.com"
+        "image": "/uploads/p1.jpg"
       },
       {
         "name": "Fisio Alarcos",
         "description": "[EJEMPLO] Clínica de fisioterapia con reserva de citas.",
         "tag": "Diseño web",
-        "image": "/uploads/p2.jpg",
-        "url": "https://example.com"
+        "image": "/uploads/p2.jpg"
       },
       {
         "name": "Despensa Manchega",
         "description": "[EJEMPLO] Aceite y queso de La Mancha a domicilio.",
         "tag": "Tienda online",
-        "image": "/uploads/p3.jpg",
-        "url": "https://example.com"
+        "image": "/uploads/p3.jpg"
       },
       {
         "name": "Estudio Lúa",
         "description": "[EJEMPLO] Peluquería con galería y servicios.",
         "tag": "Diseño web",
-        "image": "/uploads/p4.jpg",
-        "url": "https://example.com"
+        "image": "/uploads/p4.jpg"
       },
       {
         "name": "Barro Vivo",
         "description": "[EJEMPLO] Cerámica hecha a mano, venta online.",
         "tag": "Tienda online",
-        "image": "/uploads/p5.jpg",
-        "url": "https://example.com"
+        "image": "/uploads/p5.jpg"
       }
     ]
   },
