@@ -25,7 +25,10 @@ const tags = list(custom?.tags);
 						)}
 						<h3 class="text-xl font-bold" data-tina-field={tinaField(p, 'name')}>{p.name}</h3>
 						<p class="mt-1 text-sm text-muted-foreground" data-tina-field={tinaField(p, 'description')}>{p.description}</p>
-						<p class="mt-6 text-4xl font-extrabold" data-tina-field={tinaField(p, 'price')}>{p.price} €</p>
+						<p class="mt-6 flex flex-wrap items-baseline gap-x-2">
+							<span class="text-4xl font-extrabold" data-tina-field={tinaField(p, 'price')}>{p.price} €</span>
+							{p.priceExtra && <span class="text-lg font-bold text-primary-strong" data-tina-field={tinaField(p, 'priceExtra')}>{p.priceExtra}</span>}
+						</p>
 						<ul class="mt-6 space-y-3 text-sm">
 							{list(p.features).map((f, j) => (
 								<li class="flex gap-2.5" data-tina-field={tinaField(p, 'features', j)}>

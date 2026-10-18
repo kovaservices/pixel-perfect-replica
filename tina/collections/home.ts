@@ -146,6 +146,7 @@ export const HomeCollection: Collection = {
 						text('name', 'Nombre'),
 						text('description', 'Descripción corta'),
 						text('price', 'Precio', 'Solo el número, sin el símbolo €.'),
+						text('priceExtra', 'Cuota u otro importe', 'Opcional. Aparece junto al precio, por ejemplo: «+ 99 €/mes».'),
 						{ type: 'boolean', name: 'featured', label: 'Destacar esta modalidad' },
 						text('badge', 'Etiqueta de destacada', 'Solo se ve si la modalidad está destacada.'),
 						{ type: 'string', name: 'features', label: 'Qué incluye', list: true },

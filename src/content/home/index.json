@@ -117,7 +117,8 @@
       {
         "name": "Web con mantenimiento",
         "description": "Nos ocupamos de todo, siempre.",
-        "price": "1299",
+        "price": "899",
+        "priceExtra": "+ 99 €/mes",
         "featured": false,
         "badge": "",
         "features": [
