@@ -38,6 +38,7 @@ En local, Tina guarda los cambios directamente en los archivos del proyecto:
 
 - `src/content/home/index.json`: todos los textos de la página de inicio.
 - `src/content/config/settings.json`: datos de la empresa (teléfono, WhatsApp, email, menú…).
+- `src/content/legal/`: aviso legal, privacidad y cookies.
 - `public/uploads/`: las imágenes que se suben desde el editor.
 
 Después de editar, guarda los cambios en GitHub con `git add`, `git commit` y `git push`.
@@ -49,8 +50,26 @@ Está marcado entre corchetes para rellenarlo desde el editor:
 - `[PRECIO]` en la portada, la banda de precio y las tres modalidades.
 - `[TELÉFONO]`, `[WHATSAPP]` y `[EMAIL]` en «Datos de la empresa».
 - Los cinco proyectos son ejemplos del prototipo (`[EJEMPLO]`): hay que sustituirlos por proyectos reales.
-- Los enlaces legales (aviso legal, privacidad, cookies) aún no llevan a ninguna página.
-- Los formularios todavía no envían nada; falta conectarlos a un servicio de formularios.
+- En «Textos legales»: `[NOMBRE Y APELLIDOS O RAZÓN SOCIAL]`, `[NIF]`, `[DIRECCIÓN COMPLETA]`, `[EMAIL]`, `[TELÉFONO]` y `[FECHA]`. Son plantillas: conviene que las revise un profesional antes de publicar.
+
+## Páginas legales
+
+Están en `/legal/aviso-legal`, `/legal/privacidad` y `/legal/cookies`, enlazadas desde el pie y desde los formularios. Se editan en Tina, en «Textos legales». La web no usa cookies ni carga nada de servicios externos (la tipografía va incluida), así que no necesita aviso de cookies. Si algún día se añade analítica, hay que actualizar la política y poner el aviso.
+
+## Formularios (Forminit)
+
+Los tres formularios (portada, banda de precio y contacto) envían los mensajes a la ruta `/api/contacto` de la propia web, que los reenvía a [Forminit](https://forminit.com). Forminit guarda los mensajes en servidores de la Unión Europea (Irlanda), avisa por email y tiene un plan gratuito de 100 envíos al mes.
+
+Para activarlos:
+
+1. Crea una cuenta gratuita en Forminit y crea un formulario.
+2. En la configuración del formulario, activa los avisos por email al correo de Kova.
+3. Copia `.env.example` como `.env` y pon el identificador del formulario en `FORMINIT_FORM_ID`.
+4. Reinicia `npm run dev` y envía un mensaje de prueba.
+
+Mientras `FORMINIT_FORM_ID` esté vacío, en local los mensajes no se envían: aparecen en la terminal y la web muestra «Mensaje de prueba recibido». Al publicar, la misma variable se añade en la configuración de Cloudflare Pages.
+
+Los formularios tienen un campo trampa oculto contra bots y piden al menos un email o un teléfono. El de contacto obliga a aceptar la política de privacidad.
 
 ## Estructura
 
@@ -68,5 +87,5 @@ public/                  logo, favicon e imágenes
 ## Publicar (más adelante)
 
 1. Crear un proyecto en [Tina Cloud](https://app.tina.io) conectado a este repositorio y rama.
-2. Crear un proyecto en Cloudflare Pages conectado al repositorio, con el comando `npm run build`, la carpeta `dist` y las variables de `.env.example`.
+2. Crear un proyecto en Cloudflare Pages conectado al repositorio, con el comando `npm run build`, la carpeta `dist` y las variables de `.env.example` (incluida `FORMINIT_FORM_ID`).
 3. Conectar el dominio `kovaservice.es`.

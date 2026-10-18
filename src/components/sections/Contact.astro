@@ -2,6 +2,7 @@
 import { Icon } from 'astro-icon/components';
 import { tinaField } from '@tinacms/astro/tina-field';
 import Btn from '../ui/Btn.astro';
+import FormExtras from '../ui/FormExtras.astro';
 import { contactLinks, type Home, type Settings } from '../../lib/data';
 
 interface Props { data: NonNullable<Home['contact']>; settings?: Settings | null }
@@ -30,16 +31,18 @@ const items = [
 				))}
 			</ul>
 		</div>
-		<form data-demo-form class="reveal grid gap-4 rounded-xl bg-card p-6 text-foreground sm:grid-cols-2 md:p-8" style="transition-delay:100ms">
-			<input aria-label="Nombre" placeholder="Nombre" class="field" />
-			<input aria-label="Teléfono" type="tel" placeholder="Teléfono" class="field" />
-			<input aria-label="Email" type="email" placeholder="Email" class="field sm:col-span-2" />
-			<textarea aria-label="Tu negocio y qué web necesitas" rows="4" placeholder={data.messagePlaceholder ?? ''} class="field resize-none sm:col-span-2" data-tina-field={tinaField(data, 'messagePlaceholder')}></textarea>
+		<form data-contact-form action="/api/contacto" method="post" class="reveal relative grid gap-4 rounded-xl bg-card p-6 text-foreground sm:grid-cols-2 md:p-8" style="transition-delay:100ms">
+			<input name="nombre" aria-label="Nombre" placeholder="Nombre" autocomplete="name" class="field" />
+			<input name="telefono" aria-label="Teléfono" type="tel" placeholder="Teléfono" autocomplete="tel" class="field" />
+			<input name="email" aria-label="Email" type="email" placeholder="Email" autocomplete="email" class="field sm:col-span-2" />
+			<textarea name="mensaje" aria-label="Tu negocio y qué web necesitas" rows="4" placeholder={data.messagePlaceholder ?? ''} class="field resize-none sm:col-span-2" data-tina-field={tinaField(data, 'messagePlaceholder')}></textarea>
 			<label class="flex items-start gap-3 text-sm text-muted-foreground sm:col-span-2">
-				<input type="checkbox" class="mt-1 size-4 accent-primary" />
-				<span>He leído y acepto la <a href="#" class="text-primary-strong hover:underline">política de privacidad</a>.</span>
+				<input type="checkbox" name="privacidad" value="si" required class="mt-1 size-4 accent-primary" />
+				<span>He leído y acepto la <a href="/legal/privacidad" class="text-primary-strong hover:underline">política de privacidad</a>.</span>
 			</label>
 			<Btn type="submit" arrow class="w-full py-3.5 sm:col-span-2" data-tina-field={tinaField(data, 'buttonLabel')}>{data.buttonLabel}</Btn>
+			<FormExtras source="contacto" statusClass="sm:col-span-2" />
+			<p class="text-xs leading-relaxed text-muted-foreground sm:col-span-2">Responsable: Kova. Finalidad: responder a tu consulta y prepararte un presupuesto. Tus datos no se ceden a terceros. Puedes acceder, rectificar o suprimir tus datos y ejercer otros derechos, como se explica en la <a href="/legal/privacidad" class="underline">política de privacidad</a>.</p>
 		</form>
 	</div>
 </section>

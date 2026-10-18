@@ -8,7 +8,11 @@ interface Props { settings?: Settings | null }
 const { settings } = Astro.props;
 const links = contactLinks(settings);
 const services = list(settings?.services);
-const legal = ['Aviso legal', 'Privacidad', 'Cookies'];
+const legal = [
+	{ label: 'Aviso legal', href: '/legal/aviso-legal' },
+	{ label: 'Privacidad', href: '/legal/privacidad' },
+	{ label: 'Cookies', href: '/legal/cookies' },
+];
 ---
 <footer class="bg-ink-deep text-ink-foreground">
 	<div class="container-k grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
@@ -33,7 +37,7 @@ const legal = ['Aviso legal', 'Privacidad', 'Cookies'];
 		<div>
 			<p class="text-sm font-bold">Legal</p>
 			<ul class="mt-4 space-y-2.5 text-sm text-ink-muted">
-				{legal.map((l) => <li><a href="#" class="transition-colors hover:text-primary">{l}</a></li>)}
+				{legal.map((l) => <li><a href={l.href} class="transition-colors hover:text-primary">{l.label}</a></li>)}
 			</ul>
 		</div>
 	</div>

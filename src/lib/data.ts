@@ -12,7 +12,16 @@ export const getHome = () =>
 export const getSettings = () =>
 	requestWithMetadata(client.queries.settings({ relativePath: 'settings.json' }));
 
+export const getLegal = (slug: string) =>
+	requestWithMetadata(client.queries.legal({ relativePath: `${slug}.md` }), { priority: 'primary' });
+
+export async function listLegal() {
+	const result = await client.queries.legalConnection();
+	return (result.data.legalConnection.edges ?? []).flatMap((e) => (e?.node ? [e.node] : []));
+}
+
 export type Home = Awaited<ReturnType<typeof getHome>>['data']['home'];
+export type Legal = Awaited<ReturnType<typeof getLegal>>['data']['legal'];
 export type Settings = Awaited<ReturnType<typeof getSettings>>['data']['settings'];
 
 /** Quita los elementos vacíos que Tina puede devolver en las listas. */
@@ -27,8 +36,8 @@ export function contactLinks(s: Settings | null | undefined) {
 	const wa = digits(s?.whatsapp);
 	const email = s?.email && s.email.includes('@') ? s.email : '';
 	return {
-		tel: phone ? `tel:+${phone.length === 9 ? '34' + phone : phone}` : '#contacto',
-		whatsapp: wa ? `https://wa.me/${wa}` : '#contacto',
-		mailto: email ? `mailto:${email}` : '#contacto',
+		tel: phone ? `tel:+${phone.length === 9 ? '34' + phone : phone}` : '/#contacto',
+		whatsapp: wa ? `https://wa.me/${wa}` : '/#contacto',
+		mailto: email ? `mailto:${email}` : '/#contacto',
 	};
 }

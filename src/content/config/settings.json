@@ -5,12 +5,28 @@
   "whatsapp": "[WHATSAPP]",
   "email": "[EMAIL]",
   "nav": [
-    { "label": "Webs", "link": "#incluye" },
-    { "label": "Tiendas online", "link": "#proyectos" },
-    { "label": "Cómo trabajamos", "link": "#proceso" },
-    { "label": "Contacto", "link": "#contacto" }
+    {
+      "label": "Webs",
+      "link": "/#incluye"
+    },
+    {
+      "label": "Tiendas online",
+      "link": "/#proyectos"
+    },
+    {
+      "label": "Cómo trabajamos",
+      "link": "/#proceso"
+    },
+    {
+      "label": "Contacto",
+      "link": "/#contacto"
+    }
   ],
   "headerButton": "Pide presupuesto",
-  "services": ["Diseño web", "Tiendas online", "Mantenimiento"],
+  "services": [
+    "Diseño web",
+    "Tiendas online",
+    "Mantenimiento"
+  ],
   "copyright": "© 2026 Kova"
 }

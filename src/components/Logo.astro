@@ -5,7 +5,7 @@ import type { Settings } from '../lib/data';
 interface Props { settings?: Settings | null; class?: string }
 const { settings, class: className = '' } = Astro.props;
 ---
-<a href="#inicio" class={`inline-flex items-center gap-2.5 text-2xl font-extrabold tracking-tight ${className}`} aria-label="Kova, ir al inicio">
+<a href="/" class={`inline-flex items-center gap-2.5 text-2xl font-extrabold tracking-tight ${className}`} aria-label="Kova, ir al inicio">
 	<img src="/kova-mark.svg" alt="" width="28" height="36" class="h-9 w-auto" />
 	<span data-tina-field={settings ? tinaField(settings, 'siteName') : undefined}>{settings?.siteName ?? 'kova'}</span>
 </a>

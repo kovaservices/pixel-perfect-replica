@@ -133,9 +133,59 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
 				if (dialog?.open && (target.closest('[data-close-dialog]') || target === dialog)) dialog.close();
 			});
 
-			// 5. Formularios de prueba: todavía no envían nada
-			document.addEventListener('submit', (ev) => {
-				if ((ev.target as HTMLElement).matches('[data-demo-form]')) ev.preventDefault();
+			// 5. Formularios: se envían a /api/contacto sin salir de la página
+			document.addEventListener('submit', async (ev) => {
+				const form = ev.target as HTMLFormElement;
+				if (!form.matches('[data-contact-form]')) return;
+				ev.preventDefault();
+
+				const source = (form.elements.namedItem('origen') as HTMLInputElement | null)?.value ?? '';
+				const status = form.querySelector<HTMLElement>('[data-form-status]')
+					?? form.parentElement?.querySelector<HTMLElement>(`[data-form-status][data-for="${source}"]`)
+					?? null;
+				const show = (state: 'ok' | 'error' | 'sending', text: string) => {
+					if (!status) return;
+					status.hidden = false;
+					status.dataset.state = state;
+					status.textContent = text;
+				};
+
+				const fd = new FormData(form);
+				const data: Record<string, string | boolean> = {};
+				fd.forEach((v, k) => { if (typeof v === 'string') data[k] = v; });
+				const consent = form.querySelector<HTMLInputElement>('input[name="privacidad"]');
+				if (consent) data.privacidad = consent.checked;
+
+				const hasEmailField = !!form.querySelector('[name="email"]');
+				const hasPhoneField = !!form.querySelector('[name="telefono"]');
+				if (hasEmailField && hasPhoneField && !String(data.email ?? '').trim() && !String(data.telefono ?? '').trim()) {
+					show('error', 'Déjanos un email o un teléfono para poder responderte.');
+					return;
+				}
+
+				const button = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+				if (button) button.disabled = true;
+				show('sending', 'Enviando…');
+				try {
+					const res = await fetch(form.action, {
+						method: 'POST',
+						headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+						body: JSON.stringify(data),
+					});
+					const body = await res.json().catch(() => ({}));
+					if (res.ok && body.ok) {
+						form.reset();
+						show('ok', body.demo
+							? 'Mensaje de prueba recibido. El formulario aún no está conectado a Forminit, así que no se ha enviado.'
+							: '¡Gracias! Hemos recibido tu mensaje y te responderemos en menos de 24 horas.');
+					} else {
+						show('error', body.message || 'No hemos podido enviar el mensaje. Inténtalo de nuevo o escríbenos por WhatsApp.');
+					}
+				} catch {
+					show('error', 'No hemos podido enviar el mensaje. Revisa tu conexión e inténtalo de nuevo.');
+				} finally {
+					if (button) button.disabled = false;
+				}
 			});
 
 			updateHeader();

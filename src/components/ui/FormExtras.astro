@@ -1,0 +1,12 @@
+---
+// Piezas comunes a todos los formularios: de dónde viene el mensaje,
+// el campo trampa para bots (oculto a las personas) y la zona donde se
+// muestra si el envío ha ido bien o mal.
+interface Props { source: string; statusClass?: string; showStatus?: boolean }
+const { source, statusClass = '', showStatus = true } = Astro.props;
+---
+<input type="hidden" name="origen" value={source} />
+<div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden">
+	<label>No rellenar este campo <input type="text" name="empresa_web" tabindex="-1" autocomplete="off" /></label>
+</div>
+{showStatus && <p data-form-status role="status" aria-live="polite" hidden class={`text-sm font-medium ${statusClass}`}></p>}

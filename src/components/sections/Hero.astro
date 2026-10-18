@@ -1,6 +1,7 @@
 ---
 import { tinaField } from '@tinacms/astro/tina-field';
 import Btn from '../ui/Btn.astro';
+import FormExtras from '../ui/FormExtras.astro';
 import type { Home } from '../../lib/data';
 
 interface Props { data: NonNullable<Home['hero']> }
@@ -19,11 +20,14 @@ const img = data.images;
 				<span data-tina-field={tinaField(data, 'priceLabel')}>{data.priceLabel}</span>{' '}
 				<span class="text-3xl font-extrabold text-ink-foreground" data-tina-field={tinaField(data, 'price')}>{data.price} €</span>
 			</p>
-			<form data-demo-form class="mt-6 flex max-w-lg flex-col gap-2 rounded-xl bg-card p-2 sm:flex-row">
+			<form data-contact-form action="/api/contacto" method="post" class="relative mt-6 flex max-w-lg flex-col gap-2 rounded-xl bg-card p-2 sm:flex-row">
 				<label for="hero-email" class="sr-only">Tu email</label>
-				<input id="hero-email" type="email" placeholder={data.emailPlaceholder ?? ''} class="field border-transparent" data-tina-field={tinaField(data, 'emailPlaceholder')} />
+				<input id="hero-email" name="email" type="email" required autocomplete="email" placeholder={data.emailPlaceholder ?? ''} class="field border-transparent" data-tina-field={tinaField(data, 'emailPlaceholder')} />
 				<Btn type="submit" arrow data-tina-field={tinaField(data, 'buttonLabel')}>{data.buttonLabel}</Btn>
+				<FormExtras source="portada" showStatus={false} />
 			</form>
+			<p data-form-status data-for="portada" role="status" aria-live="polite" hidden class="mt-3 max-w-lg text-sm font-medium"></p>
+			<p class="mt-3 max-w-lg text-xs text-ink-muted">Al enviar aceptas nuestra <a href="/legal/privacidad" class="underline hover:text-primary">política de privacidad</a>. Solo usaremos tu email para responderte.</p>
 			<a href="#contacto" class="mt-4 inline-block text-sm font-medium text-ink-muted underline-offset-4 hover:text-primary hover:underline" data-tina-field={tinaField(data, 'callLinkLabel')}>{data.callLinkLabel}</a>
 		</div>
 		<div class="relative mx-auto aspect-[7/5] w-full max-w-[560px]" aria-hidden="true">

@@ -20,7 +20,7 @@ const links = contactLinks(settings);
 		</nav>
 		<div class="hidden items-center gap-3 lg:flex">
 			<Btn href={links.whatsapp} target="_blank" variant="outline-ink" class="py-2.5">WhatsApp</Btn>
-			<Btn href="#contacto" class="py-2.5" data-tina-field={settings ? tinaField(settings, 'headerButton') : undefined}>{settings?.headerButton ?? 'Pide presupuesto'}</Btn>
+			<Btn href="/#contacto" class="py-2.5" data-tina-field={settings ? tinaField(settings, 'headerButton') : undefined}>{settings?.headerButton ?? 'Pide presupuesto'}</Btn>
 		</div>
 		<button id="mobile-menu-toggle" type="button" class="p-2 lg:hidden" aria-label="Abrir menú" aria-controls="mobile-menu" aria-expanded="false">
 			<Icon name="lucide:menu" class="icon-open size-6" />
@@ -32,7 +32,7 @@ const links = contactLinks(settings);
 			{nav.map((n) => <a href={n.link ?? '#'} class="py-3 font-medium">{n.label}</a>)}
 			<div class="mt-3 grid grid-cols-2 gap-3">
 				<Btn href={links.whatsapp} target="_blank" variant="outline-ink">WhatsApp</Btn>
-				<Btn href="#contacto">Presupuesto</Btn>
+				<Btn href="/#contacto">Presupuesto</Btn>
 			</div>
 		</div>
 	</div>

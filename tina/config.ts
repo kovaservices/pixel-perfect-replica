@@ -1,6 +1,7 @@
 import { defineConfig } from 'tinacms';
 import { HomeCollection } from './collections/home';
 import { SettingsCollection } from './collections/settings';
+import { LegalCollection } from './collections/legal';
 
 // Rama de Git donde Tina guarda los cambios al publicar (Cloudflare la indica sola).
 const branch =
@@ -26,6 +27,6 @@ export default defineConfig({
 		},
 	},
 	schema: {
-		collections: [HomeCollection, SettingsCollection],
+		collections: [HomeCollection, SettingsCollection, LegalCollection],
 	},
 });

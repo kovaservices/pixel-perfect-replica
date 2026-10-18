@@ -9,4 +9,6 @@ import { glob } from 'astro/loaders';
 const home = defineCollection({ loader: glob({ pattern: '**/*.json', base: 'src/content/home' }) });
 const config = defineCollection({ loader: glob({ pattern: '**/*.json', base: 'src/content/config' }) });
 
-export const collections = { home, config };
+const legal = defineCollection({ loader: glob({ pattern: '**/*.md', base: 'src/content/legal' }) });
+
+export const collections = { home, config, legal };
