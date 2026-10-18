@@ -1,0 +1,35 @@
+---
+import { tinaField } from '@tinacms/astro/tina-field';
+import SectionHead from '../ui/SectionHead.astro';
+import { list, type Home } from '../../lib/data';
+
+interface Props { data: NonNullable<Home['process']> }
+const { data } = Astro.props;
+const steps = list(data.steps);
+---
+<section id="proceso" class="section-ink py-20 md:py-28">
+	<div class="container-k">
+		<div class="grid gap-6 lg:grid-cols-2 lg:items-end">
+			<div class="reveal">
+				<SectionHead eyebrow={data.eyebrow} title={data.title} eyebrowField={tinaField(data, 'eyebrow')} titleField={tinaField(data, 'title')} />
+			</div>
+			<p class="reveal text-ink-muted lg:max-w-md lg:justify-self-end" style="transition-delay:100ms" data-tina-field={tinaField(data, 'text')}>{data.text}</p>
+		</div>
+		<div id="process-track" class="relative mt-14" style="--progress:0">
+			<div class="absolute left-6 top-0 h-full w-px bg-ink-border lg:left-0 lg:top-8 lg:h-px lg:w-full"></div>
+			<div class="absolute left-6 top-0 h-[calc(var(--progress)*100%)] w-px bg-primary lg:hidden"></div>
+			<div class="absolute left-0 top-8 hidden h-px w-[calc(var(--progress)*100%)] bg-gradient-to-r from-gold to-primary lg:block"></div>
+			<div class="relative grid gap-6 pl-12 lg:grid-cols-4 lg:pl-0">
+				{steps.map((s, i) => (
+					<div class="reveal" style={`transition-delay:${i * 100}ms`}>
+						<div class="h-full rounded-lg border border-ink-border bg-ink-raised p-6" data-tina-field={tinaField(s)}>
+							<span class="text-sm font-bold text-primary">{String(i + 1).padStart(2, '0')}</span>
+							<h3 class="mt-3 text-lg font-bold" data-tina-field={tinaField(s, 'title')}>{s.title}</h3>
+							<p class="mt-2 text-sm text-ink-muted" data-tina-field={tinaField(s, 'text')}>{s.text}</p>
+						</div>
+					</div>
+				))}
+			</div>
+		</div>
+	</div>
+</section>

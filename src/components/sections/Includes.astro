@@ -1,0 +1,26 @@
+---
+import { Icon } from 'astro-icon/components';
+import { tinaField } from '@tinacms/astro/tina-field';
+import SectionHead from '../ui/SectionHead.astro';
+import { list, type Home } from '../../lib/data';
+
+interface Props { data: NonNullable<Home['includes']> }
+const { data } = Astro.props;
+const items = list(data.items);
+---
+<section id="incluye" class="py-20 md:py-28">
+	<div class="container-k grid gap-12 lg:grid-cols-2 lg:gap-20">
+		<div class="reveal">
+			<SectionHead eyebrow={data.eyebrow} title={data.title} eyebrowField={tinaField(data, 'eyebrow')} titleField={tinaField(data, 'title')} />
+			<p class="mt-5 max-w-md text-muted-foreground" data-tina-field={tinaField(data, 'text')}>{data.text}</p>
+		</div>
+		<ul class="grid content-center gap-x-8 gap-y-5 sm:grid-cols-2" data-tina-field={tinaField(data, 'items')}>
+			{items.map((t, i) => (
+				<li class="reveal flex items-start gap-3 font-medium" style={`transition-delay:${i * 50}ms`} data-tina-field={tinaField(data, 'items', i)}>
+					<span class="mt-0.5 grid size-6 shrink-0 place-items-center rounded-full bg-primary/15 text-primary-strong"><Icon name="lucide:check" class="size-4" /></span>
+					{t}
+				</li>
+			))}
+		</ul>
+	</div>
+</section>

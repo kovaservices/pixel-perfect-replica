@@ -1,0 +1,53 @@
+---
+import { tinaField } from '@tinacms/astro/tina-field';
+import Btn from '../ui/Btn.astro';
+import type { Home } from '../../lib/data';
+
+interface Props { data: NonNullable<Home['hero']> }
+const { data } = Astro.props;
+const img = data.images;
+---
+<section id="inicio" class="section-ink grid-texture relative overflow-hidden pt-28 pb-16 md:pt-40 md:pb-28">
+	<div class="container-k grid items-center gap-14 lg:grid-cols-[1.05fr_1fr]">
+		<div class="reveal">
+			<h1 class="text-[2.6rem] font-extrabold leading-[1.05] md:text-6xl">
+				<span data-tina-field={tinaField(data, 'titleStart')}>{data.titleStart}</span>{' '}
+				<span class="text-gradient" data-tina-field={tinaField(data, 'titleHighlight')}>{data.titleHighlight}</span>
+			</h1>
+			<p class="mt-6 max-w-lg text-lg text-ink-muted" data-tina-field={tinaField(data, 'subtitle')}>{data.subtitle}</p>
+			<p class="mt-6 text-ink-muted">
+				<span data-tina-field={tinaField(data, 'priceLabel')}>{data.priceLabel}</span>{' '}
+				<span class="text-3xl font-extrabold text-ink-foreground" data-tina-field={tinaField(data, 'price')}>{data.price} €</span>
+			</p>
+			<form data-demo-form class="mt-6 flex max-w-lg flex-col gap-2 rounded-xl bg-card p-2 sm:flex-row">
+				<label for="hero-email" class="sr-only">Tu email</label>
+				<input id="hero-email" type="email" placeholder={data.emailPlaceholder ?? ''} class="field border-transparent" data-tina-field={tinaField(data, 'emailPlaceholder')} />
+				<Btn type="submit" arrow data-tina-field={tinaField(data, 'buttonLabel')}>{data.buttonLabel}</Btn>
+			</form>
+			<a href="#contacto" class="mt-4 inline-block text-sm font-medium text-ink-muted underline-offset-4 hover:text-primary hover:underline" data-tina-field={tinaField(data, 'callLinkLabel')}>{data.callLinkLabel}</a>
+		</div>
+		<div class="relative mx-auto aspect-[7/5] w-full max-w-[560px]" aria-hidden="true">
+			{img?.laptopMain && (
+				<div class="float absolute left-0 top-[8%] w-[78%] [--rot:-3deg]" data-tina-field={tinaField(img, 'laptopMain')}>
+					<div class="rounded-t-xl border border-ink-border bg-ink-deep p-1.5 shadow-2xl">
+						<img src={img.laptopMain} alt="" width="1280" height="800" fetchpriority="high" class="aspect-[16/10] w-full rounded-md object-cover object-top" />
+					</div>
+					<div class="mx-auto h-2.5 w-[108%] -translate-x-[3.7%] rounded-b-xl bg-ink-muted/60"></div>
+				</div>
+			)}
+			{img?.laptopSecond && (
+				<div class="float float-delay absolute bottom-[2%] right-[2%] w-[58%] opacity-95 [--rot:2deg]" data-tina-field={tinaField(img, 'laptopSecond')}>
+					<div class="rounded-t-xl border border-ink-border bg-ink-deep p-1.5 shadow-2xl">
+						<img src={img.laptopSecond} alt="" width="1280" height="800" class="aspect-[16/10] w-full rounded-md object-cover object-top" />
+					</div>
+					<div class="mx-auto h-2.5 w-[108%] -translate-x-[3.7%] rounded-b-xl bg-ink-muted/60"></div>
+				</div>
+			)}
+			{img?.phone && (
+				<div class="float absolute right-[6%] top-0 w-[20%] rounded-[1.4rem] border border-ink-border bg-ink-deep p-1.5 shadow-2xl [--rot:5deg]" data-tina-field={tinaField(img, 'phone')}>
+					<img src={img.phone} alt="" width="576" height="1216" class="aspect-[9/19] w-full rounded-[1.1rem] object-cover object-top" />
+				</div>
+			)}
+		</div>
+	</div>
+</section>

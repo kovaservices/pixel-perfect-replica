@@ -1,0 +1,30 @@
+---
+import Hero from './sections/Hero.astro';
+import Includes from './sections/Includes.astro';
+import PriceBand from './sections/PriceBand.astro';
+import Plans from './sections/Plans.astro';
+import Projects from './sections/Projects.astro';
+import Why from './sections/Why.astro';
+import Process from './sections/Process.astro';
+import Faq from './sections/Faq.astro';
+import Contact from './sections/Contact.astro';
+import { getSettings, type Home, type Settings } from '../lib/data';
+
+interface Props { data?: Home | null; settings?: Settings | null }
+const { data } = Astro.props;
+// Los datos de contacto (teléfono, email…) vienen de «Datos de la empresa».
+const settings = Astro.props.settings ?? (await getSettings()).data?.settings ?? null;
+---
+{data && (
+	<>
+		{data.hero && <Hero data={data.hero} />}
+		{data.includes && <Includes data={data.includes} />}
+		{data.priceBand && <PriceBand data={data.priceBand} />}
+		{data.plans && <Plans data={data.plans} />}
+		{data.projects && <Projects data={data.projects} />}
+		{data.why && <Why data={data.why} />}
+		{data.process && <Process data={data.process} />}
+		{data.faq && <Faq data={data.faq} />}
+		{data.contact && <Contact data={data.contact} settings={settings} />}
+	</>
+)}

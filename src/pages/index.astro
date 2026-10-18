@@ -1,0 +1,16 @@
+---
+import Base from '../layouts/Base.astro';
+import TinaIsland from '@tinacms/astro/TinaIsland.astro';
+import HomeBody from '../components/HomeBody.astro';
+import { getHome, getSettings } from '../lib/data';
+import { islands } from '../lib/islands';
+
+const home = (await getHome()).data?.home;
+if (!home) return new Response('Not Found', { status: 404 });
+const settings = (await getSettings()).data?.settings ?? null;
+---
+<Base title={home.seo?.title ?? 'Kova'} description={home.seo?.description ?? ''} settings={settings}>
+	<TinaIsland name="home" wrapper={islands.home.wrapper} primary>
+		<HomeBody data={home} settings={settings} />
+	</TinaIsland>
+</Base>

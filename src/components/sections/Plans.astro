@@ -1,0 +1,40 @@
+---
+import { Icon } from 'astro-icon/components';
+import { tinaField } from '@tinacms/astro/tina-field';
+import Btn from '../ui/Btn.astro';
+import SectionHead from '../ui/SectionHead.astro';
+import { list, type Home } from '../../lib/data';
+
+interface Props { data: NonNullable<Home['plans']> }
+const { data } = Astro.props;
+const plans = list(data.items);
+---
+<section class="bg-sand py-20 md:py-28">
+	<div class="container-k">
+		<div class="reveal mx-auto max-w-2xl text-center">
+			<SectionHead eyebrow={data.eyebrow} title={data.title} eyebrowField={tinaField(data, 'eyebrow')} titleField={tinaField(data, 'title')} />
+		</div>
+		<div class="mt-14 grid items-center gap-6 lg:grid-cols-3">
+			{plans.map((p, i) => (
+				<div class="reveal" style={`transition-delay:${i * 90}ms`}>
+					<div class:list={['card-lift relative rounded-lg border bg-card p-7', p.featured && 'border-2 border-primary lg:scale-105 lg:py-10']} data-tina-field={tinaField(p)}>
+						{p.featured && p.badge && (
+							<span class="absolute -top-3 left-7 rounded-full bg-primary px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary-foreground" data-tina-field={tinaField(p, 'badge')}>{p.badge}</span>
+						)}
+						<h3 class="text-xl font-bold" data-tina-field={tinaField(p, 'name')}>{p.name}</h3>
+						<p class="mt-1 text-sm text-muted-foreground" data-tina-field={tinaField(p, 'description')}>{p.description}</p>
+						<p class="mt-6 text-4xl font-extrabold" data-tina-field={tinaField(p, 'price')}>{p.price} €</p>
+						<ul class="mt-6 space-y-3 text-sm">
+							{list(p.features).map((f, j) => (
+								<li class="flex gap-2.5" data-tina-field={tinaField(p, 'features', j)}>
+									<Icon name="lucide:check" class="size-4 shrink-0 translate-y-0.5 text-primary-strong" />{f}
+								</li>
+							))}
+						</ul>
+						<Btn href="#contacto" arrow variant={p.featured ? 'primary' : 'outline'} class="mt-8 w-full" data-tina-field={tinaField(p, 'buttonLabel')}>{p.buttonLabel}</Btn>
+					</div>
+				</div>
+			))}
+		</div>
+	</div>
+</section>

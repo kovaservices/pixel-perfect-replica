@@ -1,0 +1,33 @@
+---
+import { Icon } from 'astro-icon/components';
+import { tinaField } from '@tinacms/astro/tina-field';
+import Btn from '../ui/Btn.astro';
+import SectionHead from '../ui/SectionHead.astro';
+import { list, type Home } from '../../lib/data';
+
+interface Props { data: NonNullable<Home['faq']> }
+const { data } = Astro.props;
+const items = list(data.items);
+---
+<section class="py-20 md:py-28">
+	<div class="container-k grid gap-12 lg:grid-cols-[1fr_1.4fr] lg:gap-20">
+		<div class="reveal">
+			<SectionHead eyebrow={data.eyebrow} title={data.title} eyebrowField={tinaField(data, 'eyebrow')} titleField={tinaField(data, 'title')} />
+			<Btn href="#contacto" variant="outline" arrow class="mt-8" data-tina-field={tinaField(data, 'buttonLabel')}>{data.buttonLabel}</Btn>
+		</div>
+		<div class="reveal divide-y border-y" style="transition-delay:100ms">
+			{items.map((f, i) => (
+				<div class="faq-item" data-open={i === 0 ? 'true' : 'false'} data-tina-field={tinaField(f)}>
+					<button type="button" data-faq-toggle aria-expanded={i === 0 ? 'true' : 'false'}
+						class="flex w-full items-center justify-between gap-4 py-5 text-left text-lg font-semibold transition-colors hover:text-primary-strong">
+						<span data-tina-field={tinaField(f, 'question')}>{f.question}</span>
+						<Icon name="lucide:plus" class="faq-icon size-5 shrink-0 text-primary-strong" />
+					</button>
+					<div class="faq-panel">
+						<p class="overflow-hidden pr-8 text-muted-foreground"><span class="block pb-5" data-tina-field={tinaField(f, 'answer')}>{f.answer}</span></p>
+					</div>
+				</div>
+			))}
+		</div>
+	</div>
+</section>

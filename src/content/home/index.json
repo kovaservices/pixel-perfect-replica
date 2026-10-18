@@ -1,0 +1,173 @@
+{
+  "seo": {
+    "title": "Kova — Webs para tu negocio que puedes editar tú mismo",
+    "description": "Agencia de diseño web en Ciudad Real. Diseñamos tu web, la ponemos a tu nombre y te enseñamos a cambiarla."
+  },
+  "hero": {
+    "titleStart": "Webs para tu negocio que puedes",
+    "titleHighlight": "editar tú mismo",
+    "subtitle": "Diseñamos tu web, la ponemos a tu nombre y te enseñamos a cambiarla. Sin complicaciones.",
+    "priceLabel": "desde",
+    "price": "[PRECIO]",
+    "emailPlaceholder": "Tu email",
+    "buttonLabel": "Quiero mi presupuesto",
+    "callLinkLabel": "Prefiero que me llaméis",
+    "images": {
+      "laptopMain": "/uploads/p1.jpg",
+      "laptopSecond": "/uploads/p2.jpg",
+      "phone": "/uploads/p4-mobile.jpg"
+    }
+  },
+  "includes": {
+    "eyebrow": "Qué incluye",
+    "title": "Una web que es tuya de verdad",
+    "text": "Sin letra pequeña. Tu web, tu dominio y las llaves para cambiarla cuando quieras. Te lo dejamos todo listo para que solo te ocupes de tu negocio.",
+    "items": [
+      "Diseño a medida",
+      "Dominio a tu nombre",
+      "Editor para cambiar textos y fotos",
+      "Adaptada a móvil",
+      "SEO básico",
+      "Textos legales",
+      "Formulario de contacto",
+      "Formación incluida"
+    ]
+  },
+  "priceBand": {
+    "label": "Tu web desde",
+    "price": "[PRECIO]",
+    "note": "Te respondemos en menos de 24 horas",
+    "buttonLabel": "Pedir presupuesto"
+  },
+  "plans": {
+    "eyebrow": "Modalidades",
+    "title": "Elige cómo quieres tu web",
+    "items": [
+      {
+        "name": "Solo diseño",
+        "description": "Para quien ya tiene quien la monte.",
+        "price": "[PRECIO]",
+        "featured": false,
+        "badge": "",
+        "features": [
+          "Diseño a medida",
+          "Versión móvil y ordenador",
+          "Hasta 2 cambios de diseño",
+          "Archivos listos para desarrollar"
+        ],
+        "buttonLabel": "Lo quiero"
+      },
+      {
+        "name": "Web llave en mano",
+        "description": "Te la damos hecha y funcionando.",
+        "price": "[PRECIO]",
+        "featured": true,
+        "badge": "La más elegida",
+        "features": [
+          "Todo lo de Solo diseño",
+          "Web programada y publicada",
+          "Dominio a tu nombre",
+          "Editor para cambiar textos y fotos",
+          "Formación incluida"
+        ],
+        "buttonLabel": "Lo quiero"
+      },
+      {
+        "name": "Web con mantenimiento",
+        "description": "Nos ocupamos de todo, siempre.",
+        "price": "[PRECIO]",
+        "featured": false,
+        "badge": "",
+        "features": [
+          "Todo lo de Llave en mano",
+          "Actualizaciones y copias de seguridad",
+          "Pequeños cambios cuando los pidas",
+          "Ayuda por teléfono y WhatsApp"
+        ],
+        "buttonLabel": "Lo quiero"
+      }
+    ]
+  },
+  "projects": {
+    "eyebrow": "Proyectos",
+    "title": "Algunas webs que hemos hecho",
+    "items": [
+      {
+        "name": "Horno Santa María",
+        "description": "[EJEMPLO] Panadería artesana con pedidos por teléfono.",
+        "tag": "Diseño web",
+        "image": "/uploads/p1.jpg",
+        "url": "https://example.com"
+      },
+      {
+        "name": "Fisio Alarcos",
+        "description": "[EJEMPLO] Clínica de fisioterapia con reserva de citas.",
+        "tag": "Diseño web",
+        "image": "/uploads/p2.jpg",
+        "url": "https://example.com"
+      },
+      {
+        "name": "Despensa Manchega",
+        "description": "[EJEMPLO] Aceite y queso de La Mancha a domicilio.",
+        "tag": "Tienda online",
+        "image": "/uploads/p3.jpg",
+        "url": "https://example.com"
+      },
+      {
+        "name": "Estudio Lúa",
+        "description": "[EJEMPLO] Peluquería con galería y servicios.",
+        "tag": "Diseño web",
+        "image": "/uploads/p4.jpg",
+        "url": "https://example.com"
+      },
+      {
+        "name": "Barro Vivo",
+        "description": "[EJEMPLO] Cerámica hecha a mano, venta online.",
+        "tag": "Tienda online",
+        "image": "/uploads/p5.jpg",
+        "url": "https://example.com"
+      }
+    ]
+  },
+  "why": {
+    "eyebrow": "Por qué Kova",
+    "title": "Fácil, cerca y sin sorpresas",
+    "items": [
+      { "icon": "map-pin", "title": "Somos de aquí", "text": "Trabajamos con negocios de Ciudad Real, en persona." },
+      { "icon": "key-round", "title": "La web es tuya", "text": "Dominio y web a tu nombre. Desde el primer día." },
+      { "icon": "pencil-line", "title": "La editas tú", "text": "Cambia textos y fotos sin tener que llamarnos." },
+      { "icon": "badge-euro", "title": "Precio cerrado", "text": "Sabes lo que pagas desde el principio." }
+    ]
+  },
+  "process": {
+    "eyebrow": "Cómo trabajamos",
+    "title": "Cuatro pasos y tu web está lista",
+    "text": "Te acompañamos de principio a fin. Sin jerga, sin esperas eternas. Siempre sabes en qué punto estamos.",
+    "steps": [
+      { "title": "Reunión", "text": "Nos cuentas tu negocio y qué necesitas. En persona o por teléfono." },
+      { "title": "Diseño", "text": "Ves el diseño antes de que lo programemos. Lo ajustamos contigo." },
+      { "title": "Desarrollo", "text": "Montamos la web, la adaptamos a móvil y la dejamos lista." },
+      { "title": "Entrega y formación", "text": "La publicamos a tu nombre y te enseñamos a editarla." }
+    ]
+  },
+  "faq": {
+    "eyebrow": "Preguntas",
+    "title": "Quizá te preguntes esto",
+    "buttonLabel": "Contacto",
+    "items": [
+      { "question": "¿La web será mía?", "answer": "Sí. El dominio y la web van a tu nombre desde el primer día. Es tuya, no nuestra." },
+      { "question": "¿Hay cuotas mensuales?", "answer": "Solo si eliges la modalidad con mantenimiento. Si no, pagas una vez y listo (más el dominio y el alojamiento, que te explicamos claro)." },
+      { "question": "¿Puedo cambiar los textos yo?", "answer": "Claro. Te dejamos un editor sencillo y te enseñamos a usarlo. Textos y fotos, cuando quieras." },
+      { "question": "¿Cuánto tardáis?", "answer": "Depende de la web, pero te damos una fecha cerrada antes de empezar." },
+      { "question": "¿Qué pasa si quiero irme?", "answer": "Te vas con tu web y tu dominio. Sin permanencias ni ataduras." },
+      { "question": "¿Hacéis tiendas online?", "answer": "Sí. Hacemos tiendas sencillas de gestionar para que vendas tus productos por internet." }
+    ]
+  },
+  "contact": {
+    "eyebrow": "Contacto",
+    "title": "¿Hablamos?",
+    "text": "Cuéntanos qué necesitas y te preparamos un presupuesto sin compromiso.",
+    "messagePlaceholder": "¿A qué se dedica tu negocio y qué web necesitas?",
+    "buttonLabel": "Quiero mi presupuesto"
+  }
+}

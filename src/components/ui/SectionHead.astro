@@ -1,0 +1,14 @@
+---
+interface Props {
+	eyebrow?: string | null;
+	title?: string | null;
+	eyebrowField?: string;
+	titleField?: string;
+	class?: string;
+}
+const { eyebrow, title, eyebrowField, titleField, class: className = '' } = Astro.props;
+---
+<div class={className}>
+	{eyebrow && <p class="eyebrow" data-tina-field={eyebrowField}>{eyebrow}</p>}
+	{title && <h2 class="mt-3 text-3xl font-extrabold md:text-[2.75rem]" data-tina-field={titleField}>{title}</h2>}
+</div>

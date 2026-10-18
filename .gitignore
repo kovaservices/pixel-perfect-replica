@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.astro/
+.env
+.env.*
+!.env.example
+tina/__generated__
+*.log
+.DS_Store
+.wrangler

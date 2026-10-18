@@ -1,0 +1,32 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+	href?: string;
+	type?: 'button' | 'submit';
+	variant?: 'primary' | 'outline' | 'outline-ink';
+	arrow?: boolean;
+	class?: string;
+	target?: string;
+	[key: string]: unknown;
+}
+
+const { href, type = 'button', variant = 'primary', arrow = false, class: className = '', ...rest } = Astro.props;
+
+const variants = {
+	primary: 'bg-primary text-primary-foreground hover:bg-primary-hover',
+	outline: 'border border-foreground/20 text-foreground hover:border-primary-strong hover:text-primary-strong',
+	'outline-ink': 'border border-ink-border text-ink-foreground hover:border-primary hover:text-primary',
+};
+const cls = `btn-arrow inline-flex items-center justify-center gap-2 rounded-lg px-5 py-3 text-sm font-semibold whitespace-nowrap transition-colors duration-200 ${variants[variant]} ${className}`;
+const external = typeof rest.target === 'string' && rest.target === '_blank';
+---
+{href ? (
+	<a href={href} class={cls} rel={external ? 'noreferrer noopener' : undefined} {...rest}>
+		<slot />{arrow && <Icon name="lucide:arrow-right" class="size-4" />}
+	</a>
+) : (
+	<button type={type} class={cls} {...rest}>
+		<slot />{arrow && <Icon name="lucide:arrow-right" class="size-4" />}
+	</button>
+)}

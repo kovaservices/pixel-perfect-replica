@@ -1,0 +1,145 @@
+@import "tailwindcss";
+
+/* Colores sacados del logo de Kova:
+   amarillo #F0BA58 · coral #F07458 · fondo azul noche #05031C */
+@theme {
+  --font-sans: "Plus Jakarta Sans Variable", "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+
+  --color-background: #FAFAF7;
+  --color-foreground: #13112A;
+  --color-card: #FFFFFF;
+  --color-muted: #F2EFE9;
+  --color-muted-foreground: #66647A;
+  --color-border: #E7E3DC;
+  --color-sand: #F2EFE9;
+
+  --color-primary: #F07458;          /* coral del logo: rellenos y fondos oscuros */
+  --color-primary-hover: #F58A70;
+  --color-primary-strong: #B9452A;   /* coral oscuro: texto sobre fondo claro (contraste AA) */
+  --color-primary-foreground: #05031C;
+  --color-gold: #F0BA58;             /* amarillo del logo */
+
+  --color-ink: #05031C;
+  --color-ink-raised: #0D0B2A;
+  --color-ink-deep: #020111;
+  --color-ink-foreground: #FFFFFF;
+  --color-ink-muted: #A9A7C2;
+  --color-ink-border: rgb(255 255 255 / 0.12);
+
+  --color-whatsapp: #25D366;
+
+  --radius-lg: 10px;
+  --radius-xl: 14px;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3 { letter-spacing: -0.025em; line-height: 1.1; }
+  * { border-color: var(--color-border); }
+  :focus-visible { outline: 2px solid var(--color-primary); outline-offset: 2px; }
+}
+
+@utility container-k { width: 100%; max-width: 1200px; margin-inline: auto; padding-inline: 1.25rem; }
+
+@utility eyebrow {
+  font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--color-primary-strong);
+}
+
+@utility section-ink {
+  background-color: var(--color-ink);
+  color: var(--color-ink-foreground);
+  background-image:
+    radial-gradient(700px circle at 100% 0%, rgb(240 116 88 / 0.16), transparent 60%),
+    radial-gradient(600px circle at 0% 100%, rgb(240 186 88 / 0.07), transparent 60%);
+  & .eyebrow { color: var(--color-primary); }
+}
+
+@utility grid-texture {
+  background-image:
+    radial-gradient(700px circle at 100% 0%, rgb(240 116 88 / 0.18), transparent 60%),
+    radial-gradient(600px circle at 0% 100%, rgb(240 186 88 / 0.08), transparent 60%),
+    linear-gradient(rgb(255 255 255 / 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(255 255 255 / 0.04) 1px, transparent 1px);
+  background-size: auto, auto, 40px 40px, 40px 40px;
+}
+
+@utility text-gradient {
+  background-image: linear-gradient(100deg, var(--color-gold), var(--color-primary));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+
+@utility card-lift {
+  transition: transform .3s ease, box-shadow .3s ease;
+  &:hover { transform: translateY(-4px); box-shadow: 0 14px 32px -14px rgb(19 17 42 / 0.22); }
+}
+
+@utility btn-arrow {
+  & svg { transition: transform .25s ease; }
+  &:hover svg { transform: translateX(4px); }
+}
+
+@utility field {
+  width: 100%; border-radius: 0.5rem; border: 1px solid var(--color-border); background: var(--color-card);
+  padding: 0.75rem 1rem; font-size: 0.875rem; color: var(--color-foreground); outline: none;
+  transition: border-color .2s, box-shadow .2s;
+  &::placeholder { color: var(--color-muted-foreground); }
+  &:focus { border-color: var(--color-primary); box-shadow: 0 0 0 3px rgb(240 116 88 / 0.2); }
+}
+
+/* Cabecera: transparente sobre la portada y oscura al hacer scroll */
+#site-header[data-scrolled="true"] {
+  background: rgb(5 3 28 / 0.78);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-ink-border);
+}
+#site-header[data-scrolled="true"] .header-row { height: 4rem; }
+#mobile-menu-toggle .icon-close { display: none; }
+#mobile-menu-toggle[aria-expanded="true"] .icon-open { display: none; }
+#mobile-menu-toggle[aria-expanded="true"] .icon-close { display: block; }
+
+/* Aparición suave al hacer scroll */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity .55s ease, transform .55s ease; }
+.reveal.is-visible { opacity: 1; transform: none; }
+
+/* Mockups flotando en la portada */
+@keyframes float { 0%,100% { transform: translateY(0) rotate(var(--rot,0deg)); } 50% { transform: translateY(-12px) rotate(var(--rot,0deg)); } }
+.float { animation: float 7s ease-in-out infinite; }
+.float-delay { animation-delay: -3.5s; }
+
+/* Carrusel de proyectos */
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.marquee { animation: marquee 50s linear infinite; }
+.marquee:hover, .marquee:focus-within { animation-play-state: paused; }
+
+/* Preguntas frecuentes */
+.faq-panel { display: grid; grid-template-rows: 0fr; opacity: 0; transition: grid-template-rows .3s ease, opacity .3s ease; }
+.faq-item[data-open="true"] .faq-panel { grid-template-rows: 1fr; opacity: 1; }
+.faq-item .faq-icon { transition: transform .3s ease; }
+.faq-item[data-open="true"] .faq-icon { transform: rotate(45deg); }
+
+/* Ventana de proyecto */
+#project-dialog { margin: auto; border: 0; padding: 0; background: transparent; max-width: min(48rem, 92vw); width: 100%; }
+#project-dialog::backdrop { background: rgb(5 3 28 / 0.72); backdrop-filter: blur(4px); }
+#project-dialog[open] > div { animation: dialog-in .25s ease-out; }
+@keyframes dialog-in { from { opacity: 0; transform: scale(.96); } to { opacity: 1; transform: none; } }
+
+/* Botón de WhatsApp */
+@keyframes pulse-soft { 0%, 70%, 100% { box-shadow: 0 0 0 0 rgb(37 211 102 / 0.45); } 85% { box-shadow: 0 0 0 14px rgb(37 211 102 / 0); } }
+.pulse-soft { animation: pulse-soft 4s ease-out infinite; }
+
+/* Dentro del editor de Tina: todo visible y el carrusel quieto para poder hacer clic */
+html.tina-edit .reveal { opacity: 1; transform: none; }
+html.tina-edit .marquee { animation-play-state: paused; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  .reveal { opacity: 1; transform: none; }
+}

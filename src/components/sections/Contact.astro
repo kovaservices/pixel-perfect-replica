@@ -1,0 +1,45 @@
+---
+import { Icon } from 'astro-icon/components';
+import { tinaField } from '@tinacms/astro/tina-field';
+import Btn from '../ui/Btn.astro';
+import { contactLinks, type Home, type Settings } from '../../lib/data';
+
+interface Props { data: NonNullable<Home['contact']>; settings?: Settings | null }
+const { data, settings } = Astro.props;
+const links = contactLinks(settings);
+const items = [
+	{ icon: 'lucide:phone', label: 'Teléfono', value: settings?.phone, href: links.tel, field: settings ? tinaField(settings, 'phone') : undefined },
+	{ icon: 'lucide:message-circle', label: 'WhatsApp', value: 'Escríbenos', href: links.whatsapp, field: settings ? tinaField(settings, 'whatsapp') : undefined, external: true },
+	{ icon: 'lucide:mail', label: 'Email', value: settings?.email, href: links.mailto, field: settings ? tinaField(settings, 'email') : undefined },
+];
+---
+<section id="contacto" class="section-ink py-20 md:py-28">
+	<div class="container-k grid gap-12 lg:grid-cols-2 lg:gap-20">
+		<div class="reveal">
+			<p class="eyebrow" data-tina-field={tinaField(data, 'eyebrow')}>{data.eyebrow}</p>
+			<h2 class="mt-3 text-4xl font-extrabold md:text-5xl" data-tina-field={tinaField(data, 'title')}>{data.title}</h2>
+			<p class="mt-5 max-w-md text-ink-muted" data-tina-field={tinaField(data, 'text')}>{data.text}</p>
+			<ul class="mt-10 space-y-5">
+				{items.map((it) => (
+					<li>
+						<a href={it.href} class="group flex items-center gap-4" target={it.external ? '_blank' : undefined} rel={it.external ? 'noreferrer noopener' : undefined}>
+							<span class="grid size-12 place-items-center rounded-lg border border-ink-border text-primary transition-colors group-hover:border-primary"><Icon name={it.icon} class="size-5" /></span>
+							<span><span class="block text-xs text-ink-muted">{it.label}</span><span class="font-semibold" data-tina-field={it.field}>{it.value}</span></span>
+						</a>
+					</li>
+				))}
+			</ul>
+		</div>
+		<form data-demo-form class="reveal grid gap-4 rounded-xl bg-card p-6 text-foreground sm:grid-cols-2 md:p-8" style="transition-delay:100ms">
+			<input aria-label="Nombre" placeholder="Nombre" class="field" />
+			<input aria-label="Teléfono" type="tel" placeholder="Teléfono" class="field" />
+			<input aria-label="Email" type="email" placeholder="Email" class="field sm:col-span-2" />
+			<textarea aria-label="Tu negocio y qué web necesitas" rows="4" placeholder={data.messagePlaceholder ?? ''} class="field resize-none sm:col-span-2" data-tina-field={tinaField(data, 'messagePlaceholder')}></textarea>
+			<label class="flex items-start gap-3 text-sm text-muted-foreground sm:col-span-2">
+				<input type="checkbox" class="mt-1 size-4 accent-primary" />
+				<span>He leído y acepto la <a href="#" class="text-primary-strong hover:underline">política de privacidad</a>.</span>
+			</label>
+			<Btn type="submit" arrow class="w-full py-3.5 sm:col-span-2" data-tina-field={tinaField(data, 'buttonLabel')}>{data.buttonLabel}</Btn>
+		</form>
+	</div>
+</section>

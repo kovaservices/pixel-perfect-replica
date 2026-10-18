@@ -1,0 +1,25 @@
+---
+import { Icon } from 'astro-icon/components';
+import { tinaField } from '@tinacms/astro/tina-field';
+import Btn from '../ui/Btn.astro';
+import type { Home } from '../../lib/data';
+
+interface Props { data: NonNullable<Home['priceBand']> }
+const { data } = Astro.props;
+---
+<section class="section-ink py-16 md:py-20">
+	<div class="container-k grid items-center gap-10 lg:grid-cols-[auto_1fr] lg:gap-16">
+		<div class="reveal">
+			<p class="text-ink-muted" data-tina-field={tinaField(data, 'label')}>{data.label}</p>
+			<p class="text-5xl font-extrabold md:text-6xl" data-tina-field={tinaField(data, 'price')}>{data.price} €</p>
+			<p class="mt-3 flex items-center gap-2 text-sm text-ink-muted" data-tina-field={tinaField(data, 'note')}><Icon name="lucide:check" class="size-4 text-primary" />{data.note}</p>
+		</div>
+		<form data-demo-form class="reveal grid gap-3 sm:grid-cols-2 lg:grid-cols-[1fr_1fr_1fr_1.2fr_auto]" style="transition-delay:100ms">
+			<input aria-label="Nombre" placeholder="Nombre" class="field" />
+			<input aria-label="Email" type="email" placeholder="Email" class="field" />
+			<input aria-label="Teléfono" type="tel" placeholder="Teléfono" class="field" />
+			<input aria-label="Qué web necesitas" placeholder="¿Qué web necesitas?" class="field" />
+			<Btn type="submit" arrow class="sm:col-span-2 lg:col-span-1" data-tina-field={tinaField(data, 'buttonLabel')}>{data.buttonLabel}</Btn>
+		</form>
+	</div>
+</section>
