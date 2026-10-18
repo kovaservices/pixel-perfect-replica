@@ -9,7 +9,8 @@ import HomeBody from '../components/HomeBody.astro';
 import LegalBody from '../components/LegalBody.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { getHome, getLegal, getSettings } from './data';
+import NotFoundBody from '../components/NotFoundBody.astro';
+import { getHome, getLegal, getSettings, getSettingsPrimary } from './data';
 
 const settingsProps = (data: unknown) => ({
 	settings: (data as QueryResult<SettingsQuery>).data?.settings,
@@ -27,6 +28,12 @@ export const islands: IslandRegistry = {
 		component: LegalBody,
 		wrapper: { tag: 'main' },
 		propsFromData: (data) => ({ data: (data as QueryResult<LegalQuery>).data?.legal }),
+	},
+	notFound: {
+		fetch: () => getSettingsPrimary(),
+		component: NotFoundBody,
+		wrapper: { tag: 'main' },
+		propsFromData: settingsProps,
 	},
 	header: {
 		fetch: () => getSettings(),

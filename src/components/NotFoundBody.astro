@@ -1,0 +1,20 @@
+---
+import { tinaField } from '@tinacms/astro/tina-field';
+import Btn from './ui/Btn.astro';
+import type { Settings } from '../lib/data';
+
+interface Props { settings?: Settings | null }
+const { settings } = Astro.props;
+const nf = settings?.notFound;
+---
+<section class="section-ink grid-texture flex min-h-[80vh] items-center pt-32 pb-20 md:pt-40 md:pb-28">
+	<div class="container-k">
+		<p class="text-gradient text-7xl font-extrabold leading-none md:text-9xl" aria-hidden="true">404</p>
+		<h1 class="mt-6 max-w-2xl text-4xl font-extrabold md:text-5xl" data-tina-field={nf ? tinaField(nf, 'title') : undefined}>{nf?.title ?? 'Esta página no existe'}</h1>
+		{nf?.text && <p class="mt-5 max-w-xl text-lg text-ink-muted" data-tina-field={tinaField(nf, 'text')}>{nf.text}</p>}
+		<div class="mt-10 flex flex-wrap items-center gap-4">
+			<Btn href="/" arrow data-tina-field={nf ? tinaField(nf, 'button') : undefined}>{nf?.button ?? 'Volver al inicio'}</Btn>
+			{nf?.contactLink && <Btn href="/#contacto" variant="outline-ink" data-tina-field={tinaField(nf, 'contactLink')}>{nf.contactLink}</Btn>}
+		</div>
+	</div>
+</section>

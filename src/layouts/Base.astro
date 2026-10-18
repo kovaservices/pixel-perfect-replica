@@ -7,8 +7,8 @@ import Footer from '../components/Footer.astro';
 import { islands } from '../lib/islands';
 import type { Settings } from '../lib/data';
 
-interface Props { title: string; description: string; settings?: Settings | null; image?: string | null }
-const { title, description, settings, image } = Astro.props;
+interface Props { title: string; description: string; settings?: Settings | null; image?: string | null; noindex?: boolean }
+const { title, description, settings, image, noindex = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const ogImage = new URL(image || '/og-kova.png', Astro.site);
 const sameAs = Object.values(settings?.social ?? {}).filter((v): v is string => typeof v === 'string' && /^https?:\/\//.test(v));
@@ -35,7 +35,7 @@ const schema = {
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title>{title}</title>
 		<meta name="description" content={description} />
-		<link rel="canonical" href={canonical} />
+		{noindex ? <meta name="robots" content="noindex" /> : <link rel="canonical" href={canonical} />}
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="theme-color" content="#05031C" />
 		<meta property="og:type" content="website" />

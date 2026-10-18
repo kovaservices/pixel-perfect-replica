@@ -1,0 +1,14 @@
+---
+import Base from '../layouts/Base.astro';
+import TinaIsland from '@tinacms/astro/TinaIsland.astro';
+import NotFoundBody from '../components/NotFoundBody.astro';
+import { getSettingsPrimary } from '../lib/data';
+import { islands } from '../lib/islands';
+
+const settings = (await getSettingsPrimary()).data?.settings ?? null;
+---
+<Base title="Página no encontrada · Kova" description="La página que buscas no existe." settings={settings} noindex>
+	<TinaIsland name="notFound" wrapper={islands.notFound.wrapper} primary>
+		<NotFoundBody settings={settings} />
+	</TinaIsland>
+</Base>
