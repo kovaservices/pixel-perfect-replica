@@ -1,0 +1,27 @@
+name: Compilación
+
+on:
+  push:
+    branches: [web-astro]
+  pull_request:
+    branches: [web-astro]
+
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - run: npm ci
+
+      # Compila sin Tina Cloud, así no hacen falta secretos.
+      - run: npm run build:local
