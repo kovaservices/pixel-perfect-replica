@@ -30,6 +30,15 @@ Y abre en el navegador:
 
 Para pararla, vuelve a la terminal y pulsa `Ctrl + C`.
 
+### Atajos para Windows
+
+En la carpeta del proyecto hay dos scripts que se abren con doble clic:
+
+- **`iniciar.bat`**: arranca la web y abre el navegador en cuanto está lista. Si ya estaba en marcha, solo abre el navegador. La primera vez instala lo necesario.
+- **`actualizar.bat`**: descarga de GitHub los últimos cambios. Si en tu ordenador hay cambios que aún no están en GitHub (por ejemplo, textos editados con Tina), te pregunta si quieres guardarlos y subirlos antes de actualizar. Si hay dependencias nuevas, las instala.
+
+Después de actualizar, si la web estaba abierta, ciérrala con `Ctrl + C` y vuelve a abrirla con `iniciar.bat`.
+
 ## Cómo se edita
 
 En `/admin` pulsa **Enter Edit Mode**. Verás la web a la derecha y los campos a la izquierda. Haz clic en cualquier texto o imagen de la web para ir a su campo; los cambios se ven al momento y se guardan con **Save**.
