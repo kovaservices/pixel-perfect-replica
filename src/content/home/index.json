@@ -10,7 +10,7 @@
     "titleEnd": "para tu negocio",
     "subtitle": "Webs, tiendas online, aplicaciones y software hechos para cómo trabaja tu negocio. Hablamos claro, trabajamos contigo y todo lo que hacemos es tuyo desde el primer día.",
     "priceLabel": "Webs desde",
-    "price": "[PRECIO]",
+    "price": "500",
     "emailPlaceholder": "Tu email",
     "buttonLabel": "Quiero mi presupuesto",
     "callLinkLabel": "Prefiero que me llaméis",
@@ -77,7 +77,7 @@
   },
   "priceBand": {
     "label": "Tu web desde",
-    "price": "[PRECIO]",
+    "price": "500",
     "note": "Te respondemos en menos de 24 horas",
     "buttonLabel": "Pedir presupuesto"
   },
@@ -88,13 +88,13 @@
       {
         "name": "Solo diseño",
         "description": "Para quien ya tiene quien la monte.",
-        "price": "[PRECIO]",
+        "price": "500",
         "featured": false,
         "badge": "",
         "features": [
           "Diseño a medida",
           "Versión móvil y ordenador",
-          "Hasta 2 cambios de diseño",
+          "Hasta 20 cambios de diseño",
           "Archivos listos para desarrollar"
         ],
         "buttonLabel": "Lo quiero"
@@ -102,7 +102,7 @@
       {
         "name": "Web llave en mano",
         "description": "Te la damos hecha y funcionando.",
-        "price": "[PRECIO]",
+        "price": "799",
         "featured": true,
         "badge": "La más elegida",
         "features": [
@@ -117,7 +117,7 @@
       {
         "name": "Web con mantenimiento",
         "description": "Nos ocupamos de todo, siempre.",
-        "price": "[PRECIO]",
+        "price": "1299",
         "featured": false,
         "badge": "",
         "features": [

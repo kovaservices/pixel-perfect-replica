@@ -29,8 +29,19 @@ rem --- ¿Hay cambios en este ordenador que no están guardados en Git? ---
 set "LOCALES="
 for /f "delims=" %%l in ('git status --porcelain') do set "LOCALES=1"
 
+rem --- ¿Hay cambios guardados aquí que no llegaron a subirse (por ejemplo, de una vez anterior que falló)? ---
+set "PENDIENTES=0"
+for /f "delims=" %%n in ('git rev-list --count origin/%RAMA%..HEAD') do set "PENDIENTES=%%n"
+
 if not defined LOCALES (
-    git pull --ff-only origin %RAMA% || goto :fallo
+    if "!PENDIENTES!"=="0" (
+        git pull --ff-only origin %RAMA% || goto :fallo
+        goto :dependencias
+    )
+    echo Hay cambios guardados en este ordenador que aún no están en GitHub. Subiéndolos...
+    git pull --rebase origin %RAMA% || goto :conflicto
+    git push origin %RAMA% || goto :fallo
+    echo Cambios subidos a GitHub.
     goto :dependencias
 )
 
@@ -102,9 +113,11 @@ goto :fin
 
 :conflicto
 echo.
-echo [AVISO] Tus cambios chocan con los de GitHub en los mismos archivos.
-echo Se deja todo como estaba. Pide ayuda antes de seguir.
 git rebase --abort >nul 2>nul
+echo [AVISO] Tus cambios tocan las mismas líneas que otros cambios que ya están en GitHub,
+echo y Git no sabe con cuál quedarse. No se ha perdido nada: todo sigue como estaba.
+echo Pide ayuda antes de seguir. Para evitarlo, ejecuta actualizar.bat ANTES de
+echo ponerte a editar con Tina y otra vez nada más terminar.
 goto :fin
 
 :fallo
