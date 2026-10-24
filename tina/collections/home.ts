@@ -157,7 +157,7 @@ export const HomeCollection: Collection = {
 					type: 'object',
 					name: 'custom',
 					label: 'Banda «Presupuesto a medida»',
-					description: 'Aparece debajo de las modalidades, para servicios sin precio fijo (tiendas, aplicaciones, software).',
+					description: 'Aparece debajo de las modalidades, para servicios sin precio fijo (automatizaciones, aplicaciones, software).',
 					fields: [
 						text('title', 'Título'),
 						longText('text', 'Texto'),
@@ -187,7 +187,7 @@ export const HomeCollection: Collection = {
 							type: 'string',
 							name: 'tag',
 							label: 'Tipo',
-							options: ['Diseño web', 'Tienda online'],
+							options: ['Diseño web', 'Automatización', 'Aplicación'],
 						},
 						{ type: 'image', name: 'image', label: 'Captura de la web', description: 'Horizontal, a ser posible 1280 × 800 px.' },
 						text('url', 'Enlace a la web', 'Dirección completa, empezando por https://'),

@@ -4,7 +4,7 @@ Instrucciones para Claude cuando trabaje en este repositorio. Responde siempre e
 
 ## Qué es esto
 
-La web de Kova, una empresa de soluciones digitales a medida (webs, tiendas online, aplicaciones y software). Eslogan: «Soluciones digitales a medida para tu negocio». No escribas textos que hagan parecer a Kova una empresa que está empezando, no uses como gancho principal que el cliente puede editar la web, y no menciones Ciudad Real en el título, la descripción SEO ni el eslogan (sí en «Somos de aquí», el pie y el JSON-LD).
+La web de Kova, una empresa de soluciones digitales a medida (webs, automatizaciones, aplicaciones y software). Eslogan: «Soluciones digitales a medida para tu negocio». No escribas textos que hagan parecer a Kova una empresa que está empezando, no uses como gancho principal que el cliente puede editar la web, y no menciones Ciudad Real en el título, la descripción SEO ni el eslogan (sí en «Somos de aquí», el pie y el JSON-LD).
 
 ## Ramas y Git
 

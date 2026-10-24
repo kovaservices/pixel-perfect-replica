@@ -1,14 +1,14 @@
 {
   "seo": {
     "title": "Kova — Soluciones digitales a medida",
-    "description": "Webs, tiendas online, aplicaciones y software a medida para tu negocio. Hablamos claro, trabajamos contigo y todo lo que hacemos es tuyo.",
+    "description": "Webs, automatizaciones, aplicaciones y software a medida para tu negocio. Hablamos claro, trabajamos contigo y todo lo que hacemos es tuyo.",
     "image": "/og-kova.png"
   },
   "hero": {
     "titleStart": "Soluciones digitales",
     "titleHighlight": "a medida",
     "titleEnd": "para tu negocio",
-    "subtitle": "Webs, tiendas online, aplicaciones y software hechos para cómo trabaja tu negocio. Hablamos claro, trabajamos contigo y todo lo que hacemos es tuyo desde el primer día.",
+    "subtitle": "Webs, automatizaciones, aplicaciones y software hechos para cómo trabaja tu negocio. Hablamos claro, trabajamos contigo y todo lo que hacemos es tuyo desde el primer día.",
     "priceLabel": "Webs desde",
     "price": "500",
     "emailPlaceholder": "Tu email",
@@ -37,20 +37,20 @@
         "buttonLabel": "Pedir presupuesto"
       },
       {
-        "icon": "shopping-bag",
-        "title": "Tiendas online",
-        "text": "Vende tus productos por internet con una tienda fácil de gestionar, con pagos, envíos y todo lo legal en orden.",
+        "icon": "workflow",
+        "title": "Automatizaciones",
+        "text": "Las tareas que repites cada día, hechas solas: citas, avisos, facturas y datos que pasan de una herramienta a otra sin tocarlos.",
         "features": [
-          "Pagos con tarjeta y Bizum",
-          "Gestión de pedidos y stock",
-          "Textos legales de venta"
+          "Conectamos las herramientas que ya usas",
+          "Avisos y recordatorios automáticos",
+          "Menos errores y menos horas perdidas"
         ],
         "buttonLabel": "Pedir presupuesto"
       },
       {
         "icon": "app-window",
         "title": "Aplicaciones y software a medida",
-        "text": "Herramientas hechas para tu forma de trabajar: reservas, paneles de gestión, automatizaciones o tu propio software como servicio.",
+        "text": "Herramientas hechas para tu forma de trabajar: sistemas de reservas, paneles de gestión, áreas de clientes o tu propio software como servicio.",
         "features": [
           "Análisis de tu caso",
           "Web, móvil o escritorio",
@@ -132,12 +132,12 @@
     ],
     "custom": {
       "title": "¿Necesitas algo más que una web?",
-      "text": "Tiendas online, aplicaciones, paneles de gestión o software a medida. Cuéntanos tu caso y te preparamos un presupuesto cerrado en 24-48 horas, sin compromiso.",
+      "text": "Automatizaciones, aplicaciones, paneles de gestión o software a medida. Cuéntanos tu caso y te preparamos un presupuesto cerrado en 24-48 horas, sin compromiso.",
       "tags": [
-        "Tiendas online",
+        "Automatizaciones",
         "Aplicaciones web y móviles",
-        "Software a medida",
-        "Automatizaciones"
+        "Paneles de gestión",
+        "Software a medida"
       ],
       "buttonLabel": "Pedir presupuesto a medida"
     }
@@ -160,8 +160,8 @@
       },
       {
         "name": "Despensa Manchega",
-        "description": "[EJEMPLO] Aceite y queso de La Mancha a domicilio.",
-        "tag": "Tienda online",
+        "description": "[EJEMPLO] Aceite y queso de La Mancha, con catálogo y pedidos por WhatsApp.",
+        "tag": "Diseño web",
         "image": "/uploads/p3.jpg"
       },
       {
@@ -172,8 +172,8 @@
       },
       {
         "name": "Barro Vivo",
-        "description": "[EJEMPLO] Cerámica hecha a mano, venta online.",
-        "tag": "Tienda online",
+        "description": "[EJEMPLO] Cerámica hecha a mano, talleres y encargos.",
+        "tag": "Diseño web",
         "image": "/uploads/p5.jpg"
       }
     ]
@@ -253,12 +253,12 @@
         "answer": "Te vas con tu web, tu dominio y tu código. Sin permanencias ni ataduras."
       },
       {
-        "question": "¿Hacéis tiendas online?",
-        "answer": "Sí. Hacemos tiendas sencillas de gestionar para que vendas tus productos por internet."
+        "question": "¿Qué podéis automatizar en mi negocio?",
+        "answer": "Casi cualquier tarea que hoy haces a mano y se repite: confirmar citas, enviar recordatorios, generar facturas, pasar datos de un sitio a otro o avisarte cuando entra un cliente. Vemos cómo trabajas y te decimos qué merece la pena automatizar."
       },
       {
         "question": "¿Desarrolláis aplicaciones o software a medida?",
-        "answer": "Sí. Analizamos cómo trabaja tu negocio y desarrollamos la herramienta que necesitas: aplicaciones web o móviles, paneles de gestión, automatizaciones o tu propio software como servicio. Te damos un presupuesto cerrado antes de empezar."
+        "answer": "Sí. Analizamos cómo trabaja tu negocio y desarrollamos la herramienta que necesitas: aplicaciones web o móviles, paneles de gestión o tu propio software como servicio. Te damos un presupuesto cerrado antes de empezar."
       }
     ]
   },
