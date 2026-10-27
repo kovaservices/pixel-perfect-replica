@@ -8,9 +8,9 @@
   },
   "scripts": {
     "dev": "tinacms dev -c \"astro dev\"",
-    "build": "npm run build:local && node scripts/quitar-admin.mjs",
+    "build": "tinacms build -c \"astro build\"",
     "build:local": "tinacms build --local --skip-cloud-checks -c \"astro build\"",
-    "build:tina-cloud": "tinacms build -c \"astro build\"",
+    "build:sin-admin": "npm run build:local && node scripts/quitar-admin.mjs",
     "preview": "astro preview",
     "astro": "astro"
   },

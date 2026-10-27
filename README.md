@@ -52,13 +52,21 @@ En local, Tina guarda los cambios directamente en los archivos del proyecto:
 
 Después de editar, guarda los cambios en GitHub con `git add`, `git commit` y `git push` (o con `actualizar.bat`). Cloudflare vuelve a publicar la web sola en un par de minutos.
 
-### El editor no se publica
+En tu ordenador `/admin` no pide contraseña: el editor local solo cambia tus archivos, y para que algo llegue a la web hay que subirlo a GitHub.
 
-El editor solo existe en tu ordenador. La web publicada no incluye `/admin`: quien entre en esa dirección verá la página de «no encontrada». Así nadie de fuera puede tocar la web, sin contraseñas ni cuentas que mantener. Para cambiar algo hace falta poder subir cambios al repositorio de GitHub, que es justo lo que solo tenéis los socios.
+### Editar la web publicada (Tina Cloud)
 
-### Editar desde la web publicada (opcional)
+En la web publicada, `kovaservices.es/admin` pide iniciar sesión en Tina Cloud. Solo hay una cuenta con acceso, la de Kova; no invitéis a nadie más, porque cada cuenta es una puerta de entrada. Al pulsar **Save**, Tina Cloud guarda el cambio como un commit en la rama `web-astro` de GitHub y Cloudflare vuelve a publicar la web en un par de minutos.
 
-Si algún día queréis editar desde el navegador sin arrancar nada en el ordenador, la forma es Tina Cloud: `/admin` pide iniciar sesión y solo entran las personas invitadas, y cada cambio se guarda como un commit en GitHub. Pasos: crear el proyecto en [Tina Cloud](https://app.tina.io) conectado a este repositorio y a la rama `web-astro`, invitar a los socios, poner `PUBLIC_TINA_CLIENT_ID` y `TINA_TOKEN` en las variables de Cloudflare y cambiar el comando de compilación a `npm run build:tina-cloud`. El plan gratuito solo admite 2 usuarios; para los cuatro hace falta el plan Team, de pago.
+Si alternáis entre editar en la web y en local, ejecutad `actualizar.bat` antes de editar en local, para traer lo que se haya guardado desde la web.
+
+Puesta en marcha (una sola vez):
+
+1. **La cuenta.** En <https://app.tina.io>, entrad con la cuenta de GitHub de Kova. La verificación en dos pasos de esa cuenta de GitHub es la que protege el editor, así que tenedla activada. (Si preferís una cuenta de Tina con email y contraseña, activad la verificación en dos pasos en *Account Settings*.)
+2. **El proyecto.** Pulsad *Create Project*, autorizad a Tina en GitHub dándole acceso solo a este repositorio y elegid `kovaservices/pixel-perfect-replica`. En *Site URL(s)* poned `http://localhost:4321`, `https://kovaservices.es`, `https://www.kovaservices.es` y la dirección `*.workers.dev` que os dé Cloudflare. El editor solo funciona en esas direcciones.
+3. **Las claves.** Copiad el *Client ID* del proyecto y, en la pestaña *Tokens*, el *Content token* (es de solo lectura). En Cloudflare, en las variables de compilación del proyecto, añadid `PUBLIC_TINA_CLIENT_ID` con el Client ID y `TINA_TOKEN` con el token. No las subáis a GitHub.
+4. **Publicar.** Volved a lanzar la compilación en Cloudflare (comando `npm run build`). Entrad en `kovaservices.es/admin`, iniciad sesión y comprobad que un cambio pequeño se guarda y aparece en la web.
+5. **Nadie más.** En *Collaborators* del proyecto debe estar solo la cuenta de Kova.
 
 ## Contenido pendiente
 
@@ -116,6 +124,6 @@ En Cloudflare, en **Workers y Pages → Crear → Importar un repositorio**, se 
 - **Rama de producción:** `web-astro`
 - **Comando de compilación:** `npm run build`
 - **Comando de implementación:** `npx wrangler deploy`
-- **Variables:** `FORMINIT_FORM_ID` (y `FORMINIT_API_KEY` si se usa) y `NODE_VERSION` = `22.22.0`.
+- **Variables:** `FORMINIT_FORM_ID` (y `FORMINIT_API_KEY` si se usa), `NODE_VERSION` = `22.22.0`, y `PUBLIC_TINA_CLIENT_ID` y `TINA_TOKEN` de Tina Cloud (ver «Editar la web publicada»).
 
 Los pasos completos (dominio, DNS y correo) están en la guía para los socios.
