@@ -6,9 +6,9 @@ import tina from '@tinacms/astro/integration';
 import { tinaAdminDevRedirect } from '@tinacms/astro/vite';
 import tailwindcss from '@tailwindcss/vite';
 
-// Todas las páginas se generan como HTML estático. La única ruta "en vivo"
-// es /tina-island, que usa el editor visual de Tina. En Cloudflare Pages se
-// usa su adaptador automáticamente; en cualquier otro sitio, un servidor Node.
+// Todas las páginas se generan como HTML estático. Solo /tina-island (editor
+// visual de Tina) y /api/contacto van "en vivo". Al compilar en Cloudflare
+// Workers se usa su adaptador automáticamente; en cualquier otro sitio, Node.
 async function getAdapter() {
 	if (process.env.CF_PAGES || process.env.WORKERS_CI || process.env.DEPLOY_ADAPTER === 'cloudflare') {
 		return (await import('@astrojs/cloudflare')).default();
@@ -16,10 +16,10 @@ async function getAdapter() {
 	return (await import('@astrojs/node')).default({ mode: 'standalone' });
 }
 
+// Dominio para las canónicas, el sitemap y las redes sociales. Se puede
+// cambiar con SITE_URL (la vista previa de GitHub Pages lo hace).
 function getSiteUrl() {
-	if (process.env.SITE_URL) return process.env.SITE_URL;
-	if (process.env.CF_PAGES_URL) return process.env.CF_PAGES_URL;
-	return 'http://localhost:4321';
+	return process.env.SITE_URL || 'https://kovaservices.es';
 }
 
 export default defineConfig({
