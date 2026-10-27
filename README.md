@@ -50,7 +50,15 @@ En local, Tina guarda los cambios directamente en los archivos del proyecto:
 - `src/content/legal/`: aviso legal, privacidad y cookies.
 - `public/uploads/`: las imágenes que se suben desde el editor.
 
-Después de editar, guarda los cambios en GitHub con `git add`, `git commit` y `git push`.
+Después de editar, guarda los cambios en GitHub con `git add`, `git commit` y `git push` (o con `actualizar.bat`). Cloudflare vuelve a publicar la web sola en un par de minutos.
+
+### El editor no se publica
+
+El editor solo existe en tu ordenador. La web publicada no incluye `/admin`: quien entre en esa dirección verá la página de «no encontrada». Así nadie de fuera puede tocar la web, sin contraseñas ni cuentas que mantener. Para cambiar algo hace falta poder subir cambios al repositorio de GitHub, que es justo lo que solo tenéis los socios.
+
+### Editar desde la web publicada (opcional)
+
+Si algún día queréis editar desde el navegador sin arrancar nada en el ordenador, la forma es Tina Cloud: `/admin` pide iniciar sesión y solo entran las personas invitadas, y cada cambio se guarda como un commit en GitHub. Pasos: crear el proyecto en [Tina Cloud](https://app.tina.io) conectado a este repositorio y a la rama `web-astro`, invitar a los socios, poner `PUBLIC_TINA_CLIENT_ID` y `TINA_TOKEN` en las variables de Cloudflare y cambiar el comando de compilación a `npm run build:tina-cloud`. El plan gratuito solo admite 2 usuarios; para los cuatro hace falta el plan Team, de pago.
 
 ## Contenido pendiente
 

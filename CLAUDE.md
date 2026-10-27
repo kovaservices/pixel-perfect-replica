@@ -18,7 +18,8 @@ La web de Kova, una empresa de soluciones digitales a medida (webs, automatizaci
 
 - `npm run dev`: Tina + Astro en local. Web en http://localhost:4321 y editor en http://localhost:4321/admin.
 - `npm run build:local`: compila sin Tina Cloud (para comprobar que todo funciona).
-- `npm run build`: compilación de producción (necesita las variables de Tina Cloud).
+- `npm run build`: compilación de producción. Es `build:local` y además quita `/admin` de `dist/client`, porque el editor solo se usa en local y no debe publicarse.
+- `npm run build:tina-cloud`: compilación con Tina Cloud (necesita sus variables). No se usa: solo haría falta si algún día se edita desde la web publicada.
 
 Después de cualquier cambio, comprueba que `npm run build:local` termina sin errores.
 
