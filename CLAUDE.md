@@ -25,7 +25,8 @@ Después de cualquier cambio, comprueba que `npm run build:local` termina sin er
 
 ## Tecnología
 
-- Astro 6 con salida estática; el adaptador es Cloudflare si existe `CF_PAGES` y Node en el resto de casos. Solo `/tina-island/*` y `/api/contacto` son dinámicas.
+- Astro 6 con salida estática; el adaptador es Cloudflare si existe `CF_PAGES`, `WORKERS_CI` o `DEPLOY_ADAPTER=cloudflare`, y Node en el resto de casos. Solo `/tina-island/*` y `/api/contacto` son dinámicas.
+- Se publica en Cloudflare Workers (no Pages: el adaptador de Astro 6 ya no lo admite) con el dominio `https://kovaservices.es`, que es el `site` por defecto. `wrangler.jsonc` necesita `nodejs_compat` porque Tina usa `node:async_hooks`. El plan gratuito de Workers admite hasta 3 MB comprimidos de código de servidor; ahora ocupa unos 2,6 MB.
 - Tailwind v4 con `@tailwindcss/vite`. Los colores están en `src/styles/global.css`: coral `#F07458`, coral oscuro `#B9452A` para texto sobre fondo claro, amarillo `#F0BA58` y fondo oscuro `#05031C`. Usa los tokens, no colores sueltos.
 - TinaCMS 3 con `@tinacms/astro`: edición visual sin React, mediante `TinaIsland`, `tinaField` y `data-tina-field`. Cualquier texto o imagen nuevo debe ser editable: añade el campo en `tina/collections/*.ts`, el contenido en `src/content/` y el `data-tina-field` en el componente.
 - Las etiquetas de Tina están en español y numeradas como las secciones de la web («1 · Portada», «2 · Servicios»…), porque son lo que ve el cliente.
