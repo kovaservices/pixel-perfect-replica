@@ -106,8 +106,8 @@ La web se publica en **Cloudflare Workers** (el sucesor de Cloudflare Pages: Ast
 En Cloudflare, en **Workers y Pages → Crear → Importar un repositorio**, se conecta este repositorio con:
 
 - **Rama de producción:** `web-astro`
-- **Comando de compilación:** `npm run build` (o `npm run build:local` mientras no esté Tina Cloud)
+- **Comando de compilación:** `npm run build`
 - **Comando de implementación:** `npx wrangler deploy`
-- **Variables:** las de `.env.example` (`FORMINIT_FORM_ID`, `PUBLIC_TINA_CLIENT_ID`, `TINA_TOKEN`…) y `NODE_VERSION` = `22.22.0`.
+- **Variables:** `FORMINIT_FORM_ID` (y `FORMINIT_API_KEY` si se usa) y `NODE_VERSION` = `22.22.0`.
 
 Los pasos completos (dominio, DNS y correo) están en la guía para los socios.
