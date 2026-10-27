@@ -1,0 +1,8 @@
+// Configuración de Cloudflare Workers. Astro completa el resto al compilar
+// (entrada del servidor, carpeta de archivos estáticos…).
+{
+	"name": "kova-web",
+	"compatibility_date": "2026-04-15",
+	// Tina usa node:async_hooks en el editor visual (/tina-island).
+	"compatibility_flags": ["nodejs_compat"]
+}

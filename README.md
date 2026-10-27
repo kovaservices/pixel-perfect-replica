@@ -82,7 +82,7 @@ Para activarlos:
 3. Copia `.env.example` como `.env` y pon el identificador del formulario en `FORMINIT_FORM_ID`.
 4. Reinicia `npm run dev` y envía un mensaje de prueba.
 
-Mientras `FORMINIT_FORM_ID` esté vacío, en local los mensajes no se envían: aparecen en la terminal y la web muestra «Mensaje de prueba recibido». Al publicar, la misma variable se añade en la configuración de Cloudflare Pages.
+Mientras `FORMINIT_FORM_ID` esté vacío, en local los mensajes no se envían: aparecen en la terminal y la web muestra «Mensaje de prueba recibido». Al publicar, la misma variable se añade en la configuración del proyecto en Cloudflare.
 
 Los formularios tienen un campo trampa oculto contra bots y piden al menos un email o un teléfono. El de contacto obliga a aceptar la política de privacidad.
 
@@ -99,8 +99,15 @@ tina/collections/        qué campos aparecen en el editor y cómo se llaman
 public/                  logo, favicon e imágenes
 ```
 
-## Publicar (más adelante)
+## Publicar en Cloudflare
 
-1. Crear un proyecto en [Tina Cloud](https://app.tina.io) conectado a este repositorio y rama.
-2. Crear un proyecto en Cloudflare Pages conectado al repositorio, con el comando `npm run build`, la carpeta `dist` y las variables de `.env.example` (incluida `FORMINIT_FORM_ID`).
-3. Conectar el dominio `kovaservice.es`.
+La web se publica en **Cloudflare Workers** (el sucesor de Cloudflare Pages: Astro 6 ya no admite Pages) con el dominio `kovaservices.es`. La configuración está en `wrangler.jsonc` y el dominio por defecto en `astro.config.mjs` (se puede cambiar con la variable `SITE_URL`).
+
+En Cloudflare, en **Workers y Pages → Crear → Importar un repositorio**, se conecta este repositorio con:
+
+- **Rama de producción:** `web-astro`
+- **Comando de compilación:** `npm run build`
+- **Comando de implementación:** `npx wrangler deploy`
+- **Variables:** `FORMINIT_FORM_ID` (y `FORMINIT_API_KEY` si se usa) y `NODE_VERSION` = `22.22.0`.
+
+Los pasos completos (dominio, DNS y correo) están en la guía para los socios.
