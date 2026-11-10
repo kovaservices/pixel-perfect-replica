@@ -15,9 +15,9 @@
     "buttonLabel": "Quiero mi presupuesto",
     "callLinkLabel": "Prefiero que me llaméis",
     "images": {
-      "laptopMain": "/uploads/p1.jpg",
-      "laptopSecond": "/uploads/p2.jpg",
-      "phone": "/uploads/p4-mobile.jpg"
+      "laptopMain": "/uploads/p1.webp",
+      "laptopSecond": "/uploads/p2.webp",
+      "phone": "/uploads/p4-mobile.webp"
     }
   },
   "services": {
