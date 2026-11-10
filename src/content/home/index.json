@@ -15,9 +15,9 @@
     "buttonLabel": "Quiero mi presupuesto",
     "callLinkLabel": "Prefiero que me llaméis",
     "images": {
-      "laptopMain": "/uploads/alfisa-portada.webp",
-      "laptopSecond": "/uploads/alfisa-bombeo-solar.webp",
-      "phone": "/uploads/alfisa-movil.webp"
+      "laptopMain": "/uploads/p1.jpg",
+      "laptopSecond": "/uploads/p2.jpg",
+      "phone": "/uploads/p4-mobile.jpg"
     }
   },
   "services": {
