@@ -25,7 +25,6 @@ echo    Kova · Web en local
 echo  ===============================================
 echo.
 echo   Web:     http://localhost:4321
-echo   Editor:  http://localhost:4321/admin
 echo.
 echo   El navegador se abrirá solo cuando la web esté lista.
 echo   Para pararla, pulsa Ctrl + C en esta ventana.

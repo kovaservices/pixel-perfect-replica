@@ -1,34 +1,17 @@
 /**
- * Carga del contenido desde Tina. `requestWithMetadata()` añade la
- * información que necesita el editor visual para saber qué campo es cada
- * texto de la página.
+ * Contenido de la web. Los textos están en src/content/ (JSON y Markdown)
+ * y se editan directamente en esos archivos.
  */
-import { requestWithMetadata } from '@tinacms/astro/data';
-import client from '../../tina/__generated__/client';
+import homeJson from '../content/home/index.json';
+import settingsJson from '../content/config/settings.json';
 
-export const getHome = () =>
-	requestWithMetadata(client.queries.home({ relativePath: 'index.json' }), { priority: 'primary' });
+export type Home = typeof homeJson;
+export type Settings = typeof settingsJson;
 
-export const getSettings = () =>
-	requestWithMetadata(client.queries.settings({ relativePath: 'settings.json' }));
+export const getHome = (): Home => homeJson;
+export const getSettings = (): Settings => settingsJson;
 
-// Los datos de la empresa como contenido principal de la página (la 404).
-export const getSettingsPrimary = () =>
-	requestWithMetadata(client.queries.settings({ relativePath: 'settings.json' }), { priority: 'primary' });
-
-export const getLegal = (slug: string) =>
-	requestWithMetadata(client.queries.legal({ relativePath: `${slug}.md` }), { priority: 'primary' });
-
-export async function listLegal() {
-	const result = await client.queries.legalConnection();
-	return (result.data.legalConnection.edges ?? []).flatMap((e) => (e?.node ? [e.node] : []));
-}
-
-export type Home = Awaited<ReturnType<typeof getHome>>['data']['home'];
-export type Legal = Awaited<ReturnType<typeof getLegal>>['data']['legal'];
-export type Settings = Awaited<ReturnType<typeof getSettings>>['data']['settings'];
-
-/** Quita los elementos vacíos que Tina puede devolver en las listas. */
+/** Quita los elementos vacíos de una lista. */
 export const list = <T>(items: (T | null | undefined)[] | null | undefined): T[] =>
 	(items ?? []).filter((x): x is T => x != null);
 

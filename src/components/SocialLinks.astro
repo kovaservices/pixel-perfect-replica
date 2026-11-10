@@ -1,6 +1,5 @@
 ---
 import { Icon } from 'astro-icon/components';
-import { tinaField } from '@tinacms/astro/tina-field';
 import type { Settings } from '../lib/data';
 
 // Iconos de las redes sociales de la empresa. Solo se muestran las redes
@@ -28,8 +27,7 @@ const box = size === 'sm' ? 'size-9' : 'size-11';
 		{items.map((n) => (
 			<li>
 				<a href={href(n.value)} target="_blank" rel="noreferrer noopener" aria-label={`Kova en ${n.label}`}
-					class={`grid ${box} place-items-center rounded-lg border border-ink-border text-ink-muted transition-colors hover:border-primary hover:text-primary`}
-					data-tina-field={social ? tinaField(social, n.key) : undefined}>
+					class={`grid ${box} place-items-center rounded-lg border border-ink-border text-ink-muted transition-colors hover:border-primary hover:text-primary`}>
 					<Icon name={n.icon} class="size-5" />
 				</a>
 			</li>

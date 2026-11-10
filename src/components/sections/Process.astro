@@ -1,5 +1,4 @@
 ---
-import { tinaField } from '@tinacms/astro/tina-field';
 import SectionHead from '../ui/SectionHead.astro';
 import { list, type Home } from '../../lib/data';
 
@@ -11,9 +10,9 @@ const steps = list(data.steps);
 	<div class="container-k">
 		<div class="grid gap-6 lg:grid-cols-2 lg:items-end">
 			<div class="reveal">
-				<SectionHead eyebrow={data.eyebrow} title={data.title} eyebrowField={tinaField(data, 'eyebrow')} titleField={tinaField(data, 'title')} />
+				<SectionHead eyebrow={data.eyebrow} title={data.title} />
 			</div>
-			<p class="reveal text-ink-muted lg:max-w-md lg:justify-self-end" style="transition-delay:100ms" data-tina-field={tinaField(data, 'text')}>{data.text}</p>
+			<p class="reveal text-ink-muted lg:max-w-md lg:justify-self-end" style="transition-delay:100ms">{data.text}</p>
 		</div>
 		<div id="process-track" class="relative mt-14" style="--progress:0">
 			<div class="absolute left-6 top-0 h-full w-px bg-ink-border lg:left-0 lg:top-8 lg:h-px lg:w-full"></div>
@@ -22,10 +21,10 @@ const steps = list(data.steps);
 			<div class="relative grid gap-6 pl-12 lg:grid-cols-4 lg:pl-0">
 				{steps.map((s, i) => (
 					<div class="reveal" style={`transition-delay:${i * 100}ms`}>
-						<div class="h-full rounded-lg border border-ink-border bg-ink-raised p-6" data-tina-field={tinaField(s)}>
+						<div class="h-full rounded-lg border border-ink-border bg-ink-raised p-6">
 							<span class="text-sm font-bold text-primary">{String(i + 1).padStart(2, '0')}</span>
-							<h3 class="mt-3 text-lg font-bold" data-tina-field={tinaField(s, 'title')}>{s.title}</h3>
-							<p class="mt-2 text-sm text-ink-muted" data-tina-field={tinaField(s, 'text')}>{s.text}</p>
+							<h3 class="mt-3 text-lg font-bold">{s.title}</h3>
+							<p class="mt-2 text-sm text-ink-muted">{s.text}</p>
 						</div>
 					</div>
 				))}

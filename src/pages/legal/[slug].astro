@@ -1,22 +1,22 @@
 ---
+import { getCollection, render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
-import TinaIsland from '@tinacms/astro/TinaIsland.astro';
 import LegalBody from '../../components/LegalBody.astro';
-import { getLegal, getSettings, listLegal } from '../../lib/data';
-import { islands } from '../../lib/islands';
+import { getSettings } from '../../lib/data';
 
 export async function getStaticPaths() {
-	const docs = await listLegal();
-	return docs.map((d) => ({ params: { slug: d._sys.filename } }));
+	const docs = await getCollection('legal');
+	return docs.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
 }
 
-const { slug } = Astro.params;
-const legal = (await getLegal(slug)).data?.legal;
-if (!legal) return new Response('Not Found', { status: 404 });
-const settings = (await getSettings()).data?.settings ?? null;
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const settings = getSettings();
 ---
-<Base title={`${legal.title} · Kova`} description={`${legal.title} de Kova.`} settings={settings}>
-	<TinaIsland name="legal" wrapper={islands.legal.wrapper} params={{ slug }} primary>
-		<LegalBody data={legal} />
-	</TinaIsland>
+<Base title={`${entry.data.title} · Kova`} description={`${entry.data.title} de Kova.`} settings={settings}>
+	<main>
+		<LegalBody title={entry.data.title} updated={entry.data.updated}>
+			<Content />
+		</LegalBody>
+	</main>
 </Base>

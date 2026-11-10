@@ -1,6 +1,5 @@
 ---
 import { Icon } from 'astro-icon/components';
-import { tinaField } from '@tinacms/astro/tina-field';
 import Logo from './Logo.astro';
 import Btn from './ui/Btn.astro';
 import { contactLinks, list, type Settings } from '../lib/data';
@@ -15,12 +14,12 @@ const links = contactLinks(settings);
 		<Logo settings={settings} />
 		<nav class="hidden items-center gap-8 lg:flex" aria-label="Principal">
 			{nav.map((n) => (
-				<a href={n.link ?? '#'} class="text-sm font-medium text-ink-muted transition-colors hover:text-ink-foreground" data-tina-field={tinaField(n, 'label')}>{n.label}</a>
+				<a href={n.link ?? '#'} class="text-sm font-medium text-ink-muted transition-colors hover:text-ink-foreground">{n.label}</a>
 			))}
 		</nav>
 		<div class="hidden items-center gap-3 lg:flex">
 			<Btn href={links.whatsapp} target="_blank" variant="outline-ink" class="py-2.5">WhatsApp</Btn>
-			<Btn href="/#contacto" class="py-2.5" data-tina-field={settings ? tinaField(settings, 'headerButton') : undefined}>{settings?.headerButton ?? 'Pide presupuesto'}</Btn>
+			<Btn href="/#contacto" class="py-2.5">{settings?.headerButton ?? 'Pide presupuesto'}</Btn>
 		</div>
 		<button id="mobile-menu-toggle" type="button" class="p-2 lg:hidden" aria-label="Abrir menú" aria-controls="mobile-menu" aria-expanded="false">
 			<Icon name="lucide:menu" class="icon-open size-6" />

@@ -4,7 +4,10 @@ dist/
 .env
 .env.*
 !.env.example
-tina/__generated__
 *.log
 .DS_Store
 .wrangler
+
+# Restos del antiguo editor (TinaCMS) que pueden quedar en los ordenadores de los socios
+public/admin/
+tina/

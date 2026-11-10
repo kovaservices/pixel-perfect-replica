@@ -14,7 +14,7 @@ import { getSettings, list, type Home, type Settings } from '../lib/data';
 interface Props { data?: Home | null; settings?: Settings | null }
 const { data } = Astro.props;
 // Los datos de contacto (teléfono, email…) vienen de «Datos de la empresa».
-const settings = Astro.props.settings ?? (await getSettings()).data?.settings ?? null;
+const settings = Astro.props.settings ?? getSettings();
 ---
 {data && (
 	<>

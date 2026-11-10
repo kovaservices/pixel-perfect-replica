@@ -1,6 +1,6 @@
 # Web de Kova
 
-Web de la agencia hecha con **Astro** y **TinaCMS**. El diseño viene del prototipo de Lovable (rama `main` de este repositorio); esta rama contiene la web definitiva, con todos los textos e imágenes editables desde Tina.
+Web de la agencia hecha con **Astro**. El diseño viene del prototipo de Lovable (rama `main` de este repositorio); esta rama contiene la web definitiva.
 
 ## Arrancar la web en tu ordenador
 
@@ -23,10 +23,7 @@ Después, cada vez que quieras trabajar en la web:
 npm run dev
 ```
 
-Y abre en el navegador:
-
-- **La web:** <http://localhost:4321>
-- **El editor (Tina):** <http://localhost:4321/admin>
+Y abre en el navegador <http://localhost:4321>.
 
 Para pararla, vuelve a la terminal y pulsa `Ctrl + C`.
 
@@ -35,57 +32,39 @@ Para pararla, vuelve a la terminal y pulsa `Ctrl + C`.
 En la carpeta del proyecto hay dos scripts que se abren con doble clic:
 
 - **`iniciar.bat`**: arranca la web y abre el navegador en cuanto está lista. Si ya estaba en marcha, solo abre el navegador. La primera vez instala lo necesario.
-- **`actualizar.bat`**: descarga de GitHub los últimos cambios. Si en tu ordenador hay cambios que aún no están en GitHub (por ejemplo, textos editados con Tina), te pregunta si quieres guardarlos y subirlos antes de actualizar. Si hay dependencias nuevas, las instala.
+- **`actualizar.bat`**: descarga de GitHub los últimos cambios. Si en tu ordenador hay cambios que aún no están en GitHub (por ejemplo, textos que has cambiado), te pregunta si quieres guardarlos y subirlos antes de actualizar. Si hay dependencias nuevas, las instala.
 
 Después de actualizar, si la web estaba abierta, ciérrala con `Ctrl + C` y vuelve a abrirla con `iniciar.bat`.
 
 ## Cómo se edita
 
-En `/admin` pulsa **Enter Edit Mode**. Verás la web a la derecha y los campos a la izquierda. Haz clic en cualquier texto o imagen de la web para ir a su campo; los cambios se ven al momento y se guardan con **Save**.
+Los textos están en archivos del proyecto y se cambian directamente en ellos (con cualquier editor de texto, como VS Code, o desde la web de GitHub):
 
-En local, Tina guarda los cambios directamente en los archivos del proyecto:
-
-- `src/content/home/index.json`: todos los textos de la página de inicio.
+- `src/content/home/index.json`: todos los textos de la página de inicio, el título y la descripción para Google.
 - `src/content/config/settings.json`: datos de la empresa (teléfono, WhatsApp, email, menú…).
-- `src/content/legal/`: aviso legal, privacidad y cookies.
-- `public/uploads/`: las imágenes que se suben desde el editor.
+- `src/content/legal/`: aviso legal, privacidad y cookies, en Markdown.
+- `public/uploads/`: las imágenes.
 
-Después de editar, guarda los cambios en GitHub con `git add`, `git commit` y `git push` (o con `actualizar.bat`). Cloudflare vuelve a publicar la web sola en un par de minutos.
-
-En tu ordenador `/admin` no pide contraseña: el editor local solo cambia tus archivos, y para que algo llegue a la web hay que subirlo a GitHub.
-
-### Editar la web publicada (Tina Cloud)
-
-En la web publicada, `kovaservices.es/admin` pide iniciar sesión en Tina Cloud. Solo hay una cuenta con acceso, la de Kova; no invitéis a nadie más, porque cada cuenta es una puerta de entrada. Al pulsar **Save**, Tina Cloud guarda el cambio como un commit en la rama `web-astro` de GitHub y Cloudflare vuelve a publicar la web en un par de minutos.
-
-Si alternáis entre editar en la web y en local, ejecutad `actualizar.bat` antes de editar en local, para traer lo que se haya guardado desde la web.
-
-Puesta en marcha (una sola vez):
-
-1. **La cuenta.** En <https://app.tina.io>, entrad con la cuenta de GitHub de Kova. La verificación en dos pasos de esa cuenta de GitHub es la que protege el editor, así que tenedla activada. (Si preferís una cuenta de Tina con email y contraseña, activad la verificación en dos pasos en *Account Settings*.)
-2. **El proyecto.** Pulsad *Create Project*, autorizad a Tina en GitHub dándole acceso solo a este repositorio y elegid `kovaservices/pixel-perfect-replica`. En *Site URL(s)* poned `http://localhost:4321`, `https://kovaservices.es`, `https://www.kovaservices.es` y la dirección `*.workers.dev` que os dé Cloudflare. El editor solo funciona en esas direcciones.
-3. **Las claves.** Copiad el *Client ID* del proyecto y, en la pestaña *Tokens*, el *Content token* (es de solo lectura). En Cloudflare, en las variables de compilación del proyecto, añadid `PUBLIC_TINA_CLIENT_ID` con el Client ID y `TINA_TOKEN` con el token. No las subáis a GitHub.
-4. **Publicar.** Volved a lanzar la compilación en Cloudflare (comando `npm run build`). Entrad en `kovaservices.es/admin`, iniciad sesión y comprobad que un cambio pequeño se guarda y aparece en la web.
-5. **Nadie más.** En *Collaborators* del proyecto debe estar solo la cuenta de Kova.
+Con la web en marcha (`npm run dev` o `iniciar.bat`), los cambios se ven al momento al guardar el archivo. Después, súbelos a GitHub con `git add`, `git commit` y `git push` (o con `actualizar.bat`). Cloudflare vuelve a publicar la web sola en un par de minutos.
 
 ## Contenido pendiente
 
-Está marcado entre corchetes para rellenarlo desde el editor:
+Está marcado entre corchetes para rellenarlo en los archivos de contenido:
 
 - `[PRECIO]` en la portada, la banda de precio y las tres modalidades.
-- `[TELÉFONO]`, `[WHATSAPP]`, `[EMAIL]`, `[INSTAGRAM]`, `[LINKEDIN]` y `[TIKTOK]` en «Datos de la empresa».
+- `[TELÉFONO]`, `[WHATSAPP]`, `[EMAIL]`, `[INSTAGRAM]`, `[LINKEDIN]` y `[TIKTOK]` en `settings.json`.
 - Los cinco proyectos son ejemplos del prototipo (`[EJEMPLO]`): hay que sustituirlos por proyectos reales.
-- En «Textos legales»: `[NOMBRE Y APELLIDOS O RAZÓN SOCIAL]`, `[NIF]`, `[DIRECCIÓN COMPLETA]`, `[EMAIL]`, `[TELÉFONO]` y `[FECHA]`. Son plantillas: conviene que las revise un profesional antes de publicar.
+- En los textos legales (`src/content/legal/`): `[NOMBRE Y APELLIDOS O RAZÓN SOCIAL]`, `[NIF]`, `[DIRECCIÓN COMPLETA]`, `[EMAIL]`, `[TELÉFONO]` y `[FECHA]`. Son plantillas: conviene que las revise un profesional antes de publicar.
 
 ## Redes sociales e imagen para compartir
 
-En «Datos de la empresa → Redes sociales» se ponen los enlaces de Instagram, LinkedIn y TikTok. Los iconos salen en el contacto y en el pie; si un campo se deja vacío, esa red no aparece. Son enlaces normales: no cargan nada de las redes ni instalan cookies.
+En `settings.json`, en `social`, se ponen los enlaces de Instagram, LinkedIn y TikTok. Los iconos salen en el contacto y en el pie; si un campo se deja vacío, esa red no aparece. Son enlaces normales: no cargan nada de las redes ni instalan cookies.
 
-La imagen que aparece al compartir la web (WhatsApp, LinkedIn…) está en `public/og-kova.png` y se cambia en «Página de inicio → Google y redes sociales». La web también incluye datos estructurados para que Google la reconozca como negocio local.
+La imagen que aparece al compartir la web (WhatsApp, LinkedIn…) está en `public/og-kova.png` y se indica en `seo.image` de `index.json`. La web también incluye datos estructurados para que Google la reconozca como negocio local.
 
 ## Páginas legales
 
-Están en `/legal/aviso-legal`, `/legal/privacidad` y `/legal/cookies`, enlazadas desde el pie y desde los formularios. Se editan en Tina, en «Textos legales». La web no usa cookies ni carga nada de servicios externos (la tipografía va incluida), así que no necesita aviso de cookies. Si algún día se añade analítica, hay que actualizar la política y poner el aviso.
+Están en `/legal/aviso-legal`, `/legal/privacidad` y `/legal/cookies`, enlazadas desde el pie y desde los formularios. Se editan en `src/content/legal/`. La web no usa cookies ni carga nada de servicios externos (la tipografía va incluida), así que no necesita aviso de cookies. Si algún día se añade analítica, hay que actualizar la política y poner el aviso.
 
 ## Formularios (Forminit)
 
@@ -108,10 +87,9 @@ Los formularios tienen un campo trampa oculto contra bots y piden al menos un em
 src/
   components/sections/   una sección de la web por archivo
   components/            cabecera, pie, logo y botones
-  content/               el contenido que edita Tina
+  content/               textos de la web (JSON y Markdown)
   layouts/Base.astro     estructura común y animaciones
   styles/global.css      colores (los del logo), tipografía y animaciones
-tina/collections/        qué campos aparecen en el editor y cómo se llaman
 public/                  logo, favicon e imágenes
 ```
 
@@ -124,6 +102,6 @@ En Cloudflare, en **Workers y Pages → Crear → Importar un repositorio**, se 
 - **Rama de producción:** `web-astro`
 - **Comando de compilación:** `npm run build`
 - **Comando de implementación:** `npx wrangler deploy`
-- **Variables:** `FORMINIT_FORM_ID` (y `FORMINIT_API_KEY` si se usa), `NODE_VERSION` = `22.22.0`, y `PUBLIC_TINA_CLIENT_ID` y `TINA_TOKEN` de Tina Cloud (ver «Editar la web publicada»).
+- **Variables:** `FORMINIT_FORM_ID` (y `FORMINIT_API_KEY` si se usa) y `NODE_VERSION` = `22.22.0`.
 
 Los pasos completos (dominio, DNS y correo) están en la guía para los socios.

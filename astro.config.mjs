@@ -2,13 +2,11 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import icon from 'astro-icon';
-import tina from '@tinacms/astro/integration';
-import { tinaAdminDevRedirect } from '@tinacms/astro/vite';
 import tailwindcss from '@tailwindcss/vite';
 
-// Todas las páginas se generan como HTML estático. Solo /tina-island (editor
-// visual de Tina) y /api/contacto van "en vivo". Al compilar en Cloudflare
-// Workers se usa su adaptador automáticamente; en cualquier otro sitio, Node.
+// Todas las páginas se generan como HTML estático. Solo /api/contacto va
+// "en vivo". Al compilar en Cloudflare Workers se usa su adaptador
+// automáticamente; en cualquier otro sitio, Node.
 async function getAdapter() {
 	if (process.env.CF_PAGES || process.env.WORKERS_CI || process.env.DEPLOY_ADAPTER === 'cloudflare') {
 		return (await import('@astrojs/cloudflare')).default();
@@ -43,21 +41,11 @@ export default defineConfig({
 				ri: ['instagram-line', 'linkedin-box-line', 'tiktok-line'],
 			},
 		}),
-		tina(),
 	],
 	build: { inlineStylesheets: 'always' },
 	// Sin la barra de herramientas de Astro en local, para ver la web tal cual.
 	devToolbar: { enabled: false },
 	vite: {
-		plugins: [tailwindcss(), tinaAdminDevRedirect()],
-		ssr: { noExternal: ['@tinacms/astro', '@tinacms/bridge'] },
-		build: {
-			rollupOptions: {
-				onwarn(warning, warn) {
-					if (warning.code === 'UNUSED_EXTERNAL_IMPORT' && warning.exporter === 'tinacms/dist/client') return;
-					warn(warning);
-				},
-			},
-		},
+		plugins: [tailwindcss()],
 	},
 });
