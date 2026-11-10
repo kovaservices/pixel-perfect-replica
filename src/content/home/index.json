@@ -32,7 +32,7 @@
         "features": [
           "Diseño a medida",
           "Adaptada a móvil",
-          "Editable por ti"
+          "Preparada para Google"
         ],
         "buttonLabel": "Pedir presupuesto"
       },
@@ -63,11 +63,11 @@
   "includes": {
     "eyebrow": "Qué incluye cada web",
     "title": "Una web que es tuya de verdad",
-    "text": "Sin letra pequeña. Tu web, tu dominio y las llaves para cambiarla cuando quieras. Te lo dejamos todo listo para que solo te ocupes de tu negocio.",
+    "text": "Sin letra pequeña. Tu web, tu dominio y tu código, a tu nombre desde el primer día. Te lo dejamos todo listo para que solo te ocupes de tu negocio.",
     "items": [
       "Diseño a medida",
       "Dominio a tu nombre",
-      "Editor para cambiar textos y fotos",
+      "Código y archivos a tu nombre",
       "Adaptada a móvil",
       "SEO básico",
       "Textos legales",
@@ -109,8 +109,8 @@
           "Todo lo de Solo diseño",
           "Web programada y publicada",
           "Dominio a tu nombre",
-          "Editor para cambiar textos y fotos",
-          "Formación incluida"
+          "Formación incluida",
+          "Editor de textos y fotos, si lo quieres"
         ],
         "buttonLabel": "Lo quiero"
       },
@@ -193,9 +193,9 @@
         "text": "Dominio y web a tu nombre. Desde el primer día."
       },
       {
-        "icon": "pencil-line",
-        "title": "La editas tú",
-        "text": "Cambia textos y fotos sin tener que llamarnos."
+        "icon": "shield-check",
+        "title": "Sin permanencias",
+        "text": "Si un día te vas, te llevas tu web y tu código."
       },
       {
         "icon": "badge-euro",
@@ -241,8 +241,8 @@
         "answer": "Solo si eliges la modalidad con mantenimiento. Si no, pagas una vez y listo (más el dominio y el alojamiento, que te explicamos claro)."
       },
       {
-        "question": "¿Puedo cambiar los textos yo?",
-        "answer": "Claro. Te dejamos un editor sencillo y te enseñamos a usarlo. Textos y fotos, cuando quieras."
+        "question": "¿Podré cambiar los textos yo?",
+        "answer": "Si quieres, sí: añadimos un editor sencillo para cambiar textos y fotos y te enseñamos a usarlo. Si prefieres no ocuparte, nos pides el cambio y lo hacemos nosotros."
       },
       {
         "question": "¿Cuánto tardáis?",
