@@ -2,11 +2,14 @@
 import Base from '../layouts/Base.astro';
 import HomeBody from '../components/HomeBody.astro';
 import { getHome, getSettings } from '../lib/data';
+import { faqPage, offers } from '../lib/schema';
 
 const home = getHome();
 const settings = getSettings();
+const site = Astro.site!;
+const schema = [...faqPage(home.faq.items, new URL('/', site)), ...offers(site, home.plans.items)];
 ---
-<Base title={home.seo.title} description={home.seo.description} image={home.seo.image} settings={settings}>
+<Base title={home.seo.title} description={home.seo.description} image={home.seo.image} settings={settings} schema={schema}>
 	<main>
 		<HomeBody data={home} settings={settings} />
 	</main>

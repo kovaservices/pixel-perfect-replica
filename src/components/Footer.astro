@@ -2,7 +2,7 @@
 import { Icon } from 'astro-icon/components';
 import Logo from './Logo.astro';
 import SocialLinks from './SocialLinks.astro';
-import { contactLinks, list, type Settings } from '../lib/data';
+import { contactLinks, isFilled, list, serviceHref, type Settings } from '../lib/data';
 
 interface Props { settings?: Settings | null }
 const { settings } = Astro.props;
@@ -24,14 +24,14 @@ const legal = [
 		<div>
 			<p class="text-sm font-bold">Servicios</p>
 			<ul class="mt-4 space-y-2.5 text-sm text-ink-muted">
-				{services.map((s, i) => <li>{s}</li>)}
+				{services.map((s) => <li>{serviceHref(s) ? <a href={serviceHref(s)} class="transition-colors hover:text-primary">{s}</a> : s}</li>)}
 			</ul>
 		</div>
 		<div>
 			<p class="text-sm font-bold">Contacto</p>
 			<ul class="mt-4 space-y-2.5 text-sm text-ink-muted">
-				<li><a href={links.tel} class="transition-colors hover:text-primary">{settings?.phone}</a></li>
-				<li><a href={links.mailto} class="transition-colors hover:text-primary">{settings?.email}</a></li>
+				{isFilled(settings?.phone) && <li><a href={links.tel} class="transition-colors hover:text-primary">{settings?.phone}</a></li>}
+				{isFilled(settings?.email) && <li><a href={links.mailto} class="transition-colors hover:text-primary">{settings?.email}</a></li>}
 				<li><a href={links.whatsapp} target="_blank" rel="noreferrer noopener" class="transition-colors hover:text-primary">WhatsApp</a></li>
 			</ul>
 		</div>

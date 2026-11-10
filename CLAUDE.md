@@ -40,10 +40,21 @@ Después de cualquier cambio, comprueba que `npm run build:local` termina sin er
 src/content/home/index.json      textos de la página de inicio
 src/content/config/settings.json datos de la empresa, menú y redes
 src/content/legal/*.md           aviso legal, privacidad y cookies
+src/content/servicios/*.json     una página por servicio (el nombre del archivo es la dirección)
+src/content/proyectos/*.json     casos de clientes en /proyectos/<archivo>
 src/components/sections/         una sección por archivo
 src/layouts/Base.astro           meta, JSON-LD, script de la página
+src/lib/schema.ts                ayudas para los datos estructurados de cada página
+src/pages/llms.txt.ts            /llms.txt para los asistentes de IA, generado con los textos
 public/                          logo, favicon, og-kova.png, uploads/
 ```
+
+## SEO, GEO y AEO
+
+- Cada página lleva título, descripción y canónica propios, y JSON-LD en `@graph`: la empresa (`#kova`, con `areaServed` España) y la web en todas; FAQPage, Service, BreadcrumbList u OfferCatalog según la página.
+- Los legales llevan `noindex` y están fuera del sitemap.
+- Las reseñas de clientes solo se publican si son reales (campo `review` de cada proyecto). No uses datos estructurados de reseñas sobre la propia Kova.
+- Un dato pendiente como `[TELÉFONO]` no se muestra (`isFilled` en `src/lib/data.ts`).
 
 ## Contenido pendiente
 

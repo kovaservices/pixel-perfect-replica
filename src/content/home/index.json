@@ -1,6 +1,6 @@
 {
   "seo": {
-    "title": "Kova — Soluciones digitales a medida",
+    "title": "Kova | Diseño web, automatizaciones y software a medida",
     "description": "Webs, automatizaciones, aplicaciones y software a medida para tu negocio. Hablamos claro, trabajamos contigo y todo lo que hacemos es tuyo.",
     "image": "/og-kova.png"
   },
@@ -152,37 +152,15 @@
   },
   "projects": {
     "eyebrow": "Proyectos",
-    "title": "Algunas webs que hemos hecho",
+    "title": "Proyectos reales para negocios reales",
     "items": [
       {
-        "name": "Horno Santa María",
-        "description": "[EJEMPLO] Panadería artesana con pedidos por teléfono.",
-        "tag": "Diseño web",
-        "image": "/uploads/p1.jpg"
-      },
-      {
-        "name": "Fisio Alarcos",
-        "description": "[EJEMPLO] Clínica de fisioterapia con reserva de citas.",
-        "tag": "Diseño web",
-        "image": "/uploads/p2.jpg"
-      },
-      {
-        "name": "Despensa Manchega",
-        "description": "[EJEMPLO] Aceite y queso de La Mancha, con catálogo y pedidos por WhatsApp.",
-        "tag": "Diseño web",
-        "image": "/uploads/p3.jpg"
-      },
-      {
-        "name": "Estudio Lúa",
-        "description": "[EJEMPLO] Peluquería con galería y servicios.",
-        "tag": "Diseño web",
-        "image": "/uploads/p4.jpg"
-      },
-      {
-        "name": "Barro Vivo",
-        "description": "[EJEMPLO] Cerámica hecha a mano, talleres y encargos.",
-        "tag": "Diseño web",
-        "image": "/uploads/p5.jpg"
+        "name": "ALFISA Instalaciones",
+        "description": "Instaladores de placas solares que trabajan en toda España. Web a medida con una página por servicio, pensada para que les encuentren en Google y en los asistentes de IA.",
+        "tag": "Web a medida + SEO",
+        "image": "/uploads/alfisa-portada.webp",
+        "url": "https://alfisainstalaciones.es",
+        "caseStudy": "/proyectos/alfisa-instalaciones/"
       }
     ]
   },
@@ -193,7 +171,7 @@
       {
         "icon": "map-pin",
         "title": "Somos de aquí",
-        "text": "Trabajamos con negocios de Ciudad Real, en persona."
+        "text": "Somos de Ciudad Real y trabajamos con negocios de toda España, en persona o en remoto."
       },
       {
         "icon": "key-round",
@@ -245,12 +223,20 @@
         "answer": "Sí. La web, el dominio y el software que desarrollamos para ti van a tu nombre desde el primer día. Es tuyo, no nuestro."
       },
       {
+        "question": "¿Cuánto cuesta una página web?",
+        "answer": "El diseño a medida cuesta 500 €. La web completa, programada, publicada y con el dominio a tu nombre, 799 €. Con mantenimiento, 899 € más 99 € al mes. Tiendas, automatizaciones y software van con presupuesto cerrado en 24-48 horas."
+      },
+      {
         "question": "¿Hay cuotas mensuales?",
         "answer": "Solo si eliges la modalidad con mantenimiento. Si no, pagas una vez y listo (más el dominio y el alojamiento, que te explicamos claro)."
       },
       {
         "question": "¿Podré cambiar los textos yo?",
         "answer": "Si quieres, sí: añadimos un editor sencillo para cambiar textos y fotos y te enseñamos a usarlo. Si prefieres no ocuparte, nos pides el cambio y lo hacemos nosotros."
+      },
+      {
+        "question": "¿Dónde trabajáis?",
+        "answer": "Somos de Ciudad Real y trabajamos con negocios de toda España. Nos reunimos en persona cuando se puede y por videollamada o teléfono cuando no."
       },
       {
         "question": "¿Cuánto tardáis?",

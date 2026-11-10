@@ -25,7 +25,8 @@ export default defineConfig({
 	output: 'static',
 	adapter: await getAdapter(),
 	integrations: [
-		sitemap(),
+		// Las páginas legales no aportan nada en Google: fuera del sitemap.
+		sitemap({ filter: (page) => !page.includes('/legal/') }),
 		// Iconos de Lucide que usa la web (los 8 últimos son los que se pueden
 		// elegir en «Por qué Kova» desde el editor).
 		icon({

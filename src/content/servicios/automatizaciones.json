@@ -1,0 +1,49 @@
+{
+  "order": 2,
+  "service": "Automatizaciones",
+  "icon": "workflow",
+  "seo": {
+    "title": "Automatización de tareas para empresas y negocios | Kova",
+    "description": "Automatizamos las tareas repetitivas de tu negocio: citas, recordatorios, facturas y datos que pasan de una herramienta a otra solos. Presupuesto cerrado en 24-48 horas."
+  },
+  "eyebrow": "Automatizaciones",
+  "title": "Automatizaciones que te devuelven horas cada semana",
+  "intro": "Las tareas que haces a mano todos los días, hechas solas y sin errores. Conectamos las herramientas que ya usas para que las citas, los avisos, las facturas y los datos fluyan sin que tengas que tocarlos.",
+  "benefits": {
+    "eyebrow": "Qué ganas",
+    "title": "Menos trabajo repetido, más tiempo para tu negocio",
+    "items": [
+      { "icon": "clock", "title": "Horas libres", "text": "Lo que hoy te ocupa un rato cada día pasa a hacerse solo, también fuera de horario." },
+      { "icon": "shield-check", "title": "Menos errores", "text": "Los datos se copian una vez y bien. Se acabaron los olvidos y los números mal pasados." },
+      { "icon": "workflow", "title": "Con lo que ya usas", "text": "Trabajamos con tu correo, tus hojas de cálculo, tu calendario o tu programa de facturación, sin obligarte a cambiar." },
+      { "icon": "badge-euro", "title": "Presupuesto cerrado", "text": "Vemos cómo trabajas, te decimos qué merece la pena automatizar y te damos un precio cerrado en 24-48 horas." }
+    ]
+  },
+  "includes": {
+    "eyebrow": "Ejemplos",
+    "title": "Algunas tareas que se pueden automatizar",
+    "items": [
+      "Confirmar citas y enviar recordatorios a tus clientes",
+      "Avisarte cuando entra un pedido, un formulario o un cliente nuevo",
+      "Generar y enviar facturas o presupuestos",
+      "Pasar datos de un formulario a tu hoja de cálculo o tu CRM",
+      "Informes automáticos de ventas o reservas",
+      "Copias de seguridad y avisos programados"
+    ]
+  },
+  "faq": {
+    "eyebrow": "Preguntas",
+    "title": "Lo que nos preguntan sobre automatizaciones",
+    "buttonLabel": "Pide presupuesto",
+    "items": [
+      { "question": "¿Qué podéis automatizar en mi negocio?", "answer": "Casi cualquier tarea que hoy haces a mano y se repite: confirmar citas, enviar recordatorios, generar facturas, pasar datos de un sitio a otro o avisarte cuando entra un cliente. Vemos cómo trabajas y te decimos qué merece la pena automatizar." },
+      { "question": "¿Tengo que cambiar de programas?", "answer": "Normalmente no. Conectamos las herramientas que ya usas. Si alguna no lo permite, te lo decimos antes y te proponemos alternativas." },
+      { "question": "¿Cuánto cuesta una automatización?", "answer": "Depende de cuántas herramientas haya que conectar y de lo que tenga que hacer. Te damos un presupuesto cerrado en 24-48 horas, sin compromiso." },
+      { "question": "¿Qué pasa si algo deja de funcionar?", "answer": "Dejamos avisos para saber si un proceso falla y te explicamos cómo funciona. Si quieres, nos encargamos del mantenimiento." }
+    ]
+  },
+  "cta": {
+    "title": "¿Qué tarea te gustaría quitarte de encima?",
+    "text": "Cuéntanosla y te decimos cómo automatizarla y cuánto cuesta, sin compromiso."
+  }
+}

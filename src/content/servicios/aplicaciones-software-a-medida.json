@@ -1,0 +1,49 @@
+{
+  "order": 3,
+  "service": "Aplicaciones y software a medida",
+  "icon": "app-window",
+  "seo": {
+    "title": "Desarrollo de aplicaciones y software a medida | Kova",
+    "description": "Desarrollamos aplicaciones web y móviles, paneles de gestión, sistemas de reservas y software como servicio a medida de tu negocio. Presupuesto cerrado y código a tu nombre."
+  },
+  "eyebrow": "Aplicaciones y software a medida",
+  "title": "Aplicaciones y software hechos para cómo trabajas",
+  "intro": "Cuando las herramientas genéricas se quedan cortas, desarrollamos la tuya: sistemas de reservas, paneles de gestión, áreas de clientes, aplicaciones web o móviles y software como servicio. Analizamos tu caso, te damos un presupuesto cerrado y el código queda a tu nombre.",
+  "benefits": {
+    "eyebrow": "Por qué a medida",
+    "title": "Una herramienta que se adapta a ti, y no al revés",
+    "items": [
+      { "icon": "layout-dashboard", "title": "Justo lo que necesitas", "text": "Sin funciones de sobra ni cuotas por usuario: la herramienta hace lo que tu negocio necesita." },
+      { "icon": "monitor-smartphone", "title": "Web, móvil o escritorio", "text": "Elegimos contigo dónde tiene que funcionar: en el navegador, en el móvil o en el ordenador de la oficina." },
+      { "icon": "key-round", "title": "El código es tuyo", "text": "Todo lo que desarrollamos queda a tu nombre, sin depender de nosotros para seguir usándolo." },
+      { "icon": "life-buoy", "title": "Mantenimiento si lo necesitas", "text": "Después de la entrega podemos seguir con mejoras, actualizaciones y soporte." }
+    ]
+  },
+  "includes": {
+    "eyebrow": "Qué desarrollamos",
+    "title": "Algunos ejemplos de lo que podemos construir",
+    "items": [
+      "Sistemas de reservas y citas online",
+      "Paneles de gestión de pedidos, stock o clientes",
+      "Áreas privadas para tus clientes",
+      "Aplicaciones web y móviles",
+      "Herramientas internas para tu equipo",
+      "Software como servicio (SaaS)"
+    ]
+  },
+  "faq": {
+    "eyebrow": "Preguntas",
+    "title": "Lo que nos preguntan sobre software a medida",
+    "buttonLabel": "Pide presupuesto",
+    "items": [
+      { "question": "¿Desarrolláis aplicaciones o software a medida?", "answer": "Sí. Analizamos cómo trabaja tu negocio y desarrollamos la herramienta que necesitas: aplicaciones web o móviles, paneles de gestión o tu propio software como servicio. Te damos un presupuesto cerrado antes de empezar." },
+      { "question": "¿Cuánto cuesta una aplicación a medida?", "answer": "Depende de lo que tenga que hacer. Después de una primera reunión te preparamos un presupuesto cerrado en 24-48 horas, sin compromiso." },
+      { "question": "¿El código será mío?", "answer": "Sí. El código y los datos son tuyos. Si un día quieres que lo mantenga otra persona, puede hacerlo." },
+      { "question": "¿Cómo es el proceso?", "answer": "Nos reunimos para entender tu caso, te enseñamos el diseño de las pantallas antes de programar, lo desarrollamos por fases que vas probando y lo ponemos en marcha con formación." }
+    ]
+  },
+  "cta": {
+    "title": "¿Tienes una idea o un problema que resolver?",
+    "text": "Cuéntanoslo y te decimos cómo lo haríamos y cuánto costaría, sin compromiso."
+  }
+}

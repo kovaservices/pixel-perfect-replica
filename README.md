@@ -43,6 +43,8 @@ Los textos están en archivos del proyecto y se cambian directamente en ellos (c
 - `src/content/home/index.json`: todos los textos de la página de inicio, el título y la descripción para Google.
 - `src/content/config/settings.json`: datos de la empresa (teléfono, WhatsApp, email, menú…).
 - `src/content/legal/`: aviso legal, privacidad y cookies, en Markdown.
+- `src/content/servicios/`: una página por servicio (`paginas-web.json` es `/paginas-web/`).
+- `src/content/proyectos/`: casos de clientes. Cuando llegue la reseña de un cliente, se pega en `review` (texto, nombre, cargo y enlace) y aparece sola en su página.
 - `public/uploads/`: las imágenes.
 
 Con la web en marcha (`npm run dev` o `iniciar.bat`), los cambios se ven al momento al guardar el archivo. Después, súbelos a GitHub con `git add`, `git commit` y `git push` (o con `actualizar.bat`). Cloudflare vuelve a publicar la web sola en un par de minutos.
@@ -53,7 +55,7 @@ Está marcado entre corchetes para rellenarlo en los archivos de contenido:
 
 - `[PRECIO]` en la portada, la banda de precio y las tres modalidades.
 - `[TELÉFONO]`, `[WHATSAPP]`, `[EMAIL]`, `[INSTAGRAM]`, `[LINKEDIN]` y `[TIKTOK]` en `settings.json`.
-- Los cinco proyectos son ejemplos del prototipo (`[EJEMPLO]`): hay que sustituirlos por proyectos reales.
+- La reseña de ALFISA Instalaciones: el hueco está en `src/content/proyectos/alfisa-instalaciones.json` y no se muestra mientras esté vacío.
 - En los textos legales (`src/content/legal/`): `[NOMBRE Y APELLIDOS O RAZÓN SOCIAL]`, `[NIF]`, `[DIRECCIÓN COMPLETA]`, `[EMAIL]`, `[TELÉFONO]` y `[FECHA]`. Son plantillas: conviene que las revise un profesional antes de publicar.
 
 ## Redes sociales e imagen para compartir

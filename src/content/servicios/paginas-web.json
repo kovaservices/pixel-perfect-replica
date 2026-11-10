@@ -1,0 +1,56 @@
+{
+  "order": 1,
+  "service": "Páginas web",
+  "icon": "layout-template",
+  "seo": {
+    "title": "Diseño de páginas web a medida para negocios | Kova",
+    "description": "Diseñamos y programamos páginas web a medida: rápidas, adaptadas a móvil y preparadas para Google y los asistentes de IA. Precio cerrado desde 500 € y todo a tu nombre."
+  },
+  "eyebrow": "Páginas web",
+  "title": "Páginas web a medida que traen clientes",
+  "intro": "Diseñamos y programamos la web de tu negocio desde cero, pensada para que te encuentren en Google y te escriban. Ves el diseño antes de programarlo, pagas un precio cerrado y la web, el dominio y el código quedan a tu nombre.",
+  "benefits": {
+    "eyebrow": "Por qué una web a medida",
+    "title": "Hecha para tu negocio, no sacada de una plantilla",
+    "items": [
+      { "icon": "smartphone", "title": "Rápida y adaptada a móvil", "text": "Páginas ligeras que cargan al momento en cualquier teléfono, que es desde donde te busca la mayoría de tus clientes." },
+      { "icon": "badge-euro", "title": "Precio cerrado", "text": "Desde 500 € el diseño y 799 € la web completa y publicada. Sabes lo que pagas antes de empezar, sin permanencias." },
+      { "icon": "key-round", "title": "Todo a tu nombre", "text": "Dominio, web y código son tuyos desde el primer día. Si un día te vas, te lo llevas todo." },
+      { "icon": "shield-check", "title": "Lista para Google y las IA", "text": "Estructura, textos y datos preparados para que Google y asistentes como ChatGPT entiendan qué haces y dónde." }
+    ]
+  },
+  "includes": {
+    "eyebrow": "Qué incluye",
+    "title": "Todo lo que necesita una web profesional",
+    "items": [
+      "Diseño a medida, que ves y apruebas antes de programar",
+      "Versión para móvil, tablet y ordenador",
+      "Una página por servicio cuando el negocio lo pide",
+      "Textos y estructura pensados para posicionar",
+      "Datos estructurados para Google y archivo llms.txt para las IA",
+      "Formulario de contacto y botón de WhatsApp",
+      "Textos legales (aviso legal, privacidad y cookies)",
+      "Dominio a tu nombre y publicación",
+      "Formación para que sepas cómo funciona",
+      "Editor de textos y fotos, si lo quieres"
+    ],
+    "linkLabel": "Ver precios",
+    "link": "/#precios"
+  },
+  "faq": {
+    "eyebrow": "Preguntas",
+    "title": "Lo que nos preguntan sobre las webs",
+    "buttonLabel": "Pide presupuesto",
+    "items": [
+      { "question": "¿Cuánto cuesta una página web?", "answer": "El diseño a medida cuesta 500 €. La web completa, programada, publicada y con el dominio a tu nombre, 799 €. Si quieres que nos ocupemos de todo después, la web con mantenimiento cuesta 899 € más 99 € al mes." },
+      { "question": "¿La web será mía?", "answer": "Sí. El dominio, la web y el código van a tu nombre desde el primer día. Si un día decides irte, te lo llevas todo sin permanencias." },
+      { "question": "¿Saldré en Google?", "answer": "Preparamos cada web para que Google la entienda: una página por servicio cuando tiene sentido, textos claros, datos estructurados y alta en Google Search Console. El puesto final depende también de la competencia de tu sector y de tus reseñas, y te explicamos qué puedes hacer para mejorarlo." },
+      { "question": "¿Podré cambiar los textos yo?", "answer": "Si quieres, sí: añadimos un editor sencillo para cambiar textos y fotos y te enseñamos a usarlo. Si prefieres no ocuparte, nos pides el cambio y lo hacemos nosotros." },
+      { "question": "¿Cuánto tardáis en hacerla?", "answer": "Depende de las páginas y del contenido, pero antes de empezar te damos una fecha de entrega cerrada." }
+    ]
+  },
+  "cta": {
+    "title": "¿Hablamos de tu web?",
+    "text": "Cuéntanos tu negocio y te preparamos un presupuesto cerrado, sin compromiso."
+  }
+}
