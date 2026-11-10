@@ -1,7 +1,7 @@
 ---
 import { Icon } from 'astro-icon/components';
 import SectionHead from '../ui/SectionHead.astro';
-import { list, type Home } from '../../lib/data';
+import { list, serviceHref, type Home } from '../../lib/data';
 
 interface Props { data: NonNullable<Home['services']> }
 const { data } = Astro.props;
@@ -31,10 +31,16 @@ const items = list(data.items);
 								</li>
 							))}
 						</ul>
-						<a href="/#contacto" data-service={s.title ?? ''}
-							class="btn-arrow mt-auto inline-flex items-center gap-2 pt-7 text-sm font-semibold text-primary-strong hover:underline">
-							{s.buttonLabel}<Icon name="lucide:arrow-right" class="size-4" />
-						</a>
+						<div class="mt-auto flex flex-wrap items-center gap-x-6 gap-y-2 pt-7 text-sm font-semibold">
+							{serviceHref(s.title) && (
+								<a href={serviceHref(s.title)} class="btn-arrow inline-flex items-center gap-2 text-foreground hover:text-primary-strong hover:underline">
+									Ver más<span class="sr-only"> sobre {s.title?.toLowerCase()}</span><Icon name="lucide:arrow-right" class="size-4" />
+								</a>
+							)}
+							<a href="/#contacto" data-service={s.title ?? ''} class="btn-arrow inline-flex items-center gap-2 text-primary-strong hover:underline">
+								{s.buttonLabel}<Icon name="lucide:arrow-right" class="size-4" />
+							</a>
+						</div>
 					</div>
 				</div>
 			))}

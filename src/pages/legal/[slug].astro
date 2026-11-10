@@ -13,7 +13,7 @@ const { entry } = Astro.props;
 const { Content } = await render(entry);
 const settings = getSettings();
 ---
-<Base title={`${entry.data.title} · Kova`} description={`${entry.data.title} de Kova.`} settings={settings}>
+<Base title={`${entry.data.title} · Kova`} description={`${entry.data.title} de Kova.`} settings={settings} noindex>
 	<main>
 		<LegalBody title={entry.data.title} updated={entry.data.updated}>
 			<Content />

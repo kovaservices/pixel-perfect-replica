@@ -5,25 +5,45 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import type { Settings } from '../lib/data';
 
-interface Props { title: string; description: string; settings?: Settings | null; image?: string | null; noindex?: boolean }
-const { title, description, settings, image, noindex = false } = Astro.props;
+interface Props {
+	title: string;
+	description: string;
+	settings?: Settings | null;
+	image?: string | null;
+	noindex?: boolean;
+	/** Datos estructurados propios de la página (FAQ, servicio, migas…). */
+	schema?: Record<string, unknown>[];
+}
+const { title, description, settings, image, noindex = false, schema: pageSchema = [] } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const ogImage = new URL(image || '/og-kova.png', Astro.site);
+const home = new URL('/', Astro.site).href;
 const sameAs = Object.values(settings?.social ?? {}).filter((v): v is string => typeof v === 'string' && /^https?:\/\//.test(v));
-// Datos estructurados: ayudan a Google a entender que Kova es un negocio local.
+// Datos estructurados: quién es Kova (dirección en Ciudad Real, pero trabaja
+// en toda España), la web y lo propio de cada página.
 const schema = {
 	'@context': 'https://schema.org',
-	'@type': 'ProfessionalService',
-	name: 'Kova',
-	description,
-	url: new URL('/', Astro.site).href,
-	logo: new URL('/kova-logo.svg', Astro.site).href,
-	image: ogImage.href,
-	areaServed: settings?.location ?? 'Ciudad Real',
-	address: { '@type': 'PostalAddress', addressLocality: settings?.location ?? 'Ciudad Real', addressCountry: 'ES' },
-	...(settings?.email?.includes('@') ? { email: settings.email } : {}),
-	...(/\d{6,}/.test((settings?.phone ?? '').replace(/\s/g, '')) ? { telephone: settings?.phone } : {}),
-	...(sameAs.length ? { sameAs } : {}),
+	'@graph': [
+		{
+			'@type': 'ProfessionalService',
+			'@id': `${home}#kova`,
+			name: 'Kova',
+			slogan: 'Soluciones digitales a medida para tu negocio',
+			description: 'Diseño de páginas web, automatizaciones, aplicaciones y software a medida para negocios. Precio cerrado y todo a nombre del cliente.',
+			url: home,
+			logo: new URL('/kova-logo.svg', Astro.site).href,
+			image: new URL('/og-kova.png', Astro.site).href,
+			areaServed: { '@type': 'Country', name: 'España' },
+			address: { '@type': 'PostalAddress', addressLocality: settings?.location ?? 'Ciudad Real', addressCountry: 'ES' },
+			knowsLanguage: 'es',
+			priceRange: '€€',
+			...(settings?.email?.includes('@') ? { email: settings.email } : {}),
+			...(/\d{6,}/.test((settings?.phone ?? '').replace(/\s/g, '')) ? { telephone: settings?.phone } : {}),
+			...(sameAs.length ? { sameAs } : {}),
+		},
+		{ '@type': 'WebSite', '@id': `${home}#web`, url: home, name: 'Kova', inLanguage: 'es-ES', publisher: { '@id': `${home}#kova` } },
+		...pageSchema,
+	],
 };
 ---
 <!doctype html>
@@ -91,7 +111,7 @@ const schema = {
 				});
 			}
 
-			// 4. Clics: menú móvil, preguntas frecuentes y ventana de proyectos
+			// 4. Clics: menú móvil, preguntas frecuentes y botones de servicio
 			document.addEventListener('click', (ev) => {
 				const target = ev.target as HTMLElement;
 
@@ -130,24 +150,6 @@ const schema = {
 					const value = serviceLink.dataset.service ?? '';
 					if (select && [...select.options].some((o) => o.value === value)) select.value = value;
 				}
-
-				const card = target.closest('[data-project]') as HTMLElement | null;
-				const dialog = document.getElementById('project-dialog') as HTMLDialogElement | null;
-				if (card && dialog) {
-					const d = card.dataset;
-					const set = (slot: string, fn: (el: HTMLElement) => void) => {
-						const el = dialog.querySelector<HTMLElement>(`[data-slot="${slot}"]`);
-						if (el) fn(el);
-					};
-					set('image', (el) => { (el as HTMLImageElement).src = d.image ?? ''; (el as HTMLImageElement).alt = `Captura de ${d.name}`; el.hidden = !d.image; });
-					set('tag', (el) => { el.textContent = d.tag ?? ''; el.hidden = !d.tag; });
-					set('name', (el) => { el.textContent = d.name ?? ''; });
-					set('description', (el) => { el.textContent = d.description ?? ''; });
-					set('url', (el) => { (el as HTMLAnchorElement).href = d.url || '#'; el.hidden = !d.url; });
-					dialog.showModal();
-					return;
-				}
-				if (dialog?.open && (target.closest('[data-close-dialog]') || target === dialog)) dialog.close();
 			});
 
 			// 5. Formularios: se envían a /api/contacto sin salir de la página

@@ -1,0 +1,89 @@
+---
+/**
+ * Una página por servicio (/paginas-web, /automatizaciones…). Los textos de
+ * cada una están en src/content/servicios/<dirección>.json.
+ */
+import { Icon } from 'astro-icon/components';
+import Base from '../layouts/Base.astro';
+import Btn from '../components/ui/Btn.astro';
+import SectionHead from '../components/ui/SectionHead.astro';
+import Process from '../components/sections/Process.astro';
+import Projects from '../components/sections/Projects.astro';
+import Faq from '../components/sections/Faq.astro';
+import Contact from '../components/sections/Contact.astro';
+import { getHome, getServicePages, getSettings, list, type ServicePage } from '../lib/data';
+import { breadcrumbs, faqPage, service } from '../lib/schema';
+
+export function getStaticPaths() {
+	return getServicePages().map((page) => ({ params: { servicio: page.slug }, props: { page } }));
+}
+
+const { page } = Astro.props as { page: ServicePage };
+const home = getHome();
+const settings = getSettings();
+const site = Astro.site!;
+const url = new URL(page.href, site);
+const schema = [
+	service(site, url, page.service, page.seo.description),
+	...faqPage(page.faq.items, url),
+	breadcrumbs(site, [{ name: page.service, path: page.href }]),
+];
+const contactServices = list(home.services.items).map((s) => s.title ?? '').filter(Boolean);
+const inc = page.includes as typeof page.includes & { link?: string; linkLabel?: string };
+---
+<Base title={page.seo.title} description={page.seo.description} settings={settings} schema={schema}>
+	<main>
+		<section class="section-ink grid-texture pt-32 pb-16 md:pt-40 md:pb-24">
+			<div class="container-k max-w-4xl">
+				<nav aria-label="Migas de pan" class="text-sm text-ink-muted">
+					<a href="/" class="hover:text-primary">Inicio</a> <span aria-hidden="true">/</span> <span>{page.service}</span>
+				</nav>
+				<p class="eyebrow mt-6">{page.eyebrow}</p>
+				<h1 class="mt-3 text-4xl font-extrabold leading-[1.08] md:text-6xl">{page.title}</h1>
+				<p class="mt-6 max-w-2xl text-lg text-ink-muted">{page.intro}</p>
+				<div class="mt-8 flex flex-wrap gap-3">
+					<Btn href="#contacto" arrow data-service={page.service}>Pide presupuesto</Btn>
+					{inc.link && <Btn href={inc.link} variant="outline-ink">{inc.linkLabel}</Btn>}
+				</div>
+			</div>
+		</section>
+
+		<section class="py-20 md:py-28">
+			<div class="container-k">
+				<div class="reveal max-w-2xl">
+					<SectionHead eyebrow={page.benefits.eyebrow} title={page.benefits.title} />
+				</div>
+				<div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+					{page.benefits.items.map((b, i) => (
+						<div class="reveal" style={`transition-delay:${i * 80}ms`}>
+							<div class="card-lift h-full rounded-lg border bg-card p-6">
+								<Icon name={`lucide:${b.icon}`} class="size-8 text-primary-strong" stroke-width="1.5" />
+								<h3 class="mt-5 text-lg font-bold">{b.title}</h3>
+								<p class="mt-2 text-sm text-muted-foreground">{b.text}</p>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<section class="bg-sand py-20 md:py-28">
+			<div class="container-k grid gap-12 lg:grid-cols-[1fr_1.3fr] lg:gap-20">
+				<div class="reveal">
+					<SectionHead eyebrow={page.includes.eyebrow} title={page.includes.title} />
+					{inc.link && <Btn href={inc.link} variant="outline" arrow class="mt-8">{inc.linkLabel}</Btn>}
+				</div>
+				<ul class="reveal grid gap-x-8 gap-y-4 sm:grid-cols-2" style="transition-delay:100ms">
+					{page.includes.items.map((it) => (
+						<li class="flex gap-3"><Icon name="lucide:check" class="size-5 shrink-0 translate-y-0.5 text-primary-strong" />{it}</li>
+					))}
+				</ul>
+			</div>
+		</section>
+
+		<Process data={home.process} />
+		{page.slug === 'paginas-web' && <Projects data={home.projects} />}
+		<Faq data={page.faq} />
+		<Contact data={{ ...home.contact, title: page.cta.title, text: page.cta.text }} settings={settings} services={contactServices} />
+	</main>
+</Base>

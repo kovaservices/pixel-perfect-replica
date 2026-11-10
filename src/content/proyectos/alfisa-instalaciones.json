@@ -1,0 +1,44 @@
+{
+  "name": "ALFISA Instalaciones",
+  "tag": "Web a medida + SEO",
+  "summary": "Instaladores de placas solares que trabajan en toda España. Web a medida con una página por servicio, pensada para que les encuentren en Google y en los asistentes de IA.",
+  "url": "https://alfisainstalaciones.es",
+  "image": "/uploads/alfisa-portada.webp",
+  "seo": {
+    "title": "Caso real: web de ALFISA Instalaciones, placas solares | Kova",
+    "description": "Cómo diseñamos y publicamos la web de ALFISA Instalaciones: diseño a medida, cinco páginas de servicio y preparación para Google y los asistentes de IA."
+  },
+  "facts": [
+    { "label": "Cliente", "value": "ALFISA Instalaciones" },
+    { "label": "Sector", "value": "Instalaciones solares fotovoltaicas" },
+    { "label": "Zona", "value": "Bolaños de Calatrava (Ciudad Real), con trabajos en toda España" },
+    { "label": "Publicada", "value": "Noviembre de 2026" }
+  ],
+  "client": "ALFISA Instalaciones diseña e instala sistemas fotovoltaicos para hogares, negocios y explotaciones agrícolas: autoconsumo, instalaciones aisladas, bombeo solar y baterías. Está especializada en equipos Victron Energy y trabaja en toda España.",
+  "challenge": "Estrenaban marca y necesitaban una web propia que explicara cada tipo de instalación con claridad, transmitiera la confianza de un instalador especializado y les ayudara a recibir consultas de cualquier parte de España.",
+  "solution": [
+    "Diseño a medida con sus fotos de instalaciones reales y su identidad de marca",
+    "Cinco páginas de servicio: autoconsumo, instalaciones aisladas, bombeo solar, baterías y equipos, y especialistas en Victron Energy",
+    "Preguntas frecuentes y datos estructurados en cada página, más un archivo llms.txt para los asistentes de IA",
+    "Contacto directo por teléfono y WhatsApp desde cualquier página",
+    "Textos legales, publicación en Cloudflare y dominio a nombre del cliente",
+    "Alta en Google Search Console y Bing Webmaster Tools"
+  ],
+  "results": [
+    "Web publicada en alfisainstalaciones.es en noviembre de 2026",
+    "Ya indexada en Google",
+    "Cada servicio tiene su propia página para posicionar por sus búsquedas"
+  ],
+  "gallery": [
+    { "src": "/uploads/alfisa-portada.webp", "alt": "Portada de la web de ALFISA Instalaciones en ordenador", "kind": "desktop" },
+    { "src": "/uploads/alfisa-movil.webp", "alt": "Portada de la web de ALFISA Instalaciones en el móvil", "kind": "mobile" },
+    { "src": "/uploads/alfisa-bombeo-solar.webp", "alt": "Página de bombeo solar de la web de ALFISA Instalaciones", "kind": "desktop" },
+    { "src": "/uploads/alfisa-victron-movil.webp", "alt": "Página de especialistas en Victron Energy en el móvil", "kind": "mobile" }
+  ],
+  "review": {
+    "text": "",
+    "author": "",
+    "role": "",
+    "link": ""
+  }
+}
