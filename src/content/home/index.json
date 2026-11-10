@@ -100,13 +100,15 @@
         "buttonLabel": "Lo quiero"
       },
       {
-        "name": "Web llave en mano",
+        "name": "Web completa",
         "description": "Te la damos hecha y funcionando.",
         "price": "799",
         "featured": true,
         "badge": "La más elegida",
         "features": [
-          "Todo lo de Solo diseño",
+          "Diseño a medida",
+          "Versión móvil y ordenador",
+          "Hasta 2 cambios de diseño gratis",
           "Web programada y publicada",
           "Dominio a tu nombre",
           "Formación incluida",
@@ -122,7 +124,13 @@
         "featured": false,
         "badge": "",
         "features": [
-          "Todo lo de Llave en mano",
+          "Diseño a medida",
+          "Versión móvil y ordenador",
+          "Hasta 2 cambios de diseño gratis",
+          "Web programada y publicada",
+          "Dominio a tu nombre",
+          "Formación incluida",
+          "Editor de textos y fotos, si lo quieres",
           "Actualizaciones y copias de seguridad",
           "Pequeños cambios cuando los pidas",
           "Ayuda por teléfono y WhatsApp"
