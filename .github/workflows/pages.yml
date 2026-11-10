@@ -32,8 +32,7 @@ jobs:
 
       - run: npm ci
 
-      # Sin Tina Cloud y sin /admin: la vista previa no se puede editar.
-      - run: npm run build:sin-admin
+      - run: npm run build:local
         env:
           SITE_URL: ${{ steps.pages.outputs.origin }}
 

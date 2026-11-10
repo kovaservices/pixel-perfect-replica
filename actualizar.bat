@@ -117,7 +117,7 @@ git rebase --abort >nul 2>nul
 echo [AVISO] Tus cambios tocan las mismas líneas que otros cambios que ya están en GitHub,
 echo y Git no sabe con cuál quedarse. No se ha perdido nada: todo sigue como estaba.
 echo Pide ayuda antes de seguir. Para evitarlo, ejecuta actualizar.bat ANTES de
-echo ponerte a editar con Tina y otra vez nada más terminar.
+echo ponerte a editar y otra vez nada más terminar.
 goto :fin
 
 :fallo

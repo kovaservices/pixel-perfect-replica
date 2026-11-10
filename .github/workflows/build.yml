@@ -23,5 +23,4 @@ jobs:
 
       - run: npm ci
 
-      # Compila sin Tina Cloud, así no hacen falta secretos.
       - run: npm run build:local

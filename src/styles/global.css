@@ -160,10 +160,6 @@ button[type="submit"]:disabled { opacity: .6; cursor: progress; }
 @keyframes pulse-soft { 0%, 70%, 100% { box-shadow: 0 0 0 0 rgb(37 211 102 / 0.45); } 85% { box-shadow: 0 0 0 14px rgb(37 211 102 / 0); } }
 .pulse-soft { animation: pulse-soft 4s ease-out infinite; }
 
-/* Dentro del editor de Tina: todo visible y el carrusel quieto para poder hacer clic */
-html.tina-edit .reveal { opacity: 1; transform: none; }
-html.tina-edit .marquee { animation-play-state: paused; }
-
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
   .reveal { opacity: 1; transform: none; }

@@ -1,10 +1,8 @@
 ---
 import '@fontsource-variable/plus-jakarta-sans';
 import '../styles/global.css';
-import TinaIsland from '@tinacms/astro/TinaIsland.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { islands } from '../lib/islands';
 import type { Settings } from '../lib/data';
 
 interface Props { title: string; description: string; settings?: Settings | null; image?: string | null; noindex?: boolean }
@@ -50,23 +48,14 @@ const schema = {
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:image" content={ogImage} />
 		<script type="application/ld+json" set:html={JSON.stringify(schema)} />
-		<script is:inline>
-			// Dentro del editor de Tina la web se muestra en un iframe.
-			if (window.self !== window.top) document.documentElement.classList.add('tina-edit');
-		</script>
 	</head>
 	<body>
-		<TinaIsland name="header" wrapper={islands.header.wrapper}>
-			<Header settings={settings} />
-		</TinaIsland>
+		<Header settings={settings} />
 		<slot />
-		<TinaIsland name="footer" wrapper={islands.footer.wrapper}>
-			<Footer settings={settings} />
-		</TinaIsland>
+		<Footer settings={settings} />
 
 		<script>
-			// Interacciones de la página. Se usa delegación de eventos porque el
-			// editor de Tina vuelve a pintar zonas de la web mientras se edita.
+			// Interacciones de la página (con delegación de eventos).
 
 			const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -97,14 +86,10 @@ const schema = {
 
 			function watchReveals(root: ParentNode = document) {
 				root.querySelectorAll('.reveal:not(.is-visible)').forEach((el) => {
-					if (reduceMotion || document.documentElement.classList.contains('tina-edit')) el.classList.add('is-visible');
+					if (reduceMotion) el.classList.add('is-visible');
 					else io.observe(el);
 				});
 			}
-
-			// Cuando Tina vuelve a pintar una zona, se preparan sus elementos nuevos
-			new MutationObserver(() => { watchReveals(); updateHeader(); updateProcess(); })
-				.observe(document.body, { childList: true, subtree: true });
 
 			// 4. Clics: menú móvil, preguntas frecuentes y ventana de proyectos
 			document.addEventListener('click', (ev) => {

@@ -1,14 +1,15 @@
 /**
- * El contenido se lee a través de Tina (ver src/lib/data.ts), no de las
- * colecciones de Astro. Se declaran solo para que Astro no intente leer
- * estos JSON como Markdown y muestre avisos.
+ * Textos legales: un Markdown por página en src/content/legal/.
+ * El resto del contenido (portada y datos de la empresa) son JSON que se
+ * importan directamente desde src/lib/data.ts.
  */
 import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
+import { z } from 'astro/zod';
 
-const home = defineCollection({ loader: glob({ pattern: '**/*.json', base: 'src/content/home' }) });
-const config = defineCollection({ loader: glob({ pattern: '**/*.json', base: 'src/content/config' }) });
+const legal = defineCollection({
+	loader: glob({ pattern: '**/*.md', base: 'src/content/legal' }),
+	schema: z.object({ title: z.string(), updated: z.string().optional() }),
+});
 
-const legal = defineCollection({ loader: glob({ pattern: '**/*.md', base: 'src/content/legal' }) });
-
-export const collections = { home, config, legal };
+export const collections = { legal };

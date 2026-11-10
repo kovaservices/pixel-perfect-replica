@@ -3,6 +3,6 @@
 {
 	"name": "kova-web",
 	"compatibility_date": "2026-04-15",
-	// Tina usa node:async_hooks en el editor visual (/tina-island).
+	// Compatibilidad con módulos de Node para la función del formulario.
 	"compatibility_flags": ["nodejs_compat"]
 }
