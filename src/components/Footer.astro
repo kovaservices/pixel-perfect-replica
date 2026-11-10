@@ -32,7 +32,7 @@ const legal = [
 			<ul class="mt-4 space-y-2.5 text-sm text-ink-muted">
 				{isFilled(settings?.phone) && <li><a href={links.tel} class="transition-colors hover:text-primary">{settings?.phone}</a></li>}
 				{isFilled(settings?.email) && <li><a href={links.mailto} class="transition-colors hover:text-primary">{settings?.email}</a></li>}
-				<li><a href={links.whatsapp} target="_blank" rel="noreferrer noopener" class="transition-colors hover:text-primary">WhatsApp</a></li>
+				{links.hasWhatsapp && <li><a href={links.whatsapp} target="_blank" rel="noreferrer noopener" class="transition-colors hover:text-primary">WhatsApp</a></li>}
 			</ul>
 		</div>
 		<div>
@@ -45,8 +45,10 @@ const legal = [
 	<div class="border-t border-ink-border">
 		<p class="container-k py-6 text-sm text-ink-muted">{settings?.copyright}</p>
 	</div>
-	<a href={links.whatsapp} target="_blank" rel="noreferrer noopener" aria-label="Escríbenos por WhatsApp"
-		class="pulse-soft fixed bottom-5 right-5 z-40 grid size-14 place-items-center rounded-full bg-whatsapp text-white shadow-lg transition-transform hover:scale-105">
-		<Icon name="lucide:message-circle" class="size-6" />
-	</a>
+	{links.hasWhatsapp && (
+		<a href={links.whatsapp} target="_blank" rel="noreferrer noopener" aria-label="Escríbenos por WhatsApp"
+			class="pulse-soft fixed bottom-5 right-5 z-40 grid size-14 place-items-center rounded-full bg-whatsapp text-white shadow-lg transition-transform hover:scale-105">
+			<Icon name="lucide:message-circle" class="size-6" />
+		</a>
+	)}
 </footer>

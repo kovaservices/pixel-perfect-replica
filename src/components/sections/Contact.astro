@@ -10,7 +10,7 @@ const { data, settings, services = [] } = Astro.props;
 const links = contactLinks(settings);
 const items = [
 	{ icon: 'lucide:phone', label: 'Teléfono', value: settings?.phone, href: links.tel },
-	{ icon: 'lucide:message-circle', label: 'WhatsApp', value: 'Escríbenos', href: links.whatsapp, external: true },
+	...(links.hasWhatsapp ? [{ icon: 'lucide:message-circle', label: 'WhatsApp', value: 'Escríbenos', href: links.whatsapp, external: true }] : []),
 	{ icon: 'lucide:mail', label: 'Email', value: settings?.email, href: links.mailto },
 ].filter((it) => isFilled(it.value)); // un dato pendiente, como [TELÉFONO], no se muestra
 ---

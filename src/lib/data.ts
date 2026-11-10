@@ -56,5 +56,7 @@ export function contactLinks(s: Settings | null | undefined) {
 		tel: phone ? `tel:+${phone.length === 9 ? '34' + phone : phone}` : '/#contacto',
 		whatsapp: wa ? `https://wa.me/${wa}` : '/#contacto',
 		mailto: email ? `mailto:${email}` : '/#contacto',
+		/** Sin número de WhatsApp real, los botones de WhatsApp no se muestran. */
+		hasWhatsapp: wa.length >= 9,
 	};
 }
