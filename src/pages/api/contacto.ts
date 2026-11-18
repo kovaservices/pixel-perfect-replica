@@ -23,7 +23,7 @@ const clean = (v: unknown, max: number) =>
 const json = (body: unknown, status = 200) =>
 	new Response(JSON.stringify(body), { status, headers: { 'Content-Type': 'application/json' } });
 
-export const POST: APIRoute = async ({ request }) => {
+export const POST: APIRoute = async ({ request, site, url }) => {
 	let input: Record<string, unknown>;
 	try {
 		const type = request.headers.get('content-type') ?? '';
@@ -74,7 +74,12 @@ export const POST: APIRoute = async ({ request }) => {
 	if (data.message) blocks.push({ type: 'text', name: 'mensaje', value: data.message });
 	blocks.push({ type: 'text', name: 'origen', value: data.source });
 
-	const headers: Record<string, string> = { 'Content-Type': 'application/json', Accept: 'application/json' };
+	// Forminit manda a Spam los envíos sin Referer, y al reenviarlos desde el
+	// servidor no lo lleva: se pasa la página de origen y el navegador del visitante.
+	const referer = request.headers.get('referer') || new URL('/', site ?? url).href;
+	const headers: Record<string, string> = { 'Content-Type': 'application/json', Accept: 'application/json', Referer: referer };
+	const ua = request.headers.get('user-agent');
+	if (ua) headers['User-Agent'] = ua;
 	const apiKey = getSecret('FORMINIT_API_KEY');
 	if (apiKey) headers['X-API-KEY'] = apiKey;
 
