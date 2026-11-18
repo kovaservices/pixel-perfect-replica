@@ -70,7 +70,7 @@ Están en `/legal/aviso-legal`, `/legal/privacidad` y `/legal/cookies`, enlazada
 
 ## Formularios (Forminit)
 
-Los tres formularios (portada, banda de precio y contacto) envían los mensajes a la ruta `/api/contacto` de la propia web, que los reenvía a [Forminit](https://forminit.com). Forminit guarda los mensajes en servidores de la Unión Europea (Irlanda), avisa por email y tiene un plan gratuito de 100 envíos al mes.
+Los tres formularios (portada, banda de precio y contacto) envían los mensajes desde el navegador directamente a [Forminit](https://forminit.com), con el ID del formulario que hay en `forminitFormId` de `src/content/config/settings.json` (no es secreto). Si se reenvían desde el servidor, Forminit los manda a Spam. Forminit guarda los mensajes en servidores de la Unión Europea (Irlanda), avisa por email y tiene un plan gratuito de 100 envíos al mes.
 
 Para activarlos:
 

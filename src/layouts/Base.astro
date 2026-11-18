@@ -69,7 +69,7 @@ const schema = {
 		<meta name="twitter:image" content={ogImage} />
 		<script type="application/ld+json" set:html={JSON.stringify(schema)} />
 	</head>
-	<body>
+	<body data-forminit={settings?.forminitFormId || undefined}>
 		<Header settings={settings} />
 		<slot />
 		<Footer settings={settings} />
@@ -152,7 +152,9 @@ const schema = {
 				}
 			});
 
-			// 5. Formularios: se envían a /api/contacto sin salir de la página
+			// 5. Formularios: se envían desde el navegador directamente a Forminit (modo
+			// público). Si se reenvían desde el servidor, Forminit los marca como spam.
+			// Sin ID de Forminit (en local) van a /api/contacto, que responde en modo de prueba.
 			document.addEventListener('submit', async (ev) => {
 				const form = ev.target as HTMLFormElement;
 				if (!form.matches('[data-contact-form]')) return;
@@ -182,23 +184,42 @@ const schema = {
 					return;
 				}
 
+				// Campo trampa: los bots lo rellenan, las personas no lo ven.
+				if (String(data.empresa_web ?? '').trim()) { form.reset(); show('ok', '¡Gracias! Hemos recibido tu mensaje.'); return; }
+				if (consent && !consent.checked) { show('error', 'Tienes que aceptar la política de privacidad.'); return; }
+
+				const formId = document.body.dataset.forminit;
+				const clip = (v: unknown, max: number) => String(v ?? '').replace(/\s+/g, ' ').trim().slice(0, max);
+				const sender: Record<string, string> = {};
+				if (clip(data.nombre, 120)) sender.fullName = clip(data.nombre, 120);
+				if (clip(data.email, 160)) sender.email = clip(data.email, 160);
+				const blocks: unknown[] = [];
+				if (Object.keys(sender).length) blocks.push({ type: 'sender', properties: sender });
+				if (clip(data.servicio, 80)) blocks.push({ type: 'text', name: 'servicio', value: clip(data.servicio, 80) });
+				if (clip(data.telefono, 40)) blocks.push({ type: 'text', name: 'telefono', value: clip(data.telefono, 40) });
+				const message = String(data.mensaje ?? '').trim().slice(0, 4000);
+				if (message) blocks.push({ type: 'text', name: 'mensaje', value: message });
+				blocks.push({ type: 'text', name: 'origen', value: clip(data.origen, 40) || 'web' });
+
 				const button = form.querySelector<HTMLButtonElement>('button[type="submit"]');
 				if (button) button.disabled = true;
 				show('sending', 'Enviando…');
 				try {
-					const res = await fetch(form.action, {
+					const res = await fetch(formId ? `https://forminit.com/f/${encodeURIComponent(formId)}` : form.action, {
 						method: 'POST',
 						headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-						body: JSON.stringify(data),
+						body: JSON.stringify(formId ? { blocks } : data),
 					});
 					const body = await res.json().catch(() => ({}));
-					if (res.ok && body.ok) {
+					if (formId && res.status === 429) {
+						show('error', 'Has enviado varios mensajes seguidos. Espera unos segundos y vuelve a intentarlo.');
+					} else if (res.ok && (formId || body.ok)) {
 						form.reset();
 						show('ok', body.demo
 							? 'Mensaje de prueba recibido. El formulario aún no está conectado a Forminit, así que no se ha enviado.'
 							: '¡Gracias! Hemos recibido tu mensaje y te responderemos en menos de 24 horas.');
 					} else {
-						show('error', body.message || 'No hemos podido enviar el mensaje. Inténtalo de nuevo o escríbenos por WhatsApp.');
+						show('error', (!formId && body.message) || 'No hemos podido enviar el mensaje. Inténtalo de nuevo o escríbenos por WhatsApp.');
 					}
 				} catch {
 					show('error', 'No hemos podido enviar el mensaje. Revisa tu conexión e inténtalo de nuevo.');
