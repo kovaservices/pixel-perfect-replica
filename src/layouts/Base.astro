@@ -38,7 +38,7 @@ const schema = {
 			knowsLanguage: 'es',
 			priceRange: '€€',
 			...(settings?.email?.includes('@') ? { email: settings.email } : {}),
-			...(/\d{6,}/.test((settings?.phone ?? '').replace(/\s/g, '')) ? { telephone: settings?.phone } : {}),
+			...(/\d{6,}/.test((settings?.phone ?? '').replace(/\s/g, '')) ? { telephone: `+34 ${settings?.phone}` } : {}),
 			...(sameAs.length ? { sameAs } : {}),
 		},
 		{ '@type': 'WebSite', '@id': `${home}#web`, url: home, name: 'Kova', inLanguage: 'es-ES', publisher: { '@id': `${home}#kova` } },
