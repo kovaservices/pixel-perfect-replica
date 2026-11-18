@@ -18,7 +18,7 @@ export const GET: APIRoute = ({ site }) => {
 		'',
 		'> Soluciones digitales a medida para tu negocio: diseño de páginas web, automatizaciones, aplicaciones y software a medida. Precio cerrado antes de empezar, sin permanencias, y la web, el dominio y el código a nombre del cliente.',
 		'',
-		`Kova es una empresa de soluciones digitales con sede en ${settings.location} (España) que trabaja con negocios de toda España, en persona o en remoto. Atiende en español.`,
+		`Kova es una empresa de soluciones digitales con base en ${settings.base ?? 'Ciudad Real'} (España) que trabaja con negocios de toda España y de otros países, sobre todo en remoto. Atiende en español.`,
 		'',
 		'## Servicios',
 		'',

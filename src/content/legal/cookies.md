@@ -1,6 +1,6 @@
 ---
 title: Política de cookies
-updated: '[FECHA]'
+updated: '18 de noviembre de 2026'
 ---
 
 ## Qué son las cookies

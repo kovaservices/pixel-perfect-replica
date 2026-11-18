@@ -33,7 +33,7 @@ export default defineConfig({
 			include: {
 				lucide: [
 					'arrow-right', 'menu', 'x', 'check', 'external-link', 'plus', 'phone', 'mail', 'message-circle',
-					'map-pin', 'key-round', 'pencil-line', 'badge-euro', 'clock', 'shield-check', 'smartphone', 'heart-handshake',
+					'map-pin', 'globe', 'key-round', 'pencil-line', 'badge-euro', 'clock', 'shield-check', 'smartphone', 'heart-handshake',
 					// Iconos que se pueden elegir en «Servicios»
 					'layout-template', 'shopping-bag', 'store', 'app-window', 'code-xml', 'layout-dashboard', 'workflow', 'monitor-smartphone', 'life-buoy',
 					'chevron-down',

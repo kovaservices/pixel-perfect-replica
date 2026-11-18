@@ -1,16 +1,16 @@
 ---
 title: Política de privacidad
-updated: '[FECHA]'
+updated: '18 de noviembre de 2026'
 ---
 
 En esta página te explicamos qué datos personales recogemos a través de esta web, para qué los usamos y qué derechos tienes, conforme al Reglamento (UE) 2016/679 (RGPD) y a la Ley Orgánica 3/2018 (LOPDGDD).
 
 ## Responsable del tratamiento
 
-* **Responsable:** [NOMBRE Y APELLIDOS O RAZÓN SOCIAL]
-* **NIF:** [NIF]
-* **Domicilio:** [DIRECCIÓN COMPLETA]
-* **Email de contacto:** [EMAIL]
+* **Responsable:** Froilán Fernández Clemente
+* **NIF:** 05727066C
+* **Domicilio:** Calle San Agustín 28, 13270 Almagro (Ciudad Real)
+* **Email de contacto:** kovadigitalservices@gmail.com
 
 ## Qué datos recogemos
 
@@ -37,7 +37,7 @@ No cedemos tus datos a terceros, salvo obligación legal. Para que la web funcio
 
 ## Tus derechos
 
-Puedes pedirnos en cualquier momento acceder a tus datos, rectificarlos, suprimirlos, oponerte a su tratamiento, limitarlo o llevártelos a otro proveedor (portabilidad). Escríbenos a [EMAIL] indicando qué derecho quieres ejercer.
+Puedes pedirnos en cualquier momento acceder a tus datos, rectificarlos, suprimirlos, oponerte a su tratamiento, limitarlo o llevártelos a otro proveedor (portabilidad). Escríbenos a kovadigitalservices@gmail.com indicando qué derecho quieres ejercer.
 
 Si consideras que no hemos tratado bien tus datos, puedes presentar una reclamación ante la Agencia Española de Protección de Datos ([www.aepd.es](https://www.aepd.es)).
 
