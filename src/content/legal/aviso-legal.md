@@ -10,7 +10,7 @@ En cumplimiento del artículo 10 de la Ley 34/2002, de 11 de julio, de Servicios
 * **Titular:** Froilán Fernández Clemente
 * **NIF:** 05727066C
 * **Domicilio:** Calle San Agustín 28, 13270 Almagro (Ciudad Real)
-* **Email:** kovadigitalservices@gmail.com
+* **Email:** hola@kovaservices.es
 * **Teléfono:** 746 086 996
 * **Nombre comercial:** Kova
 
