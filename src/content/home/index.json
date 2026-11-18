@@ -169,9 +169,9 @@
     "title": "Fácil, cerca y sin sorpresas",
     "items": [
       {
-        "icon": "map-pin",
-        "title": "Somos de aquí",
-        "text": "Somos de Ciudad Real y trabajamos con negocios de toda España, en persona o en remoto."
+        "icon": "globe",
+        "title": "Sin importar dónde estés",
+        "text": "Trabajamos con negocios de toda España y de fuera, en remoto o en persona."
       },
       {
         "icon": "key-round",
@@ -236,7 +236,7 @@
       },
       {
         "question": "¿Dónde trabajáis?",
-        "answer": "Somos de Ciudad Real y trabajamos con negocios de toda España. Nos reunimos en persona cuando se puede y por videollamada o teléfono cuando no."
+        "answer": "Trabajamos con negocios de toda España y también de fuera. La mayor parte del trabajo se hace en remoto, por videollamada o teléfono, y si estás cerca de nuestra base en Ciudad Real también nos vemos en persona."
       },
       {
         "question": "¿Cuánto tardáis?",
