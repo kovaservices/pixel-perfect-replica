@@ -10,7 +10,7 @@ En esta página te explicamos qué datos personales recogemos a través de esta 
 * **Responsable:** Froilán Fernández Clemente
 * **NIF:** 05727066C
 * **Domicilio:** Calle San Agustín 28, 13270 Almagro (Ciudad Real)
-* **Email de contacto:** kovadigitalservices@gmail.com
+* **Email de contacto:** hola@kovaservices.es
 
 ## Qué datos recogemos
 
@@ -33,11 +33,12 @@ Mientras gestionamos tu consulta y, si no llegamos a trabajar juntos, como máxi
 No cedemos tus datos a terceros, salvo obligación legal. Para que la web funcione utilizamos estos proveedores, que actúan como encargados del tratamiento:
 
 * **Forminit:** recibe y guarda los mensajes de los formularios en servidores de Amazon Web Services situados en Irlanda (Unión Europea).
+* **Proton:** gestiona nuestro correo electrónico (hola@kovaservices.es) con servidores en Suiza, país con nivel de protección de datos reconocido como adecuado por la Unión Europea.
 * **Cloudflare:** aloja la web. Puede tratar datos técnicos de la conexión, como la dirección IP, y algunos de sus servidores están fuera de la Unión Europea; las transferencias se amparan en el Marco de Privacidad de Datos UE-EE. UU. y en cláusulas contractuales tipo.
 
 ## Tus derechos
 
-Puedes pedirnos en cualquier momento acceder a tus datos, rectificarlos, suprimirlos, oponerte a su tratamiento, limitarlo o llevártelos a otro proveedor (portabilidad). Escríbenos a kovadigitalservices@gmail.com indicando qué derecho quieres ejercer.
+Puedes pedirnos en cualquier momento acceder a tus datos, rectificarlos, suprimirlos, oponerte a su tratamiento, limitarlo o llevártelos a otro proveedor (portabilidad). Escríbenos a hola@kovaservices.es indicando qué derecho quieres ejercer.
 
 Si consideras que no hemos tratado bien tus datos, puedes presentar una reclamación ante la Agencia Española de Protección de Datos ([www.aepd.es](https://www.aepd.es)).
 
