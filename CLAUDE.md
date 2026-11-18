@@ -30,7 +30,7 @@ Después de cualquier cambio, comprueba que `npm run build:local` termina sin er
 - Sin CMS: la web de Kova no usa TinaCMS ni ningún editor visual (decisión de los socios, noviembre de 2026). Los textos viven en `src/content/` (JSON para portada y datos de la empresa, Markdown para los legales) y se leen en `src/lib/data.ts` y en la colección `legal` de `src/content.config.ts`. Los textos nuevos van en esos archivos, no escritos a mano en los componentes.
 - Iconos con astro-icon (`lucide` y `ri`). Un icono nuevo hay que añadirlo a la lista `include` de `astro.config.mjs`.
 - Tipografía Plus Jakarta Sans incluida con `@fontsource-variable` (solo latín, en `src/styles/fonts.css`). Nada de Google Fonts.
-- Formularios: se envían por fetch a `src/pages/api/contacto.ts`, que los reenvía a Forminit (`FORMINIT_FORM_ID`). Sin ese ID, en local responden en modo de prueba.
+- Formularios: el navegador los envía directamente a Forminit en modo público con el ID de `forminitFormId` (`settings.json`); no se reenvían desde el servidor porque Forminit los marca como spam. Sin ese ID van a `src/pages/api/contacto.ts`, que en local responde en modo de prueba.
 - Sin cookies ni scripts de terceros. Si se añade algo que use cookies, hay que actualizar `src/content/legal/cookies.md` y poner aviso. La analítica prevista es Cloudflare Web Analytics.
 - Las interacciones de `src/layouts/Base.astro` usan delegación de eventos.
 
