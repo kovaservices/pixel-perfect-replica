@@ -6,7 +6,7 @@ Web de la agencia hecha con **Astro**. El diseño viene del prototipo de Lovable
 
 Necesitas tener instalado:
 
-- **Node.js** versión LTS, 22.22 o superior: <https://nodejs.org>
+- **Node.js** versión LTS, 22.12 o superior: <https://nodejs.org>
 - **Git**: <https://git-scm.com>
 
 Abre una terminal (en Windows, «Terminal» o «PowerShell») y ejecuta, una sola vez:
@@ -104,6 +104,6 @@ En Cloudflare, en **Workers y Pages → Crear → Importar un repositorio**, se 
 - **Rama de producción:** `web-astro`
 - **Comando de compilación:** `npm run build`
 - **Comando de implementación:** `npx wrangler deploy`
-- **Variables:** `FORMINIT_FORM_ID` (y `FORMINIT_API_KEY` si se usa) y `NODE_VERSION` = `22.22.0`.
+- **Variables:** `FORMINIT_FORM_ID` (y `FORMINIT_API_KEY` si se usa) (la versión de Node la pone Cloudflare; no hace falta `NODE_VERSION`).
 
 Los pasos completos (dominio, DNS y correo) están en la guía para los socios.
