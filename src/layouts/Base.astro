@@ -28,6 +28,7 @@ const schema = {
 			'@type': 'ProfessionalService',
 			'@id': `${home}#kova`,
 			name: 'Kova',
+			alternateName: 'Kova Services',
 			slogan: 'Soluciones digitales a medida para tu negocio',
 			description: 'Diseño de páginas web, automatizaciones, aplicaciones y software a medida para negocios. Precio cerrado y todo a nombre del cliente.',
 			url: home,
@@ -41,7 +42,7 @@ const schema = {
 			...(/\d{6,}/.test((settings?.phone ?? '').replace(/\s/g, '')) ? { telephone: `+34 ${settings?.phone}` } : {}),
 			...(sameAs.length ? { sameAs } : {}),
 		},
-		{ '@type': 'WebSite', '@id': `${home}#web`, url: home, name: 'Kova', inLanguage: 'es-ES', publisher: { '@id': `${home}#kova` } },
+		{ '@type': 'WebSite', '@id': `${home}#web`, url: home, name: 'Kova', alternateName: ['Kova Services', 'kovaservices.es'], inLanguage: 'es-ES', publisher: { '@id': `${home}#kova` } },
 		...pageSchema,
 	],
 };
