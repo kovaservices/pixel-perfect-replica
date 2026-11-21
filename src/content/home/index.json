@@ -120,7 +120,8 @@
         "name": "Web con mantenimiento",
         "description": "Nos ocupamos de todo, siempre.",
         "price": "799",
-        "priceExtra": "+ 20–99 €/mes",
+        "priceExtra": "+ desde 20 €/mes",
+        "priceNote": "La cuota mensual va de 20 a 99 € según el tipo de web y su complejidad.",
         "featured": false,
         "badge": "",
         "features": [
