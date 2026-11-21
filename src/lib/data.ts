@@ -47,6 +47,18 @@ export const list = <T>(items: (T | null | undefined)[] | null | undefined): T[]
 
 /** Enlaces de contacto a partir de los datos de la empresa. Si el dato
  *  aún es un marcador como [TELÉFONO], el enlace queda vacío. */
+// Redes con enlace real en settings.json → social; un marcador como [INSTAGRAM] no se muestra.
+const NETWORKS = [
+	{ key: 'linkedin', label: 'LinkedIn', icon: 'ri:linkedin-box-line' },
+	{ key: 'instagram', label: 'Instagram', icon: 'ri:instagram-line' },
+	{ key: 'tiktok', label: 'TikTok', icon: 'ri:tiktok-line' },
+] as const;
+export function socialLinks(s: Settings | null | undefined) {
+	return NETWORKS
+		.map((n) => ({ ...n, href: String(s?.social?.[n.key] ?? '').trim() }))
+		.filter((n) => /^https?:\/\//.test(n.href));
+}
+
 export function contactLinks(s: Settings | null | undefined) {
 	const digits = (v?: string | null) => (v ?? '').replace(/[^\d]/g, '');
 	const phone = digits(s?.phone);
