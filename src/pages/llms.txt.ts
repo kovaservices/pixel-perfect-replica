@@ -29,7 +29,7 @@ export const GET: APIRoute = ({ site }) => {
 		'## Precios de páginas web',
 		'',
 		...plans,
-		'- Tiendas online, automatizaciones, aplicaciones y software: presupuesto cerrado en 24-48 horas, sin compromiso.',
+		'- Automatizaciones, aplicaciones y software: presupuesto cerrado en 24-48 horas, sin compromiso.',
 		'',
 		'## Cómo trabajamos',
 		'',
