@@ -34,7 +34,7 @@ const schema = {
 			url: home,
 			logo: new URL('/kova-logo.svg', Astro.site).href,
 			image: new URL('/og-kova.png', Astro.site).href,
-			areaServed: [{ '@type': 'Country', name: 'España' }, 'Internacional (en remoto)'],
+			areaServed: [{ '@type': 'Country', name: 'España' }, { '@type': 'AdministrativeArea', name: 'Provincia de Ciudad Real' }, { '@type': 'City', name: 'Ciudad Real' }, 'Internacional (en remoto)'],
 			address: { '@type': 'PostalAddress', addressRegion: settings?.base ?? 'Ciudad Real', addressCountry: 'ES' },
 			knowsLanguage: 'es',
 			priceRange: '€€',

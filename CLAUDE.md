@@ -4,7 +4,7 @@ Instrucciones para Claude cuando trabaje en este repositorio. Responde siempre e
 
 ## Qué es esto
 
-La web de Kova, una empresa de soluciones digitales a medida (webs, automatizaciones, aplicaciones y software). Eslogan: «Soluciones digitales a medida para tu negocio». No escribas textos que hagan parecer a Kova una empresa que está empezando, no uses como gancho principal que el cliente puede editar la web, y no menciones Ciudad Real en el título, la descripción SEO ni el eslogan (sí en «Somos de aquí», el pie y el JSON-LD).
+La web de Kova, una empresa de soluciones digitales a medida (webs, automatizaciones, aplicaciones y software). Eslogan: «Soluciones digitales a medida para tu negocio». No escribas textos que hagan parecer a Kova una empresa que está empezando, no uses como gancho principal que el cliente puede editar la web, y no menciones Ciudad Real en el título, la descripción SEO ni el eslogan de la portada (sí en el pie, el JSON-LD y la página local de Ciudad Real).
 
 ## Ramas y Git
 
@@ -54,6 +54,7 @@ public/                          logo, favicon, og-kova.png, uploads/
 - Cada página lleva título, descripción y canónica propios, y JSON-LD en `@graph`: la empresa (`#kova`, con `areaServed` España) y la web en todas; FAQPage, Service, BreadcrumbList u OfferCatalog según la página.
 - Los legales llevan `noindex` y están fuera del sitemap.
 - Las reseñas de clientes solo se publican si son reales (campo `review` de cada proyecto). No uses datos estructurados de reseñas sobre la propia Kova.
+- Ciudad Real: la portada habla de toda España; la página local `/diseno-web-ciudad-real/` (`src/content/zonas/ciudad-real.json`) es la que se posiciona por la zona.
 - Un dato pendiente como `[TELÉFONO]` no se muestra (`isFilled` en `src/lib/data.ts`).
 
 ## Contenido pendiente

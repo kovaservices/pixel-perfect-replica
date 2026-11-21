@@ -3,7 +3,7 @@
  * (ChatGPT, Claude, Perplexity…). Se genera con los mismos textos de la web.
  */
 import type { APIRoute } from 'astro';
-import { getHome, getProjectPages, getServicePages, getSettings, isFilled, list } from '../lib/data';
+import { getHome, getProjectPages, getServicePages, getSettings, isFilled, list, getZonePage, ZONE_HREF } from '../lib/data';
 
 export const GET: APIRoute = ({ site }) => {
 	const home = getHome();
@@ -24,6 +24,7 @@ export const GET: APIRoute = ({ site }) => {
 		'## Servicios',
 		'',
 		...getServicePages().map((s) => `- [${s.service}](${abs(s.href)}): ${s.seo.description}`),
+		`- [Diseño web en Ciudad Real](${abs(ZONE_HREF)}): ${getZonePage().seo.description}`,
 		'- Mantenimiento: actualizaciones, copias de seguridad, pequeños cambios y ayuda por teléfono y WhatsApp.',
 		'',
 		'## Precios de páginas web',
