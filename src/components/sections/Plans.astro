@@ -28,6 +28,7 @@ const tags = list(custom?.tags);
 							<span class="text-4xl font-extrabold">{p.price} €</span>
 							{p.priceExtra && <span class="text-lg font-bold text-primary-strong">{p.priceExtra}</span>}
 						</p>
+						{'priceNote' in p && p.priceNote && <p class="mt-2 text-sm text-muted-foreground">{p.priceNote}</p>}
 						<ul class="mt-6 space-y-3 text-sm">
 							{list(p.features).map((f, j) => (
 								<li class="flex gap-2.5">

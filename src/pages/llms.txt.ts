@@ -11,7 +11,8 @@ export const GET: APIRoute = ({ site }) => {
 	const abs = (p: string) => new URL(p, site).href;
 	const plans = list(home.plans.items).map((p) => {
 		const extra = 'priceExtra' in p && p.priceExtra ? ` ${p.priceExtra}` : '';
-		return `- ${p.name}: ${p.price} €${extra}. ${p.description}`;
+		const note = 'priceNote' in p && p.priceNote ? ` ${p.priceNote}` : '';
+		return `- ${p.name}: ${p.price} €${extra}. ${p.description}${note}`;
 	});
 	const lines = [
 		'# Kova',
@@ -28,7 +29,7 @@ export const GET: APIRoute = ({ site }) => {
 		'## Precios de páginas web',
 		'',
 		...plans,
-		'- Tiendas online, automatizaciones, aplicaciones y software: presupuesto cerrado en 24-48 horas, sin compromiso.',
+		'- Automatizaciones, aplicaciones y software: presupuesto cerrado en 24-48 horas, sin compromiso.',
 		'',
 		'## Cómo trabajamos',
 		'',
