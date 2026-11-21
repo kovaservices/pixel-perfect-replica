@@ -119,8 +119,8 @@
       {
         "name": "Web con mantenimiento",
         "description": "Nos ocupamos de todo, siempre.",
-        "price": "899",
-        "priceExtra": "+ 99 €/mes",
+        "price": "799",
+        "priceExtra": "+ 20–99 €/mes",
         "featured": false,
         "badge": "",
         "features": [
@@ -224,7 +224,7 @@
       },
       {
         "question": "¿Cuánto cuesta una página web?",
-        "answer": "El diseño a medida cuesta 500 €. La web completa, programada, publicada y con el dominio a tu nombre, 799 €. Con mantenimiento, 899 € más 99 € al mes. Tiendas, automatizaciones y software van con presupuesto cerrado en 24-48 horas."
+        "answer": "El diseño a medida cuesta 500 €. La web completa, programada, publicada y con el dominio a tu nombre, 799 €. Con mantenimiento, el mismo precio más una cuota de 20 a 99 € al mes, según el tipo de web y su complejidad. Tiendas, automatizaciones y software van con presupuesto cerrado en 24-48 horas."
       },
       {
         "question": "¿Hay cuotas mensuales?",
