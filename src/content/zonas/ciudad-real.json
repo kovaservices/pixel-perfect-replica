@@ -1,0 +1,45 @@
+{
+  "zone": "Ciudad Real",
+  "province": "Provincia de Ciudad Real",
+  "seo": {
+    "title": "Diseño web en Ciudad Real: páginas web y software a medida | Kova",
+    "description": "Diseño de páginas web, automatizaciones y software a medida para negocios de Ciudad Real y su provincia. Nos vemos en persona, precio cerrado y todo a tu nombre."
+  },
+  "eyebrow": "Ciudad Real y provincia",
+  "title": "Diseño web y soluciones digitales en Ciudad Real",
+  "intro": "Kova tiene su base en la provincia de Ciudad Real. Diseñamos páginas web, automatizamos tareas y desarrollamos aplicaciones para negocios de Ciudad Real capital, Puertollano, Valdepeñas, Tomelloso, Alcázar de San Juan, Almagro y el resto de la provincia, y nos vemos en persona cuando hace falta.",
+  "benefits": {
+    "eyebrow": "Por qué Kova",
+    "title": "Un equipo digital cerca de tu negocio",
+    "items": [
+      { "icon": "map-pin", "title": "Cerca de ti", "text": "Si tu negocio está en la provincia, podemos vernos en persona para conocerlo, enseñarte el diseño o resolver dudas." },
+      { "icon": "badge-euro", "title": "Precio cerrado", "text": "Desde 500 € el diseño y 799 € la web completa y publicada. Sabes lo que pagas antes de empezar." },
+      { "icon": "key-round", "title": "Todo a tu nombre", "text": "Dominio, web y código son tuyos desde el primer día, sin permanencias." },
+      { "icon": "search", "title": "Pensada para búsquedas locales", "text": "Textos, páginas y datos preparados para que Google y las IA sepan qué haces y en qué zona trabajas." }
+    ]
+  },
+  "services": {
+    "eyebrow": "Servicios en Ciudad Real",
+    "title": "Qué hacemos para negocios de la provincia"
+  },
+  "towns": {
+    "eyebrow": "Zona",
+    "title": "Trabajamos en toda la provincia",
+    "text": "Ciudad Real capital, Puertollano, Tomelloso, Alcázar de San Juan, Valdepeñas, Manzanares, Daimiel, La Solana, Miguelturra, Campo de Criptana, Socuéllamos, Bolaños de Calatrava, Almagro y el resto de pueblos de la provincia. Y si estás en otro sitio, trabajamos contigo en remoto desde cualquier parte de España."
+  },
+  "faq": {
+    "eyebrow": "Preguntas",
+    "title": "Lo que nos preguntan en Ciudad Real",
+    "buttonLabel": "Pide presupuesto",
+    "items": [
+      { "question": "¿Hacéis páginas web en Ciudad Real?", "answer": "Sí. Kova tiene su base en la provincia de Ciudad Real y diseña páginas web, automatizaciones y software a medida para negocios de la capital y de toda la provincia, además del resto de España en remoto." },
+      { "question": "¿Podemos vernos en persona?", "answer": "Sí. Si tu negocio está en la provincia de Ciudad Real, podemos quedar para conocerlo y enseñarte el diseño. Si lo prefieres, todo se puede hacer por videollamada, teléfono o WhatsApp." },
+      { "question": "¿Cuánto cuesta una página web en Ciudad Real?", "answer": "El diseño a medida cuesta 500 € y la web completa, programada, publicada y con el dominio a tu nombre, 799 €. Con mantenimiento, 799 € más una cuota desde 20 € al mes según la web." },
+      { "question": "¿Me ayudáis a que me encuentren en Google en mi zona?", "answer": "Preparamos la web para búsquedas locales: una página por servicio cuando tiene sentido, la zona en la que trabajas en los textos y datos estructurados para Google. También te explicamos cómo completar tu perfil de Google Business para salir en el mapa." }
+    ]
+  },
+  "cta": {
+    "title": "¿Tienes un negocio en Ciudad Real?",
+    "text": "Cuéntanos qué necesitas y te preparamos un presupuesto cerrado, sin compromiso."
+  }
+}

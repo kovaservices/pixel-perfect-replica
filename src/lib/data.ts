@@ -4,6 +4,7 @@
  */
 import homeJson from '../content/home/index.json';
 import settingsJson from '../content/config/settings.json';
+import zoneJson from '../content/zonas/ciudad-real.json';
 
 export type Home = typeof homeJson;
 export type Settings = typeof settingsJson;
@@ -23,6 +24,11 @@ export const getServicePages = (): ServicePage[] =>
 			return { ...mod.default, slug, href: `/${slug}/` };
 		})
 		.sort((a, b) => a.order - b.order);
+
+/** Página local para Ciudad Real (src/content/zonas/ciudad-real.json). */
+export type ZonePage = typeof zoneJson;
+export const getZonePage = (): ZonePage => zoneJson;
+export const ZONE_HREF = '/diseno-web-ciudad-real/';
 
 /** Dirección de la página de un servicio a partir de su nombre, si la tiene. */
 export const serviceHref = (name?: string | null) =>

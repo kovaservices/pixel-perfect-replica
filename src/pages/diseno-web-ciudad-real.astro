@@ -1,0 +1,103 @@
+---
+/**
+ * Página local para búsquedas en Ciudad Real y su provincia. Los textos están
+ * en src/content/zonas/ciudad-real.json. La portada sigue hablando de toda
+ * España; esta página es la que se posiciona por la zona.
+ */
+import { Icon } from 'astro-icon/components';
+import Base from '../layouts/Base.astro';
+import Btn from '../components/ui/Btn.astro';
+import SectionHead from '../components/ui/SectionHead.astro';
+import Process from '../components/sections/Process.astro';
+import Projects from '../components/sections/Projects.astro';
+import Faq from '../components/sections/Faq.astro';
+import Contact from '../components/sections/Contact.astro';
+import { getHome, getServicePages, getSettings, getZonePage, list, ZONE_HREF } from '../lib/data';
+import { breadcrumbs, faqPage, service } from '../lib/schema';
+
+const page = getZonePage();
+const home = getHome();
+const settings = getSettings();
+const site = Astro.site!;
+const url = new URL(ZONE_HREF, site);
+const services = getServicePages();
+const area = [
+	{ '@type': 'City', name: page.zone },
+	{ '@type': 'AdministrativeArea', name: page.province },
+];
+const schema = [
+	service(site, url, `Diseño web y soluciones digitales en ${page.zone}`, page.seo.description, area),
+	...faqPage(page.faq.items, url),
+	breadcrumbs(site, [{ name: `Diseño web en ${page.zone}`, path: ZONE_HREF }]),
+];
+const contactServices = list(home.services.items).map((s) => s.title ?? '').filter(Boolean);
+---
+<Base title={page.seo.title} description={page.seo.description} settings={settings} schema={schema}>
+	<main>
+		<section class="section-ink grid-texture pt-32 pb-16 md:pt-40 md:pb-24">
+			<div class="container-k max-w-4xl">
+				<nav aria-label="Migas de pan" class="text-sm text-ink-muted">
+					<a href="/" class="hover:text-primary">Inicio</a> <span aria-hidden="true">/</span> <span>Diseño web en {page.zone}</span>
+				</nav>
+				<p class="eyebrow mt-6">{page.eyebrow}</p>
+				<h1 class="mt-3 text-4xl font-extrabold leading-[1.08] md:text-6xl">{page.title}</h1>
+				<p class="mt-6 max-w-2xl text-lg text-ink-muted">{page.intro}</p>
+				<div class="mt-8 flex flex-wrap gap-3">
+					<Btn href="#contacto" arrow>Pide presupuesto</Btn>
+					<Btn href="/#precios" variant="outline-ink">Ver precios</Btn>
+				</div>
+			</div>
+		</section>
+
+		<section class="py-20 md:py-28">
+			<div class="container-k">
+				<div class="reveal max-w-2xl">
+					<SectionHead eyebrow={page.benefits.eyebrow} title={page.benefits.title} />
+				</div>
+				<div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+					{page.benefits.items.map((b, i) => (
+						<div class="reveal" style={`transition-delay:${i * 80}ms`}>
+							<div class="card-lift h-full rounded-lg border bg-card p-6">
+								<Icon name={`lucide:${b.icon}`} class="size-8 text-primary-strong" stroke-width="1.5" />
+								<h3 class="mt-5 text-lg font-bold">{b.title}</h3>
+								<p class="mt-2 text-sm text-muted-foreground">{b.text}</p>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<section class="bg-sand py-20 md:py-28">
+			<div class="container-k">
+				<div class="reveal max-w-2xl">
+					<SectionHead eyebrow={page.services.eyebrow} title={page.services.title} />
+				</div>
+				<div class="mt-12 grid gap-6 md:grid-cols-3">
+					{services.map((s, i) => (
+						<a href={s.href} class="reveal group card-lift block rounded-lg border bg-card p-6" style={`transition-delay:${i * 80}ms`}>
+							<Icon name={`lucide:${s.icon}`} class="size-8 text-primary-strong" stroke-width="1.5" />
+							<h3 class="mt-5 text-lg font-bold">{s.service} en {page.zone}</h3>
+							<p class="mt-2 text-sm text-muted-foreground">{s.seo.description}</p>
+							<span class="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary-strong">Ver servicio <Icon name="lucide:arrow-right" class="size-4 transition-transform group-hover:translate-x-0.5" /></span>
+						</a>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<Projects data={home.projects} />
+
+		<section class="bg-sand py-20 md:py-28">
+			<div class="container-k max-w-3xl reveal">
+				<p class="eyebrow">{page.towns.eyebrow}</p>
+				<h2 class="mt-3 text-3xl font-extrabold md:text-4xl">{page.towns.title}</h2>
+				<p class="mt-5 text-lg text-muted-foreground">{page.towns.text}</p>
+			</div>
+		</section>
+
+		<Process data={home.process} />
+		<Faq data={page.faq} />
+		<Contact data={{ ...home.contact, title: page.cta.title, text: page.cta.text }} settings={settings} services={contactServices} />
+	</main>
+</Base>

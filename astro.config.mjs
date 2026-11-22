@@ -36,7 +36,7 @@ export default defineConfig({
 					'map-pin', 'globe', 'key-round', 'pencil-line', 'badge-euro', 'clock', 'shield-check', 'smartphone', 'heart-handshake',
 					// Iconos que se pueden elegir en «Servicios»
 					'layout-template', 'shopping-bag', 'store', 'app-window', 'code-xml', 'layout-dashboard', 'workflow', 'monitor-smartphone', 'life-buoy',
-					'chevron-down',
+					'chevron-down', 'search',
 				],
 				// Iconos de redes sociales (Remix Icon)
 				ri: ['instagram-line', 'linkedin-box-line', 'tiktok-line'],

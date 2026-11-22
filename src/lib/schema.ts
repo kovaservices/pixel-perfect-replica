@@ -25,7 +25,7 @@ export function breadcrumbs(site: URL, items: { name: string; path: string }[]) 
 	};
 }
 
-export function service(site: URL, url: URL, name: string, description: string) {
+export function service(site: URL, url: URL, name: string, description: string, areaServed: unknown = { '@type': 'Country', name: 'España' }) {
 	return {
 		'@type': 'Service',
 		'@id': `${url.href}#servicio`,
@@ -34,7 +34,7 @@ export function service(site: URL, url: URL, name: string, description: string) 
 		description,
 		url: url.href,
 		provider: kova(site),
-		areaServed: { '@type': 'Country', name: 'España' },
+		areaServed,
 	};
 }
 
