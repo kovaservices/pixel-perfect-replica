@@ -46,7 +46,7 @@ src/components/sections/         una sección por archivo
 src/layouts/Base.astro           meta, JSON-LD, script de la página
 src/lib/schema.ts                ayudas para los datos estructurados de cada página
 src/pages/llms.txt.ts            /llms.txt para los asistentes de IA, generado con los textos
-public/                          logo, favicon, og-kova.png, uploads/
+public/                          logo, favicon.ico (único favicon, redondo, dirección fija), og-kova.png, uploads/
 ```
 
 ## SEO, GEO y AEO
