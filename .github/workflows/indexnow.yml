@@ -1,0 +1,27 @@
+name: Avisar a Bing (IndexNow)
+
+# Tras cada cambio en web-astro, espera a que Cloudflare publique la web y
+# envía todas las páginas del sitemap a IndexNow (Bing, Yandex, Seznam…).
+on:
+  push:
+    branches: [web-astro]
+  workflow_dispatch:
+
+concurrency:
+  group: indexnow
+  cancel-in-progress: true
+
+jobs:
+  indexnow:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+
+      - name: Esperar a que Cloudflare publique
+        run: sleep 300
+
+      - run: node scripts/indexnow.mjs
