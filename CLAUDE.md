@@ -52,7 +52,8 @@ public/                          logo, favicon.ico (único favicon: el logo sobr
 ## SEO, GEO y AEO
 
 - Cada página lleva título, descripción y canónica propios, y JSON-LD en `@graph`: la empresa (`#kova`, con `areaServed` España) y la web en todas; FAQPage, Service, BreadcrumbList u OfferCatalog según la página.
-- Los legales llevan `noindex` y están fuera del sitemap.
+- Los legales llevan `noindex` y están fuera del sitemap. El sitemap lleva `lastmod` (fecha de compilación).
+- IndexNow (Bing): la clave está en `public/<clave>.txt` y `.github/workflows/indexnow.yml` envía el sitemap con `scripts/indexnow.mjs` tras cada cambio en `web-astro`. Las descripciones SEO, de 160 caracteres como máximo.
 - Las reseñas de clientes solo se publican si son reales (campo `review` de cada proyecto). No uses datos estructurados de reseñas sobre la propia Kova.
 - Ciudad Real: la portada habla de toda España; la página local `/diseno-web-ciudad-real/` (`src/content/zonas/ciudad-real.json`) es la que se posiciona por la zona.
 - Un dato pendiente como `[TELÉFONO]` no se muestra (`isFilled` en `src/lib/data.ts`).
